@@ -1,0 +1,3 @@
+C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase1/src/engine/build/CMakeFiles/Fase1.dir
+C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase1/src/engine/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase1/src/engine/build/CMakeFiles/ZERO_CHECK.dir
