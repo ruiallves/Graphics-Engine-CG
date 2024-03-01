@@ -317,10 +317,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\engine.cpp">
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions);WIN32;_WINDOWS</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="world_config.cpp" />
+    <ClCompile Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\engine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\build\ZERO_CHECK.vcxproj">
