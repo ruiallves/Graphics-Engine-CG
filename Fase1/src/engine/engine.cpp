@@ -16,7 +16,7 @@ void changeSize(int w, int h) {
 		h = 1;
 
 	// compute window's aspect ratio 
-	float ratio = w * 1.0 / h;
+	float ratio = w * 1.0 / (h);
 
 	// Set the projection matrix as current
 	glMatrixMode(GL_PROJECTION);

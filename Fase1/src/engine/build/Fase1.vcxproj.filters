@@ -4,9 +4,6 @@
     <ClCompile Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="world_config.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\CMakeLists.txt" />
