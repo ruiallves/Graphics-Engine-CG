@@ -13,9 +13,4 @@
       <UniqueIdentifier>{248A78A8-568E-3081-B5AA-2BE2584EDEAF}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
-  <ItemGroup>
-    <Xml Include="..\..\..\..\..\..\..\..\Desktop\test_1_1.xml">
-      <Filter>Source Files</Filter>
-    </Xml>
-  </ItemGroup>
 </Project>

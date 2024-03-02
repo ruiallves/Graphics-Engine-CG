@@ -335,9 +335,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Name>world_config</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Xml Include="..\..\..\..\..\..\..\..\Desktop\test_1_1.xml" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -15,12 +15,10 @@
 #include "build/world_config.h"
 
 // Variáveis da câmara
-float radius = 5.0f;
 float camx = 5.0f;
 float camy = 5.0f;
 float camz = 5.0f;
 float lookAtx = 0.0f;
-float lookAty = 0.0f;
 float lookAty = 0.0f;
 float lookAtz = 0.0f;
 float upx = 0.0f;
@@ -81,9 +79,9 @@ void renderScene(void) {
 
 	// set the camera
 	glLoadIdentity();
-	gluLookAt(5.0, 5.0, 5.0,
-		0.0, 0.0, 0.0,
-		0.0f, 1.0f, 0.0f);
+	gluLookAt(camx, camy, camz,
+		lookAtx, lookAty, lookAtz,
+		upx, upy, upz);
 
 	drawAxis();
 
@@ -180,13 +178,30 @@ int initGlut(int argc, char** argv) {
 }
 
 void configCam(World world) {
+	if (world) {
+		camx = world->camera.position[0];
+		camy = world->camera.position[1];
+		camz = world->camera.position[2];
 
+		lookAtx = world->camera.lookAt[0];
+		lookAty = world->camera.lookAt[1];
+		lookAtz = world->camera.lookAt[2];
+
+		upx = world->camera.up[0];
+		upy = world->camera.up[1];
+		upz = world->camera.up[2];
+	}
+	else {
+		std::cout << ("Cannot read camera configuration from invalid 'world' object.\n");
+	}
 }
 
 int main(int argc, char** argv) {
-	World world = newConfig();
 	char* filePath = "../test_1_1.xml";
 
+	World world = newConfig();
 	world = parseXmlFile(&world,filePath);
 	configCam(world);
+	
+	initGlut(argc, argv);
 }
