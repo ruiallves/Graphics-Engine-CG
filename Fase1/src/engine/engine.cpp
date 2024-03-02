@@ -4,6 +4,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+//#include <GL/glew.h>
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
@@ -13,6 +14,11 @@
 
 #include <math.h>
 #include "build/world_config.h"
+#include "build/figura.h"
+
+using namespace std;
+
+vector<Vertice> vertices;
 
 // Variáveis da câmara
 float camx = 5.0f;
@@ -24,6 +30,8 @@ float lookAtz = 0.0f;
 float upx = 0.0f;
 float upy = 1.0f;
 float upz = 0.0f;
+
+
 
 void changeSize(int w, int h) {
 
@@ -71,6 +79,130 @@ void drawAxis() {
 	glEnd();
 }
 
+//std::vector<Vertice> gerarCone(float raio, float altura, int slices, int stacks) {
+//
+//	// Calcular o ângulo entre cada fatia
+//	float sliceAngle = 2.0f * 3.14159 / slices;
+//
+//	// Calcular a altura de cada stack
+//	float stackHeight = altura / stacks;
+//
+//	// Gerar os vértices para cada stack
+//	for (int i = 0; i <= stacks; ++i) {
+//		float y = -altura / 2.0f + i * stackHeight; 
+//		float radius = raio * (1.0f - static_cast<float>(i) / stacks);
+//
+//		// Gerar os vértices para cada fatia
+//		for (int j = 0; j < slices; ++j) {
+//			float angle = j * sliceAngle;
+//			float x = radius * cos(angle); 
+//			float z = radius * sin(angle); 
+//
+//			vertices.push_back(newVertice(x, y, z));
+//		}
+//	}
+//
+//	// Adicionar o vértice do topo do cone
+//	vertices.push_back(newVertice(0.0f, altura / 2.0f, 0.0f));
+//
+//	return vertices;
+//}
+//
+//void gerarPlano(float tamanho, int divisoes) {
+//	// Limpar os vértices existentes
+//	vertices.clear();
+//
+//	// Calcular o número total de vértices
+//	int numVertices = (divisoes + 1) * (divisoes + 1);
+//	// Redimensionar o vetor de vértices
+//	vertices.resize(numVertices);
+//
+//	// Calcular o espaçamento entre os vértices
+//	float espacamento = tamanho / divisoes;
+//
+//	// Preencher os vértices do plano
+//	int index = 0;
+//	for (int i = 0; i <= divisoes; ++i) {
+//		for (int j = 0; j <= divisoes; ++j) {
+//			// Calcular as coordenadas x e z do vértice
+//			float x = j * espacamento - tamanho / 2.0f;
+//			float z = i * espacamento - tamanho / 2.0f;
+//			// Definir a coordenada y como 0 (plano no plano xy)
+//			float y = 0.0f;
+//
+//			// Atribuir as coordenadas ao vértice atual
+//			vertices[index++] = newVertice(x, y, z);
+//		}
+//	}
+//}
+
+void prepareData(World world) {
+
+	for (int i = 0; i < world->numFiles; ++i) {
+		// Criar uma cópia da string atual para evitar modificar a original
+		std::string filename = world->files[i];
+
+		// Substituir os underscores por espaços em branco
+		for (char& c : filename) {
+			if (c == '_') {
+				c = ' ';
+			}
+		}
+
+		std::istringstream iss(filename);
+
+		std::string prefix;
+		std::string file_extension;
+		iss >> prefix;
+
+		switch (prefix[0]) {
+			
+			case 'c': //cone
+				/*int radius, height, slices, stacks;
+				iss >> radius >> height >> slices >> stacks >> file_extension;
+				vertices = gerarCone(radius, height, slices, stacks);*/
+				break;
+			
+			case 's': //esfera
+				break;
+
+			case 'b': //box
+				break;
+
+			case 'p': //plane
+				/*int tamanho, divisoes;
+				iss >> tamanho >> divisoes;
+				gerarPlano(tamanho, divisoes);*/
+				break;
+
+			default:
+				std::cerr << "Formato de arquivo inválido: " << world->files[i] << std::endl;
+				break;
+		}
+
+
+	}
+
+	// Fazer algo com os vértices extraídos, como armazená-los no mundo
+	// por exemplo, world.vertices = vertices;
+}
+
+//void desenharFigura() {
+//	
+//	for (size_t i = 0; i < vertices.size(); i+=3) {
+//		glBegin(GL_TRIANGLES);
+//		Vertice v1 = vertices[i];
+//		glVertex3f(v1->x, v1->y, v1->z);
+//		Vertice v2 = vertices[i+1];
+//		glVertex3f(v2->x, v2->y, v2->z);
+//		Vertice v3 = vertices[i + 2];
+//		glVertex3f(v3->x, v3->y, v3->z);
+//		glEnd();
+//	}
+//	
+//}
+
+
 
 void renderScene(void) {
 
@@ -84,7 +216,8 @@ void renderScene(void) {
 		upx, upy, upz);
 
 	drawAxis();
-
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	//desenharFigura();
 
 
 	// End of frame
@@ -150,7 +283,7 @@ void renderScene(void) {
 
 
 
-int initGlut(int argc, char** argv) {
+int initGlut(int argc, char** argv, World world) {
 
 	// init GLUT and the window
 	glutInit(&argc, argv);
@@ -158,6 +291,8 @@ int initGlut(int argc, char** argv) {
 	glutInitWindowPosition(100, 100);
 	glutInitWindowSize(800, 800);
 	glutCreateWindow("CG@DI-UM");
+
+	prepareData(world);
 
 	// Required callback registry 
 	glutDisplayFunc(renderScene);
@@ -169,7 +304,7 @@ int initGlut(int argc, char** argv) {
 
 
 	//  OpenGL settings
-	glEnable(GL_DEPTH_TEST);
+	//glEnable(GL_DEPTH_TEST);
 
 	// enter GLUT's main cycle
 	glutMainLoop();
@@ -198,10 +333,11 @@ void configCam(World world) {
 
 int main(int argc, char** argv) {
 	char* filePath = "../test_1_1.xml";
-
 	World world = newConfig();
 	world = parseXmlFile(&world,filePath);
 	configCam(world);
-	
-	initGlut(argc, argv);
+	prepareData(world);
+	initGlut(argc, argv, world);
+
+	return 0;
 }

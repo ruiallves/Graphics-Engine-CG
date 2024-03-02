@@ -5,7 +5,7 @@ PROJECT(Fase1)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-add_executable(${PROJECT_NAME} engine.cpp)
+add_executable(${PROJECT_NAME} engine.cpp vertice.cpp figura.cpp)
 
 add_library(
 	tinyXML
