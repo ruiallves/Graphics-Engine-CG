@@ -1,12 +1,31 @@
+#define _NO_CRT_STDIO_INLINE
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <vector>
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
 #include <GL/glut.h>
 #endif
+#undef _NO_CRT_STDIO_INLINE
 
 #include <math.h>
+#include "build/world_config.h"
 
-float posx = 0, posz = 0, angle = 0, scalex = 1, scaley = 1, scalez = 1;
+// Variáveis da câmara
+float radius = 5.0f;
+float camx = 5.0f;
+float camy = 5.0f;
+float camz = 5.0f;
+float lookAtx = 0.0f;
+float lookAty = 0.0f;
+float lookAty = 0.0f;
+float lookAtz = 0.0f;
+float upx = 0.0f;
+float upy = 1.0f;
+float upz = 0.0f;
 
 void changeSize(int w, int h) {
 
@@ -133,7 +152,7 @@ void renderScene(void) {
 
 
 
-int main(int argc, char** argv) {
+int initGlut(int argc, char** argv) {
 
 	// init GLUT and the window
 	glutInit(&argc, argv);
@@ -158,4 +177,16 @@ int main(int argc, char** argv) {
 	glutMainLoop();
 
 	return 1;
+}
+
+void configCam(World world) {
+
+}
+
+int main(int argc, char** argv) {
+	World world = newConfig();
+	char* filePath = "../test_1_1.xml";
+
+	world = parseXmlFile(&world,filePath);
+	configCam(world);
 }

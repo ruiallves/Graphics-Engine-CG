@@ -7,6 +7,26 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 add_executable(${PROJECT_NAME} engine.cpp)
 
+add_library(
+	tinyXML
+	../tinyXML/tinystr.cpp
+	../tinyXML/tinyxmlerror.cpp
+	../tinyXML/tinyxmlparser.cpp
+	../tinyXML/tinystr.h
+	../tinyXML/tinyxml.h
+	../tinyXML/tinyxml.cpp
+)
+
+add_library(
+	world_config
+	world_config.cpp
+	world_config.h
+)
+
+target_link_libraries(tinyXML world_config)
+
+target_link_libraries(${PROJECT_NAME} tinyXML world_config)
+
 find_package(OpenGL REQUIRED)
 include_directories(${OpenGL_INCLUDE_DIRS})
 link_directories(${OpenGL_LIBRARY_DIRS})

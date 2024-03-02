@@ -1,0 +1,126 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\engine\\build\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1EF45E0D-5752-36A2-9CEC-2BB5424289F0}|Fase1.vcxproj|C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\engine\\engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DC519F9-08C0-3976-8B30-1645AE4E1245}|world_config.vcxproj|C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\engine\\build\\world_config.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7DC519F9-08C0-3976-8B30-1645AE4E1245}|world_config.vcxproj|solutionrelative:world_config.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DC519F9-08C0-3976-8B30-1645AE4E1245}|world_config.vcxproj|C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\engine\\build\\world_config.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7DC519F9-08C0-3976-8B30-1645AE4E1245}|world_config.vcxproj|solutionrelative:world_config.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DC519F9-08C0-3976-8B30-1645AE4E1245}|world_config.vcxproj|C:\\PROGRAM FILES\\MICROSOFT VISUAL STUDIO\\2022\\COMMUNITY\\VC\\TOOLS\\MSVC\\14.39.33519\\INCLUDE\\UTILITY||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1EF45E0D-5752-36A2-9CEC-2BB5424289F0}|Fase1.vcxproj|C:\\Users\\Utilizador\\Desktop\\test_1_1.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1EF45E0D-5752-36A2-9CEC-2BB5424289F0}|Fase1.vcxproj|C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\engine\\CMakeLists.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "utility",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\utility",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\utility",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\utility",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\utility",
+              "ViewState": "AQIAAOMCAAAAAAAAAAAUwPkCAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-03-02T09:09:16.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "test_1_1.xml",
+              "DocumentMoniker": "C:\\Users\\Utilizador\\Desktop\\test_1_1.xml",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\Desktop\\test_1_1.xml",
+              "ToolTip": "C:\\Users\\Utilizador\\Desktop\\test_1_1.xml",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\..\\Desktop\\test_1_1.xml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2024-03-02T08:40:26.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CMakeLists.txt",
+              "DocumentMoniker": "C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\engine\\CMakeLists.txt",
+              "RelativeDocumentMoniker": "..\\CMakeLists.txt",
+              "ToolTip": "C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\engine\\CMakeLists.txt",
+              "RelativeToolTip": "..\\CMakeLists.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-03-01T22:50:41.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "engine.cpp",
+              "DocumentMoniker": "C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\engine\\engine.cpp",
+              "RelativeDocumentMoniker": "..\\engine.cpp",
+              "ToolTip": "C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\engine\\engine.cpp",
+              "RelativeToolTip": "..\\engine.cpp",
+              "ViewState": "AQIAAKIAAABgGH7O+AQwwLwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-03-01T22:22:29.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "world_config.h",
+              "DocumentMoniker": "C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\engine\\build\\world_config.h",
+              "RelativeDocumentMoniker": "world_config.h",
+              "ToolTip": "C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\engine\\build\\world_config.h",
+              "RelativeToolTip": "world_config.h",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAmwBcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-03-01T22:17:38.089Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "world_config.cpp",
+              "DocumentMoniker": "C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\engine\\build\\world_config.cpp",
+              "RelativeDocumentMoniker": "world_config.cpp",
+              "ToolTip": "C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\engine\\build\\world_config.cpp",
+              "RelativeToolTip": "world_config.cpp",
+              "ViewState": "AQIAABUAAAAAAAAAAAAmwB4AAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-03-01T22:16:34.747Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

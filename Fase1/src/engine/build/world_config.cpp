@@ -1,117 +1,66 @@
-﻿#include <corecrt_malloc.h>
+#include "world_config.h"
 
-struct config {
-    // Câmara
-    float poscam[3];
-    float lookAt[3];
-    float up[3];
-    float projection[3]; // fov, near, far
-    List models; // lista com as paths dos ficheiros dos modelos
-};
-
-typedef struct config* Config;
-
-Config newConfig() {
-    Config newConf = (Config)malloc(sizeof(struct config));
-    if (newConf) {
-        newConf->models = newEmptyList();
-        if (!newConf->models) { // não foi possível criar a lista
-            free(newConf);
-            newConf = NULL;
-        }
-    }
+World newConfig() {
+    World newConf = (World)malloc(sizeof(struct world));
     return newConf;
 }
 
-Config xmlToConfig(const char* filePath) {
-    Config result = newConfig();
-    if (result) {
-        TiXmlDocument doc;
-        if (doc.LoadFile(filePath)) {
-            TiXmlElement* root = doc.FirstChildElement("world"); // todo o conteúdo do ficheiro
-            // Obtenção dos dados da câmara
-            TiXmlElement* camera = root->FirstChildElement("camera"); // parâmetros da cầmara
-            TiXmlElement* posCamera = camera->FirstChildElement("position"); // posição da câmara
-            TiXmlElement* lookAtCamera = camera->FirstChildElement("lookAt"); // lookAt da câmara
-            TiXmlElement* upCamera = camera->FirstChildElement("up"); // vetor "up" da câmara
-            TiXmlElement* projectionCamera = camera->FirstChildElement("projection"); // projections
-            result->poscam[0] = atof(posCamera->Attribute("x")); // coordenada x da posição da câmara
-            result->poscam[1] = atof(posCamera->Attribute("y")); // coordenada y da posição da câmara
-            result->poscam[2] = atof(posCamera->Attribute("z")); // coordenada z da posição da câmara
-            result->lookAt[0] = atof(lookAtCamera->Attribute("x")); // coordenada x da posição lookAt da câmara
-            result->lookAt[1] = atof(lookAtCamera->Attribute("y")); // coordenada y da posição lookAt da câmara
-            result->lookAt[2] = atof(lookAtCamera->Attribute("z")); // coordenada z da posição lookAt da câmara
-            result->up[0] = atof(upCamera->Attribute("x")); // coordenada x do vetor "up" da câmara
-            result->up[1] = atof(upCamera->Attribute("y")); // coordenada y do vetor "up" da câmara
-            result->up[2] = atof(upCamera->Attribute("z")); // coordenada z do vetor "up" da câmara
-            result->projection[0] = atof(projectionCamera->Attribute("fov")); // parâmetro fov do xml de configuração
-            result->projection[1] = atof(projectionCamera->Attribute("near")); // parâmetro near do xml de configuração
-            result->projection[2] = atof(projectionCamera->Attribute("far")); // parâmetro far do xml de configuração
+World parseXmlFile(World* world, const char* filePath) {
+    TiXmlDocument file;
+    if (file.LoadFile(filePath)) {
+        TiXmlElement* root = file.FirstChildElement("world");
 
-            TiXmlElement* group = root->FirstChildElement("group"); // obtenção do group do ficheiro de configuração
-            TiXmlElement* models = group->FirstChildElement("models"); // obtenção dos ficheiros dos modelos
+        // Parse window attributes
+        TiXmlElement* window = root->FirstChildElement("window");
+        (*world)->window.width = atoi(window->Attribute("width"));
+        (*world)->window.height = atoi(window->Attribute("height"));
+
+        // Parse camera attributes
+        TiXmlElement* camera = root->FirstChildElement("camera");
+        TiXmlElement* position = camera->FirstChildElement("position");
+        (*world)->camera.position[0] = atof(position->Attribute("x"));
+        (*world)->camera.position[1] = atof(position->Attribute("y"));
+        (*world)->camera.position[2] = atof(position->Attribute("z"));
+
+        TiXmlElement* lookAt = camera->FirstChildElement("lookAt");
+        (*world)->camera.lookAt[0] = atof(lookAt->Attribute("x"));
+        (*world)->camera.lookAt[1] = atof(lookAt->Attribute("y"));
+        (*world)->camera.lookAt[2] = atof(lookAt->Attribute("z"));
+
+        TiXmlElement* up = camera->FirstChildElement("up");
+        (*world)->camera.up[0] = atof(up->Attribute("x"));
+        (*world)->camera.up[1] = atof(up->Attribute("y"));
+        (*world)->camera.up[2] = atof(up->Attribute("z"));
+
+        TiXmlElement* projection = camera->FirstChildElement("projection");
+        (*world)->camera.projection.fov = atof(projection->Attribute("fov"));
+        (*world)->camera.projection.near = atof(projection->Attribute("near"));
+        (*world)->camera.projection.far = atof(projection->Attribute("far"));
+
+        TiXmlElement* group = root->FirstChildElement("group");
+        TiXmlElement* models = group->FirstChildElement("models");
+        if (models) { // PARA REVER (feito � moda benfica but working, ou seja, modo sporting ;) )
+            (*world)->numFiles = 0;
+            (*world)->files = nullptr;
             for (TiXmlElement* model = models->FirstChildElement("model"); model; model = model->NextSiblingElement("model")) {
-                addValueList(result->models, strdup(model->Attribute("file")));
+                const char* filename = model->Attribute("file");
+                if (filename) {
+                    std::string* newFiles = new std::string[(*world)->numFiles + 1];
+                    for (int i = 0; i < (*world)->numFiles; ++i) {
+                        newFiles[i] = (*world)->files[i];
+                    }
+                    newFiles[(*world)->numFiles++] = filename;
+                    delete[](*world)->files;
+                    (*world)->files = newFiles;
+                }
             }
         }
+
     }
-    return result;
-}
 
-List getModels(Config conf) {
-    if (conf) {
-        return conf->models;
+    else {
+        std::cerr << "Failed to load XML file: " << filePath << std::endl;
     }
-    return NULL;
-}
 
-void setCamPosition(Config conf, float x, float y, float z) {
-    if (conf) {
-        conf->poscam[0] = x;
-        conf->poscam[1] = y;
-        conf->poscam[2] = z;
-    }
-}
-
-float getXPosCam(Config conf) {
-    return conf->poscam[0];
-}
-
-float getYPosCam(Config conf) {
-    return conf->poscam[1];
-}
-
-float getZPosCam(Config conf) {
-    return conf->poscam[2];
-}
-
-float getXLookAt(Config conf) {
-    return conf->lookAt[0];
-}
-
-float getYLookAt(Config conf) {
-    return conf->lookAt[1];
-}
-
-float getZLookAt(Config conf) {
-    return conf->lookAt[2];
-}
-
-float getXUp(Config conf) {
-    return conf->up[0];
-}
-
-float getYUp(Config conf) {
-    return conf->up[1];
-}
-
-float getZUp(Config conf) {
-    return conf->up[2];
-}
-
-void deleteConfig(Config conf) {
-    if (conf) {
-        deepDeleteList(conf->models, free);
-        free(conf);
-    }
+    return *world;
 }
