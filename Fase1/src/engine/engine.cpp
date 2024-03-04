@@ -12,15 +12,18 @@
 #endif
 #undef _NO_CRT_STDIO_INLINE
 
-#include <math.h>
+#include "math.h"
 #include "build/world_config.h"
 #include "build/figura.h"
 
 using namespace std;
 
-vector<Vertice> vertices;
+float red = 1;
+float green = 1;
+float blue = 1;
 
-// Variáveis da câmara
+float xx = 0.0f, yy = 0.0f, zz = 0.0f;
+float angleY = 0.0f, angleX = 0.0f;
 float camx = 5.0f;
 float camy = 5.0f;
 float camz = 5.0f;
@@ -31,7 +34,9 @@ float upx = 0.0f;
 float upy = 1.0f;
 float upz = 0.0f;
 
+vector<Figura> figuras;
 
+GLenum mode = GL_LINE;
 
 void changeSize(int w, int h) {
 
@@ -79,130 +84,61 @@ void drawAxis() {
 	glEnd();
 }
 
-//std::vector<Vertice> gerarCone(float raio, float altura, int slices, int stacks) {
-//
-//	// Calcular o ângulo entre cada fatia
-//	float sliceAngle = 2.0f * 3.14159 / slices;
-//
-//	// Calcular a altura de cada stack
-//	float stackHeight = altura / stacks;
-//
-//	// Gerar os vértices para cada stack
-//	for (int i = 0; i <= stacks; ++i) {
-//		float y = -altura / 2.0f + i * stackHeight; 
-//		float radius = raio * (1.0f - static_cast<float>(i) / stacks);
-//
-//		// Gerar os vértices para cada fatia
-//		for (int j = 0; j < slices; ++j) {
-//			float angle = j * sliceAngle;
-//			float x = radius * cos(angle); 
-//			float z = radius * sin(angle); 
-//
-//			vertices.push_back(newVertice(x, y, z));
-//		}
-//	}
-//
-//	// Adicionar o vértice do topo do cone
-//	vertices.push_back(newVertice(0.0f, altura / 2.0f, 0.0f));
-//
-//	return vertices;
-//}
-//
-//void gerarPlano(float tamanho, int divisoes) {
-//	// Limpar os vértices existentes
-//	vertices.clear();
-//
-//	// Calcular o número total de vértices
-//	int numVertices = (divisoes + 1) * (divisoes + 1);
-//	// Redimensionar o vetor de vértices
-//	vertices.resize(numVertices);
-//
-//	// Calcular o espaçamento entre os vértices
-//	float espacamento = tamanho / divisoes;
-//
-//	// Preencher os vértices do plano
-//	int index = 0;
-//	for (int i = 0; i <= divisoes; ++i) {
-//		for (int j = 0; j <= divisoes; ++j) {
-//			// Calcular as coordenadas x e z do vértice
-//			float x = j * espacamento - tamanho / 2.0f;
-//			float z = i * espacamento - tamanho / 2.0f;
-//			// Definir a coordenada y como 0 (plano no plano xy)
-//			float y = 0.0f;
-//
-//			// Atribuir as coordenadas ao vértice atual
-//			vertices[index++] = newVertice(x, y, z);
-//		}
-//	}
-//}
-
 void prepareData(World world) {
 
 	for (int i = 0; i < world->numFiles; ++i) {
-		// Criar uma cópia da string atual para evitar modificar a original
-		std::string filename = world->files[i];
+		string filepath = "../" + world->files[i];
+		ifstream file(filepath);
+		if (!file) {
+			cerr << "Erro ao abrir o arquivo: " << world->files[i] << endl;
+			return;
+		}
 
-		// Substituir os underscores por espaços em branco
-		for (char& c : filename) {
-			if (c == '_') {
-				c = ' ';
+		float x, y, z;
+		vector<Vertice> vertices;
+
+		string line;
+		while (getline(file, line)) {
+			istringstream iss(line);
+			string token;
+			float coord;
+			vector<float> coords;
+
+			while (getline(iss, token, ',')) {
+				istringstream(token) >> coord;
+				coords.push_back(coord);
 			}
+
+			if (coords.size() != 3) {
+				cerr << "Erro ao ler linha do arquivo: " << world->files[i] << endl;
+				continue;
+			}
+
+			vertices.push_back(newVertice(coords[0], coords[1], coords[2]));
 		}
 
-		std::istringstream iss(filename);
+		Figura fig = newFigura();
+		fig->vertices = vertices;
+		figuras.push_back(fig);
 
-		std::string prefix;
-		std::string file_extension;
-		iss >> prefix;
-
-		switch (prefix[0]) {
-			
-			case 'c': //cone
-				/*int radius, height, slices, stacks;
-				iss >> radius >> height >> slices >> stacks >> file_extension;
-				vertices = gerarCone(radius, height, slices, stacks);*/
-				break;
-			
-			case 's': //esfera
-				break;
-
-			case 'b': //box
-				break;
-
-			case 'p': //plane
-				/*int tamanho, divisoes;
-				iss >> tamanho >> divisoes;
-				gerarPlano(tamanho, divisoes);*/
-				break;
-
-			default:
-				std::cerr << "Formato de arquivo inválido: " << world->files[i] << std::endl;
-				break;
-		}
-
-
+		file.close();
 	}
-
-	// Fazer algo com os vértices extraídos, como armazená-los no mundo
-	// por exemplo, world.vertices = vertices;
 }
 
-//void desenharFigura() {
-//	
-//	for (size_t i = 0; i < vertices.size(); i+=3) {
-//		glBegin(GL_TRIANGLES);
-//		Vertice v1 = vertices[i];
-//		glVertex3f(v1->x, v1->y, v1->z);
-//		Vertice v2 = vertices[i+1];
-//		glVertex3f(v2->x, v2->y, v2->z);
-//		Vertice v3 = vertices[i + 2];
-//		glVertex3f(v3->x, v3->y, v3->z);
-//		glEnd();
-//	}
-//	
-//}
+void drawVertices() {
+	glBegin(GL_TRIANGLES);
+	glColor3f(red, green, blue);
 
+	for (size_t i = 0; i < figuras.size();i++) {
+		Figura fig = figuras[i];
+		for (size_t j = 0; j < fig->vertices.size();j++) {
+			Vertice atualVertice = fig->vertices[j];
+			glVertex3f(atualVertice->x, atualVertice->y, atualVertice->z);
+		}
+	}
 
+	glEnd();
+}
 
 void renderScene(void) {
 
@@ -216,71 +152,88 @@ void renderScene(void) {
 		upx, upy, upz);
 
 	drawAxis();
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-	//desenharFigura();
+	glPolygonMode(GL_FRONT_AND_BACK, mode);
+	glTranslatef(xx, yy, zz);
+	glRotatef(angleY, 0.0, 1.0, 0.0);
+	glRotatef(angleX, 1.0, 0.0, 0.0);
+	drawVertices();
 
 
 	// End of frame
 	glutSwapBuffers();
 }
 
-
-
 //// write function to process keyboard events
-//
-//void keyboardFunc(unsigned char key, int x, int y) {
-//	switch (key) {
-//	case 'a':
-//		posx -= 0.1;
-//		break;
-//	case 'd':
-//		posx += 0.1;
-//		break;
-//	case 's':
-//		posz += 0.1;
-//		break;
-//	case 'w':
-//		posz -= 0.1;
-//		break;
-//	case 'q':
-//		angle -= 15;
-//		break;
-//	case 'e':
-//		angle += 15;
-//		break;
-//	case 'i':
-//		scalez += 0.1;
-//		break;
-//	case 'k':
-//		scalez -= 0.1;
-//		break;
-//	case 'j':
-//		scalex -= 0.1;
-//		break;
-//	case 'l':
-//		scalex += 0.1;
-//		break;
-//	case 'u':
-//		scaley -= 0.1;
-//		break;
-//	case 'o':
-//		scaley += 0.1;
-//		break;
-//	case '+':
-//		scalex += 0.1;
-//		scaley += 0.1;
-//		scalez += 0.1;
-//		break;
-//	case '-':
-//		scalex -= 0.1;
-//		scaley -= 0.1;
-//		scalez -= 0.1;
-//		break;
-//	}
-//	glutPostRedisplay();
-//}
+void keyboardFunc(unsigned char key, int x, int y) {
+	switch (key) {
+	case 'a':
+		case 'A':
+			angleY -= 10;
+			break;
 
+	case 'd':
+		case 'D':
+			angleY += 10;
+			break;
 
+	case 'w':
+		case 'W':
+			angleX -= 10;
+			break;
+
+	case 's':
+		case 'S':
+			angleX += 10;
+			break;
+	
+	case 'p':
+		case 'P':
+			mode = GL_POINT;
+			break;
+
+	case 'l':
+		case 'L':
+			mode = GL_LINE;
+			break;
+
+	case 'f':
+		case 'F':
+			mode = GL_FILL;
+			break;
+
+	case '-':
+		camx += 2;
+		camy += 2;
+		camz += 2;
+		break;
+
+	case '+':
+		camx -= 2;
+		camy -= 2;
+		camz -= 2;
+		break;
+	}
+
+	glutPostRedisplay();
+}
+
+void keyboardspecial(int key, int x, int y) {
+	switch (key) {
+		case GLUT_KEY_UP:
+			yy += 1;
+			break;
+		case GLUT_KEY_DOWN:
+			yy -= 1;
+			break;
+		case GLUT_KEY_LEFT:
+			xx -= 1;
+			break;
+		case GLUT_KEY_RIGHT:
+			xx += 1;
+			break;
+	}
+	glutPostRedisplay();
+}
 
 
 int initGlut(int argc, char** argv, World world) {
@@ -292,19 +245,17 @@ int initGlut(int argc, char** argv, World world) {
 	glutInitWindowSize(800, 800);
 	glutCreateWindow("CG@DI-UM");
 
-	prepareData(world);
-
 	// Required callback registry 
 	glutDisplayFunc(renderScene);
 	glutReshapeFunc(changeSize);
 
 
 	// put here the registration of the keyboard callbacks
-	//glutKeyboardFunc(keyboardFunc);
-
+	glutKeyboardFunc(keyboardFunc);
+	glutSpecialFunc(keyboardspecial);
 
 	//  OpenGL settings
-	//glEnable(GL_DEPTH_TEST);
+	glEnable(GL_DEPTH_TEST);
 
 	// enter GLUT's main cycle
 	glutMainLoop();

@@ -26,7 +26,7 @@ struct world {
     Window window;
     Camera camera;
     std::string* files;
-    int numFiles; //para apagar
+    int numFiles;
 };
 
 typedef struct world* World;
