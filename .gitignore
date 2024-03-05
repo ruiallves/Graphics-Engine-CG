@@ -3,5 +3,6 @@
 *.exe
 CMakeLists.txt
 /Fase1/src/engine/cmake-build-debug/
-/Fase1/src/engine/build/
+/Fase1/src/engine/build/*
 /.idea/
+/toolkits/
