@@ -115,7 +115,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>Debug\tinyXML.lib;Debug\world_config.lib;opengl32.lib;glu32.lib;C:\Users\ruist\Desktop\toolkits\glut\glut32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>Debug\tinyXML.lib;Debug\world_config.lib;Debug\tools.lib;opengl32.lib;glu32.lib;C:\Users\ruist\Desktop\toolkits\glut\glut32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -159,7 +159,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>Release\tinyXML.lib;Release\world_config.lib;opengl32.lib;glu32.lib;C:\Users\ruist\Desktop\toolkits\glut\glut32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>Release\tinyXML.lib;Release\world_config.lib;Release\tools.lib;opengl32.lib;glu32.lib;C:\Users\ruist\Desktop\toolkits\glut\glut32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -203,7 +203,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>MinSizeRel\tinyXML.lib;MinSizeRel\world_config.lib;opengl32.lib;glu32.lib;C:\Users\ruist\Desktop\toolkits\glut\glut32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>MinSizeRel\tinyXML.lib;MinSizeRel\world_config.lib;MinSizeRel\tools.lib;opengl32.lib;glu32.lib;C:\Users\ruist\Desktop\toolkits\glut\glut32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -246,7 +246,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>RelWithDebInfo\tinyXML.lib;RelWithDebInfo\world_config.lib;opengl32.lib;glu32.lib;C:\Users\ruist\Desktop\toolkits\glut\glut32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>RelWithDebInfo\tinyXML.lib;RelWithDebInfo\world_config.lib;RelWithDebInfo\tools.lib;opengl32.lib;glu32.lib;C:\Users\ruist\Desktop\toolkits\glut\glut32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -318,8 +318,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\engine.cpp" />
-    <ClCompile Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\build\vertice.cpp" />
-    <ClCompile Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\build\figura.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\build\ZERO_CHECK.vcxproj">
@@ -331,6 +329,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\build\tinyXML.vcxproj">
       <Project>{0E108B7B-7DAE-3A07-BE19-1C33F11C76C4}</Project>
       <Name>tinyXML</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\build\tools.vcxproj">
+      <Project>{89C9B583-F324-36FE-A037-2DCDED948AA8}</Project>
+      <Name>tools</Name>
     </ProjectReference>
     <ProjectReference Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\build\world_config.vcxproj">
       <Project>{C0BEFC5E-8B9D-3230-B69D-03D5DFA52CD3}</Project>

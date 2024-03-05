@@ -269,8 +269,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\build\world_config.cpp" />
-    <ClInclude Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\build\world_config.h" />
+    <ClCompile Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\config\world_config.cpp" />
+    <ClInclude Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\config\world_config.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\build\ZERO_CHECK.vcxproj">

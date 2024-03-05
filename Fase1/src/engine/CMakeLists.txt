@@ -5,7 +5,7 @@ PROJECT(Fase1)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-add_executable(${PROJECT_NAME} engine.cpp vertice.cpp figura.cpp)
+add_executable(${PROJECT_NAME} engine.cpp)
 
 add_library(
 	tinyXML
@@ -18,14 +18,20 @@ add_library(
 )
 
 add_library(
-	world_config
-	world_config.cpp
-	world_config.h
+	tools
+	../tools/figura.cpp
+    ../tools/vertice.cpp
 )
 
-target_link_libraries(tinyXML world_config)
+add_library(
+	world_config
+	config/world_config.cpp
+	config/world_config.h
+)
 
-target_link_libraries(${PROJECT_NAME} tinyXML world_config)
+target_link_libraries(tinyXML world_config tools)
+
+target_link_libraries(${PROJECT_NAME} tinyXML world_config tools)
 
 find_package(OpenGL REQUIRED)
 include_directories(${OpenGL_INCLUDE_DIRS})

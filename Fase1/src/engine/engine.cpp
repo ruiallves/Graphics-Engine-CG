@@ -13,8 +13,8 @@
 #undef _NO_CRT_STDIO_INLINE
 
 #include "math.h"
-#include "build/world_config.h"
-#include "build/figura.h"
+#include "../engine/config/world_config.h"
+#include "../tools/figura.h"
 
 using namespace std;
 
@@ -46,7 +46,7 @@ void changeSize(int w, int h) {
 		h = 1;
 
 	// compute window's aspect ratio 
-	float ratio = w * 1.0 / (h);
+	float ratio = w * 1.0 / h;
 
 	// Set the projection matrix as current
 	glMatrixMode(GL_PROJECTION);
@@ -87,7 +87,7 @@ void drawAxis() {
 void prepareData(World world) {
 
 	for (int i = 0; i < world->numFiles; ++i) {
-		string filepath = "../" + world->files[i];
+		string filepath = "../../../outputs/" + world->files[i];
 		ifstream file(filepath);
 		if (!file) {
 			cerr << "Erro ao abrir o arquivo: " << world->files[i] << endl;
@@ -283,9 +283,13 @@ void configCam(World world) {
 }
 
 int main(int argc, char** argv) {
-	char* filePath = "../test_1_1.xml";
+	if (argc < 2) {
+		std::cerr << "Usage: " << "./engine.exe" << " <filename>" << std::endl;
+		return 1;
+	}
+	std::string filepath = argv[1];
 	World world = newConfig();
-	world = parseXmlFile(&world,filePath);
+	world = parseXmlFile(&world, ("../../../tests/" + filepath).c_str());
 	configCam(world);
 	prepareData(world);
 	initGlut(argc, argv, world);

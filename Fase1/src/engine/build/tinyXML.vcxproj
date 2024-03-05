@@ -283,6 +283,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\build\tools.vcxproj">
+      <Project>{89C9B583-F324-36FE-A037-2DCDED948AA8}</Project>
+      <Name>tools</Name>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\build\world_config.vcxproj">
       <Project>{C0BEFC5E-8B9D-3230-B69D-03D5DFA52CD3}</Project>
       <Name>world_config</Name>

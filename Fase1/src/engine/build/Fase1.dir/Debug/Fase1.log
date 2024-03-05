@@ -1,8 +1,5 @@
-﻿  figura.cpp
-  vertice.cpp
-  engine.cpp
+﻿  engine.cpp
 C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\engine.cpp(97,15): warning C4101: 'z': variável local não referenciada
 C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\engine.cpp(97,12): warning C4101: 'y': variável local não referenciada
 C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\engine.cpp(97,9): warning C4101: 'x': variável local não referenciada
-  Gerando Código...
   Fase1.vcxproj -> C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\engine\build\Debug\Fase1.exe

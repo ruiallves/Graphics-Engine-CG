@@ -222,7 +222,7 @@ OPENGL_glu_LIBRARY:STRING=glu32
 TOOLKITS_FOLDER:PATH=C:/Users/ruist/Desktop/toolkits
 
 //Dependencies for the target
-tinyXML_LIB_DEPENDS:STATIC=general;world_config;
+tinyXML_LIB_DEPENDS:STATIC=general;world_config;general;tools;
 
 
 ########################
