@@ -1,2 +1,4 @@
 ﻿  generator.cpp
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\generator\generator.cpp(120,59): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\generator\generator.cpp(120,39): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
   Fase1.vcxproj -> C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\generator\build\Debug\Fase1.exe

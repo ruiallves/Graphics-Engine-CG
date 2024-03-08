@@ -32,7 +32,7 @@ int createFileType(vector<Vertice> vertices, string name) {
 
     // Escrevendo os vértices no arquivo, um por linha
     for (const Vertice& v : vertices) {
-        file << v->x << " " << v->y << " " << v->z << endl;
+        file << v->x << "," << v->y << "," << v->z << endl;
     }
 
     file.close();
