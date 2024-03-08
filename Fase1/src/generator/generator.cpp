@@ -20,8 +20,28 @@ TiXmlDocument doc;
 using namespace std;
 
 
-int createFileType(vector<Vertice> vertices, string name) {
-    string filePath = "../../../outputs/" + name; // Nome do arquivo com extensão .3d
+int createFileType(vector<Vertice> vertices, string name, int arg1, int arg2, int arg3, int arg4) {
+
+    // Encontrar a posição do ponto
+    auto dot_pos = std::find(name.begin(), name.end(), '.');
+
+    // Obter a substring antes do ponto
+    std::string prefix = name.substr(0, dot_pos - name.begin());
+
+    // Obter a substring após o ponto
+    std::string suffix = name.substr(dot_pos - name.begin());
+
+    string filePath;
+
+    if (arg3 == -1) {
+        filePath = "../../../outputs/" + prefix + "_" + std::to_string(arg1) + "_" + std::to_string(arg2) + suffix;
+    }
+    else if (arg4 == -1) {
+        filePath = "../../../outputs/" + prefix + "_" + std::to_string(arg1) + "_" + std::to_string(arg2) + "_" + std::to_string(arg3) + suffix;
+    }
+    else {
+        filePath = "../../../outputs/" + prefix + "_" + std::to_string(arg1) + "_" + std::to_string(arg2) + "_" + std::to_string(arg3) + "_" + std::to_string(arg4) + suffix; // Nome do arquivo com extensão .3d
+    }
 
     ofstream file(filePath); // Abrindo o arquivo para escrita
 
@@ -114,11 +134,11 @@ int main(int argc, char** argv) {
             return 1;
         }
 
-        printf("got PLANE ==DEBUG TO REMOVE==");
+        //printf("got PLANE ==DEBUG TO REMOVE==");
         
         //build PLANE
         figura = createPlane(std::stof(argv[2]), std::stof(argv[3]));
-        createFileType(figura->vertices, argv[4]);
+        createFileType(figura->vertices, argv[4], std::stof(argv[2]), std::stof(argv[3]), -1, -1);
         
         break;
 
@@ -132,11 +152,11 @@ int main(int argc, char** argv) {
 
         }
 
-        printf("got SPHERE ==DEBUG TO REMOVE==");
+        //printf("got SPHERE ==DEBUG TO REMOVE==");
         
         //build SPHERE
         figura = createSphere(std::stof(argv[2]), std::stof(argv[3]), std::stof(argv[4]));
-        createFileType(figura->vertices, argv[5]);
+        createFileType(figura->vertices, argv[5], std::stof(argv[2]), std::stof(argv[3]), std::stof(argv[4]), -1);
         break;
 
     case BOX:
@@ -149,11 +169,11 @@ int main(int argc, char** argv) {
 
         }
 
-        printf("got BOX ==DEBUG TO REMOVE==");
+        //printf("got BOX ==DEBUG TO REMOVE==");
         
         //build BOX
         figura = createBox(std::stof(argv[2]), std::stof(argv[3]));
-        createFileType(figura->vertices, argv[4]);
+        createFileType(figura->vertices, argv[4], std::stof(argv[2]), std::stof(argv[3]), -1, -1);
         
         break;
 
@@ -167,11 +187,11 @@ int main(int argc, char** argv) {
 
         }
 
-        printf("got CONE ==DEBUG TO REMOVE==");
+        //printf("got CONE ==DEBUG TO REMOVE==");
         
         //build CONE
         figura = createCone(std::stof(argv[2]), std::stof(argv[3]), std::stof(argv[4]), std::stof(argv[5]));
-        createFileType(figura->vertices, argv[6]);
+        createFileType(figura->vertices, argv[6], std::stof(argv[2]), std::stof(argv[3]), std::stof(argv[4]), std::stof(argv[5]));
         break;
 
     default:
