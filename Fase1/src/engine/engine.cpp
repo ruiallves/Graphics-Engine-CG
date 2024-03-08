@@ -127,7 +127,6 @@ void prepareData(World world) {
 
 void drawVertices() {
 	glBegin(GL_TRIANGLES);
-	glColor3f(red, green, blue);
 
 	for (size_t i = 0; i < figuras.size();i++) {
 		Figura fig = figuras[i];
@@ -151,7 +150,7 @@ void renderScene(void) {
 		lookAtx, lookAty, lookAtz,
 		upx, upy, upz);
 
-	drawAxis();
+	//drawAxis();
 	glPolygonMode(GL_FRONT_AND_BACK, mode);
 	glTranslatef(xx, yy, zz);
 	glRotatef(angleY, 0.0, 1.0, 0.0);

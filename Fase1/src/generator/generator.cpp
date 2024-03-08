@@ -135,7 +135,8 @@ int main(int argc, char** argv) {
         printf("got SPHERE ==DEBUG TO REMOVE==");
         
         //build SPHERE
-        
+        figura = createSphere(std::stof(argv[2]), std::stof(argv[3]), std::stof(argv[4]));
+        createFileType(figura->vertices, argv[5]);
         break;
 
     case BOX:
@@ -151,6 +152,8 @@ int main(int argc, char** argv) {
         printf("got BOX ==DEBUG TO REMOVE==");
         
         //build BOX
+        figura = createBox(std::stof(argv[2]), std::stof(argv[3]));
+        createFileType(figura->vertices, argv[4]);
         
         break;
 
@@ -167,7 +170,8 @@ int main(int argc, char** argv) {
         printf("got CONE ==DEBUG TO REMOVE==");
         
         //build CONE
-        
+        figura = createCone(std::stof(argv[2]), std::stof(argv[3]), std::stof(argv[4]), std::stof(argv[5]));
+        createFileType(figura->vertices, argv[6]);
         break;
 
     default:
