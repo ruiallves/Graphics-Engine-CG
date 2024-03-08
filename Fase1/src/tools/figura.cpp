@@ -4,6 +4,5 @@
 
 Figura newFigura() {
     Figura novaFigura = new struct figura;
-    novaFigura->nome = nullptr; 
     return novaFigura;
 }

@@ -2,60 +2,43 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include "../inc/modelo.hpp"
-#include "../inc/ponto.hpp"
-#include "../inc/triangulo.hpp"
+#include <iostream>
+#include <fstream>
+#include "CreateVertice/createvertice.h"
+#include "../tinyxml/tinyxml.h"
 
 #define PLANE 0
 #define SPHERE 1
 #define BOX 2
 #define CONE 3
+TiXmlDocument doc;
 
 
 #include <vector>  // Para armazenamento eficiente de vértices
+#include <string>
 
-Modelo gerarPlanoXZ(int comprimento, int divisoes, float altura = 0.0f, bool invertido = false) {
-    Modelo plano = newEmptyModelo();
-    if (!plano) {  // Verifica se o ponteiro é nulo (tratamento de erros)
-        return plano;  // Retorna a Figura nula para indicar um erro
+using namespace std;
+
+
+int createFileType(vector<Vertice> vertices, string name) {
+    string filePath = "../../../outputs/" + name; // Nome do arquivo com extensão .3d
+
+    ofstream file(filePath); // Abrindo o arquivo para escrita
+
+    if (!file.is_open()) {
+        cout << "Erro ao criar o arquivo " << filePath << endl;
+        return -1;
     }
 
-    // Pré-calcula valores comumente usados para eficiência
-    const float metadeComprimento = (float)comprimento / 2.0f;
-    const float ladoDivisao = (float)comprimento / divisoes;
-
-    // Usa um vetor para armazenar e gerenciar vértices de forma eficiente
-    std::vector<Ponto> vertices;
-
-    // Gera vértices com base nas divisões e na flag de inversão
-    for (int linha = 0; linha <= divisoes; linha++) {  // Inclui linhas superior e inferior
-        for (int coluna = 0; coluna <= divisoes; coluna++) {  // Inclui colunas esquerda e direita
-            const float x = -metadeComprimento + coluna * ladoDivisao;
-            const float z = -metadeComprimento + linha * ladoDivisao;
-            vertices.push_back(newPonto(x, altura, z));
-        }
+    // Escrevendo os vértices no arquivo, um por linha
+    for (const Vertice& v : vertices) {
+        file << v->x << " " << v->y << " " << v->z << endl;
     }
 
-    // Gera triângulos usando tiras de triângulos para um desempenho potencialmente melhor
-    int numeroVertices = vertices.size();
-    for (int linha = 0; linha < divisoes; linha++) {
-        int primeiro = linha * (divisoes + 1);  // Índice inicial para cada tira
-        int segundo = primeiro + divisoes + 1;   // Índice para o primeiro vértice da próxima tira
+    file.close();
+    cout << "Arquivo " << filePath << " criado com sucesso." << endl;
 
-        // Ordem dos triângulos invertida se a flag de inversão estiver definida
-        if (invertido) {
-            for (int i = 0; i <= divisoes; i++) {
-                adicionarTriangulo(plano, vertices[primeiro + i], vertices[segundo + i], vertices[primeiro + (i + 1) % (divisoes + 1)]);
-            }
-        }
-        else {
-            for (int i = 0; i <= divisoes; i++) {
-                adicionarTriangulo(plano, vertices[primeiro + i], vertices[primeiro + (i + 1) % (divisoes + 1)], vertices[segundo + i]);
-            }
-        }
-    }
-
-    return plano;
+    return 0;
 }
 
 
@@ -112,6 +95,7 @@ int main(int argc, char** argv) {
     if (argc < 5 || argc > 7) return 1; //Argument Eval
 
     int  shapeType = -1;
+    Figura figura;
 
     if (strcmp(argv[1],"sphere")==0) shapeType = SPHERE;
     else if (strcmp(argv[1], "box") == 0) shapeType = BOX;
@@ -126,15 +110,15 @@ int main(int argc, char** argv) {
 
         //argument control
         if (argc != 5) {
-
             printf("Wrong Number of arguments!");
             return 1;
-
         }
 
         printf("got PLANE ==DEBUG TO REMOVE==");
         
         //build PLANE
+        figura = createPlane(std::stof(argv[2]), std::stof(argv[3]));
+        createFileType(figura->vertices, argv[4]);
         
         break;
 

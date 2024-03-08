@@ -1,0 +1,93 @@
+﻿  Building Custom Rule C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase1/src/generator/CMakeLists.txt
+  colecaoPontos.cpp
+  modelo.cpp
+  ponto.cpp
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\modelo.cpp(61,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\modelo.cpp(82,15): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\modelo.cpp(93,13): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  triangulo.cpp
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(4,8): error C2371: 'Ponto': redefinição; tipos básicos diferentes
+  C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\ponto.hpp(6,23):
+  consulte a declaração de 'Ponto'
+  
+  Gerando Código...
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,14): error C2665: 'std::vector<triangulo,std::allocator<triangulo>>::push_back': nenhuma função sobrecarregada pode converter todos os tipos de argumento
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(874,23):
+  poderia ser 'void std::vector<triangulo,std::allocator<triangulo>>::push_back(_Ty &&)'
+          with
+          [
+              _Ty=triangulo
+          ]
+  	C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,14):
+  	'void std::vector<triangulo,std::allocator<triangulo>>::push_back(_Ty &&)': não é possível converter um argumento 1 de 'Triangulo' em '_Ty &&'
+          with
+          [
+              _Ty=triangulo
+          ]
+  		C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,25):
+  		Razão: não é possível converter de 'Triangulo' para '_Ty'
+          with
+          [
+              _Ty=triangulo
+          ]
+  		C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,25):
+  		'triangulo::triangulo': nenhuma função sobrecarregada pode converter todos os tipos de argumento
+  			C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(14,1):
+  			poderia ser 'triangulo::triangulo(triangulo &&)'
+  				C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,25):
+  				'triangulo::triangulo(triangulo &&)': não é possível converter um argumento 1 de 'Triangulo' em 'triangulo &&'
+  					C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,25):
+  					Razão: não é possível converter de 'Triangulo' para 'triangulo'
+  					C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,25):
+  					Conversão requer um segundo operador de conversão definida pelo usuário ou construtor
+  			C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(14,1):
+  			ou       'triangulo::triangulo(const triangulo &)'
+  				C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,25):
+  				'triangulo::triangulo(const triangulo &)': não é possível converter um argumento 1 de 'Triangulo' em 'const triangulo &'
+  					C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,25):
+  					Razão: não é possível converter de 'Triangulo' para 'const triangulo'
+  					C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,25):
+  					Conversão requer um segundo operador de conversão definida pelo usuário ou construtor
+  			C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,25):
+  			ao tentar corresponder a lista de argumentos '(Triangulo)'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(870,23):
+  ou       'void std::vector<triangulo,std::allocator<triangulo>>::push_back(const _Ty &)'
+          with
+          [
+              _Ty=triangulo
+          ]
+  	C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,14):
+  	'void std::vector<triangulo,std::allocator<triangulo>>::push_back(const _Ty &)': não é possível converter um argumento 1 de 'Triangulo' em 'const _Ty &'
+          with
+          [
+              _Ty=triangulo
+          ]
+  		C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,25):
+  		Razão: não é possível converter de 'Triangulo' para 'const _Ty'
+          with
+          [
+              _Ty=triangulo
+          ]
+  		C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,25):
+  		'triangulo::triangulo': nenhuma função sobrecarregada pode converter todos os tipos de argumento
+  			C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(14,1):
+  			poderia ser 'triangulo::triangulo(triangulo &&)'
+  				C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,25):
+  				'triangulo::triangulo(triangulo &&)': não é possível converter um argumento 1 de 'Triangulo' em 'triangulo &&'
+  					C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,25):
+  					Razão: não é possível converter de 'Triangulo' para 'triangulo'
+  					C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,25):
+  					Conversão requer um segundo operador de conversão definida pelo usuário ou construtor
+  			C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(14,1):
+  			ou       'triangulo::triangulo(const triangulo &)'
+  				C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,25):
+  				'triangulo::triangulo(const triangulo &)': não é possível converter um argumento 1 de 'Triangulo' em 'const triangulo &'
+  					C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,25):
+  					Razão: não é possível converter de 'Triangulo' para 'const triangulo'
+  					C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,25):
+  					Conversão requer um segundo operador de conversão definida pelo usuário ou construtor
+  			C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,25):
+  			ao tentar corresponder a lista de argumentos '(Triangulo)'
+  C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\inc\triangulo.cpp(26,14):
+  ao tentar corresponder a lista de argumentos '(Triangulo)'
+  
