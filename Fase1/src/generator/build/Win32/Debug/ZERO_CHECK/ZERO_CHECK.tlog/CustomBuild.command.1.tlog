@@ -1,0 +1,10 @@
+^C:\USERS\JOAON\SOURCE\REPOS\GRAPHICS-ENGINE-CG\FASE1\SRC\GENERATOR\BUILD\CMAKEFILES\DB2B6E27F378003E1CB4DC0BC2ACEF5F\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/joaon/source/repos/Graphics-Engine-CG/Fase1/src/generator -BC:/Users/joaon/source/repos/Graphics-Engine-CG/Fase1/src/generator/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/joaon/source/repos/Graphics-Engine-CG/Fase1/src/generator/build/Fase1.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
