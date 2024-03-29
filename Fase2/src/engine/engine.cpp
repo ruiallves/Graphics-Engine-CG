@@ -292,16 +292,6 @@ int main(int argc, char** argv) {
 	world = parseXmlFile(&world, ("../../../tests/" + filepath).c_str());
 	//configCam(world);
 	//prepareData(world);
-	//printWorld(world);
-	//LinkedList groups = getWorldGroups(world);
-	//Group group = (Group)getData(groups);
-	//LinkedList figuras = getGroupFigures(group);
-	//Figura f = (Figura)getData(figuras);
-
-	//cout << f->vertices[0]->x << '\n';
-	//cout << f->vertices[0]->y << '\n';
-	//cout << f->vertices[0]->z << '\n';
-
 	initGlut(argc, argv, world);
 
 	return 0;

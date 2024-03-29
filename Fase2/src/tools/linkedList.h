@@ -12,4 +12,7 @@ void setData(LinkedList ll, void* data);
 void* getData(LinkedList ll);
 void addChild(LinkedList* ll, void* data);
 
+void* getNext(LinkedList ll);
+void addLinkedChild(LinkedList ll, LinkedList ch);
+
 #endif
