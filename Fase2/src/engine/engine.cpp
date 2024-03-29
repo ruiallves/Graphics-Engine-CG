@@ -4,6 +4,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <cstdlib>
 //#include <GL/glew.h>
 #ifdef __APPLE__
 #include <GLUT/glut.h>
@@ -89,6 +90,11 @@ void drawVertices(Figura figura) {
 		std::cerr << "Figura não inicializada." << std::endl;
 		return;
 	}
+	//float r = static_cast<float>(rand()) / RAND_MAX;
+	//float g = static_cast<float>(rand()) / RAND_MAX;
+	//float b = static_cast<float>(rand()) / RAND_MAX;
+	//glColor3f(r, g, b);
+
 	glBegin(GL_TRIANGLES);
 	LinkedList currentVertice = getFiguraVertices(figura);
 	while (currentVertice != nullptr) {
@@ -242,18 +248,18 @@ void keyboardFunc(unsigned char key, int x, int y) {
 
 void keyboardspecial(int key, int x, int y) {
 	switch (key) {
-		case GLUT_KEY_UP:
-			yy += 1;
-			break;
-		case GLUT_KEY_DOWN:
-			yy -= 1;
-			break;
-		case GLUT_KEY_LEFT:
-			xx -= 1;
-			break;
-		case GLUT_KEY_RIGHT:
-			xx += 1;
-			break;
+	case GLUT_KEY_UP:
+		camy += 2; 
+		break;
+	case GLUT_KEY_DOWN:
+		camy -= 2; 
+		break;
+	case GLUT_KEY_LEFT:
+		camx += 2; 
+		break;
+	case GLUT_KEY_RIGHT:
+		camx -= 2;
+		break;
 	}
 	glutPostRedisplay();
 }

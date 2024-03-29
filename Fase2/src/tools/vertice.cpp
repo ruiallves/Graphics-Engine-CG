@@ -18,6 +18,14 @@ Vertice newVertice(float x, float y, float z) {
 	return newVertice;
 }
 
+Vertice newVerticeSph(float a, float b, float radius) {
+	float z = radius * cos(b) * cos(a);
+	float x = radius * cos(b) * sin(a);
+	float y = radius * sin(b);
+
+	return newVertice(x, y, z);
+}
+
 float getVerticeX(Vertice vertice) {
 	return vertice->x;
 }

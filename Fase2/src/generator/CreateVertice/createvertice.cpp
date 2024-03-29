@@ -81,6 +81,8 @@ Figura createCone(float radius, float height, int slices, int stacks) {
         alt2 = alturas;
         theta = nextTheta;
     }
+    setFiguraVertices(cone, vertices);
+
     return cone;
 }
 
@@ -228,4 +230,33 @@ Figura createBox(float size, int divisions) {
 
     setFiguraVertices(box, vertices);
     return box;
+}
+
+
+Figura createRing(float ri, float re, int slices) {
+    Figura ring = newFigura();
+    LinkedList vertices = newLinkedListEmpty();
+    float a = 0, delta = (2 * M_PI) / slices;
+    if (ring) {
+        for (int i = 0; i < slices; i++, a += delta) {
+            addChild(&vertices, newVerticeSph(a, 0.0f, ri));
+            addChild(&vertices, newVerticeSph(a, 0.0f, re));
+            addChild(&vertices, newVerticeSph(a + delta, 0.0f, ri));
+
+            addChild(&vertices, newVerticeSph(a + delta, 0.0f, ri));
+            addChild(&vertices, newVerticeSph(a, 0.0f, re));
+            addChild(&vertices, newVerticeSph(a + delta, 0.0f, re));
+
+            addChild(&vertices, newVerticeSph(a + delta, 0.0f, ri));
+            addChild(&vertices, newVerticeSph(a, 0.0f, re));
+            addChild(&vertices, newVerticeSph(a, 0.0f, ri));
+
+            addChild(&vertices, newVerticeSph(a, 0.0f, re));
+            addChild(&vertices, newVerticeSph(a + delta, 0.0f, ri));
+            addChild(&vertices, newVerticeSph(a + delta, 0.0f, re));
+        }
+    }
+    setFiguraVertices(ring, vertices);
+   
+    return ring;
 }

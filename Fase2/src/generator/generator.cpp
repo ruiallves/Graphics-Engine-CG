@@ -11,6 +11,7 @@
 #define SPHERE 1
 #define BOX 2
 #define CONE 3
+#define RING 4
 TiXmlDocument doc;
 
 
@@ -124,6 +125,7 @@ int main(int argc, char** argv) {
     else if (strcmp(argv[1], "box") == 0) shapeType = BOX;
     else if (strcmp(argv[1], "cone") == 0) shapeType = CONE;
     else if (strcmp(argv[1], "plane") == 0) shapeType = PLANE;
+    else if (strcmp(argv[1], "ring") == 0) shapeType = RING;
     
 
     switch (shapeType)
@@ -196,6 +198,24 @@ int main(int argc, char** argv) {
         figura = createCone(std::stof(argv[2]), std::stof(argv[3]), std::stof(argv[4]), std::stof(argv[5]));
         createFileType(getFiguraVertices(figura), argv[6], std::stof(argv[2]), std::stof(argv[3]), std::stof(argv[4]), std::stof(argv[5]));
         break;
+
+    case RING:
+
+        //argument control
+        if (argc != 6) {
+
+            printf("Wrong Number of arguments!");
+            return 1;
+
+        }
+
+       // printf("got RING ==DEBUG TO REMOVE==");
+
+        //build RING
+        figura = createRing(std::stof(argv[2]), std::stof(argv[3]), std::stof(argv[4]));
+        createFileType(getFiguraVertices(figura), argv[5], std::stof(argv[2]), std::stof(argv[3]), std::stof(argv[4]), -1);
+        break;
+        
 
     default:
 

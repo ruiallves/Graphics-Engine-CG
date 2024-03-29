@@ -19,6 +19,8 @@ void setVerticeY(Vertice vertice, float y);
 float getVerticeZ(Vertice vertice);
 void setVerticeZ(Vertice vertice, float z);
 
+Vertice newVerticeSph(float a, float b, float radius);
+
 void printVerticesLinkedList(LinkedList vertices);
 
 #endif /* VERTICE_H */
