@@ -18,4 +18,6 @@ void addLinkedChild(LinkedList ll, LinkedList ch);
 size_t getSizeOfTransformacoes(LinkedList trans);
 size_t getSizeOfFiguras(LinkedList figuras);
 
+void* getListElemAt(LinkedList list, unsigned long index);
+
 #endif

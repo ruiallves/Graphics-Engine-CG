@@ -100,3 +100,28 @@ size_t getSizeOfFiguras(LinkedList figuras) {
 
 	return size;
 }
+
+void* getListElemAt(LinkedList list, unsigned long index) {
+	if (list == nullptr) {
+		std::cerr << "Lista não inicializada." << std::endl;
+		return nullptr;
+	}
+
+	LinkedList currentNode = list;
+	unsigned long currentIndex = 0;
+
+	// Percorre a lista até o índice desejado ou até o final da lista
+	while (currentNode != nullptr && currentIndex < index) {
+		currentNode = (LinkedList)getNext(currentNode);
+		currentIndex++;
+	}
+
+	// Verifica se o índice fornecido está dentro do alcance da lista
+	if (currentNode == nullptr) {
+		std::cerr << "Índice fora do alcance da lista." << std::endl;
+		return nullptr;
+	}
+
+	// Retorna o dado armazenado no nó correspondente ao índice fornecido
+	return getData(currentNode);
+}

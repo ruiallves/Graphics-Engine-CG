@@ -85,45 +85,103 @@ void drawAxis() {
 	glEnd();
 }
 
-void drawVertices(Figura figura) {
-	if (figura == nullptr) {
-		std::cerr << "Figura não inicializada." << std::endl;
+void drawVertices(LinkedList figuras) {
+	// Verifica se a lista de figuras está inicializada
+	if (figuras == nullptr) {
+		std::cerr << "Lista de figuras não inicializada." << std::endl;
 		return;
 	}
-	//float r = static_cast<float>(rand()) / RAND_MAX;
-	//float g = static_cast<float>(rand()) / RAND_MAX;
-	//float b = static_cast<float>(rand()) / RAND_MAX;
-	//glColor3f(r, g, b);
 
-	glBegin(GL_TRIANGLES);
-	LinkedList currentVertice = getFiguraVertices(figura);
-	while (currentVertice != nullptr) {
-		Vertice vertice = (Vertice)getData(currentVertice);
-		if (vertice != nullptr) {
+	// Itera sobre cada figura na lista
+	LinkedList currentFigura = figuras;
+	while (currentFigura != nullptr) {
+		Figura figura = (Figura)getData(currentFigura);
+		if (figura != nullptr) {
+			// Inicia o desenho dos triângulos da figura atual
+			glBegin(GL_TRIANGLES);
 
-			float x = getVerticeX(vertice);
-			float y = getVerticeY(vertice);
-			float z = getVerticeZ(vertice);
-			glVertex3f(x, y, z);
+			// Obtém a lista de vértices da figura
+			LinkedList vertices = getFiguraVertices(figura);
+			LinkedList currentVertice = vertices;
+
+			// Desenha cada vértice da figura atual
+			while (currentVertice != nullptr) {
+				Vertice vertice = (Vertice)getData(currentVertice);
+				if (vertice != nullptr) {
+					float x = getVerticeX(vertice);
+					float y = getVerticeY(vertice);
+					float z = getVerticeZ(vertice);
+					glVertex3f(x, y, z);
+				}
+				currentVertice = (LinkedList)getNext(currentVertice);
+			}
+
+			// Finaliza o desenho dos triângulos da figura atual
+			glEnd();
 		}
-		currentVertice = (LinkedList)getNext(currentVertice);
+		// Avança para a próxima figura na lista
+		currentFigura = (LinkedList)getNext(currentFigura);
 	}
-
-	glEnd();
 }
 
+// VERSÃO ALTERNATIVA (TAMBEM NAO FUNCIONA)
+//void drawGroups(LinkedList groups) {
+//	if (groups) {
+//		glPushMatrix(); // guarda o estado dos eixos
+//
+//		Group group = (Group)getData(groups);
+//		LinkedList transforms = getGroupTransforms(group), models = getGroupFigures(group);
+//
+//		LinkedList currentTransform = transforms;
+//		while (currentTransform != nullptr) {
+//			Transform t = (Transform)getData(currentTransform);
+//			if (t != nullptr) {
+//				float x = getTransformX(t);
+//				float y = getTransformY(t);
+//				float z = getTransformZ(t);
+//				char tr_type = getTransformType(t);
+//				if (tr_type == 'r') {
+//					float angle = getTransformAngle(t);
+//					glRotatef(angle, x, y, z);
+//				}
+//				else if (tr_type == 't') {
+//					glTranslatef(x, y, z);
+//				}
+//				else if (tr_type == 's') {
+//					glScalef(x, y, z);
+//				}
+//			}
+//			currentTransform = (LinkedList)getNext(currentTransform);
+//		}
+//
+//		// Desenho das figuras
+//		glBegin(GL_TRIANGLES);
+//		drawVertices(models);
+//		glEnd();
+//
+//		// Procede para fazer o mesmo aos nodos filho. 
+//		LinkedList child = (LinkedList)getNext(groups);
+//		for (unsigned long i = 0; i < getSizeOfFiguras(child);i++) {
+//			LinkedList next = (LinkedList)getListElemAt(child, i);
+//			drawGroups(child);
+//		}
+//		glPopMatrix(); // retorna ao respetivo estado anterior dos eixos.
+//
+//	}
+//}
 
+//VERSÃO ORIGINAL(NÃO FUNCIONA)
 void drawGroups(LinkedList groups) {
 	if (groups == nullptr) {
 		std::cerr << "Lista de grupos não inicializada." << std::endl;
 		return;
 	}
 
-	glPushMatrix();
 
 	// Desenhar cada grupo
 	LinkedList currentGroup = groups;
 	while (currentGroup != nullptr) {
+		glPushMatrix();
 		Group group = (Group)getData(currentGroup);
 		if (group != nullptr) {
 			// Obter as transformações e figuras do grupo atual
@@ -156,19 +214,18 @@ void drawGroups(LinkedList groups) {
 			// Desenhar as figuras do grupo
 			LinkedList currentFigura = figuras;
 			while (currentFigura != nullptr) {
-				Figura figura = (Figura)getData(currentFigura);
-				if (figura != nullptr) {
-					drawVertices(figura);
-				}
+				drawVertices(currentFigura);
 				currentFigura = (LinkedList)getNext(currentFigura);
 			}
 		}
 		// Avançar para o próximo grupo
 		currentGroup = (LinkedList)getNext(currentGroup);
+
+		glPopMatrix();
 	}
 
-	glPopMatrix();
 }
+
 
 void renderScene(void) {
 
