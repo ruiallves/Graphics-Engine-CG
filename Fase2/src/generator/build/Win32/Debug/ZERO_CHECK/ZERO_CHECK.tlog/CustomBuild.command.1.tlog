@@ -1,6 +1,6 @@
-^C:\USERS\RUIST\SOURCE\REPOS\RUIALLVES\GRAPHICS-ENGINE-CG\FASE1\SRC\GENERATOR\BUILD\CMAKEFILES\E2D5200014CD5BE6B5B98737CFD64C23\GENERATE.STAMP.RULE
+^C:\USERS\UTILIZADOR\SOURCE\REPOS\RUIALLVES\GRAPHICS-ENGINE-CG\FASE2\SRC\GENERATOR\BUILD\CMAKEFILES\8AB5747D5D9E6F66522EB2F4FF0F9B83\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase1/src/generator -BC:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase1/src/generator/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase1/src/generator/build/Fase1.sln
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator -BC:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build/Fase1.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

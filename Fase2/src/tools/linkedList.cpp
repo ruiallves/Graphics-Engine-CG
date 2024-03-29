@@ -77,5 +77,26 @@ void addLinkedChild(LinkedList ll, LinkedList ch) {
 	}
 }
 
+size_t getSizeOfTransformacoes(LinkedList transformacoes) {
+	size_t size = 0;
+	LinkedList currentNode = transformacoes;
 
+	while (currentNode != NULL) {
+		size++;
+		currentNode = (LinkedList)getNext(currentNode);
+	}
 
+	return size;
+}
+
+size_t getSizeOfFiguras(LinkedList figuras) {
+	size_t size = 0;
+	LinkedList currentNode = figuras;
+
+	while (currentNode != NULL) {
+		size++;
+		currentNode = (LinkedList)getNext(currentNode);
+	}
+
+	return size;
+}

@@ -15,4 +15,7 @@ void addChild(LinkedList* ll, void* data);
 void* getNext(LinkedList ll);
 void addLinkedChild(LinkedList ll, LinkedList ch);
 
+size_t getSizeOfTransformacoes(LinkedList trans);
+size_t getSizeOfFiguras(LinkedList figuras);
+
 #endif

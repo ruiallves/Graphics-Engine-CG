@@ -1,6 +1,6 @@
-﻿  createVertice.cpp
-C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\generator\createVertice\createVertice.cpp(33,17): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\generator\createVertice\createVertice.cpp(201,18): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\generator\createVertice\createVertice.cpp(202,18): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\generator\createVertice\createVertice.cpp(204,18): warning C4305: 'inicializando': truncamento de 'double' para 'float'
-  CreateVertice.vcxproj -> C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\generator\build\Debug\CreateVertice.lib
+﻿  createvertice.cpp
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\generator\CreateVertice\createvertice.cpp(37,17): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\generator\CreateVertice\createvertice.cpp(91,18): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\generator\CreateVertice\createvertice.cpp(92,18): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\generator\CreateVertice\createvertice.cpp(94,18): warning C4305: 'inicializando': truncamento de 'double' para 'float'
+  CreateVertice.vcxproj -> C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\generator\build\Debug\CreateVertice.lib

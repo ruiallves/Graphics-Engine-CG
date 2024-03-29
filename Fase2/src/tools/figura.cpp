@@ -46,7 +46,7 @@ Figura fileToFigura(const char* model) {
         cerr << "Erro ao abrir o arquivo: " << model << endl;
         return NULL;
     }
-    cout << "Ficheiro aberto com sucesso!";
+    cout << "Ficheiro aberto com sucesso!\n";
 
     float x, y, z;
     LinkedList vertices = newLinkedListEmpty();

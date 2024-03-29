@@ -18,6 +18,8 @@
 
 using namespace std;
 
+World world = newConfig();
+
 float red = 1;
 float green = 1;
 float blue = 1;
@@ -33,8 +35,6 @@ float lookAtz = 0.0f;
 float upx = 0.0f;
 float upy = 1.0f;
 float upz = 0.0f;
-
-vector<Figura> figuras;
 
 GLenum mode = GL_LINE;
 
@@ -84,59 +84,84 @@ void drawAxis() {
 	glEnd();
 }
 
-//void prepareData(World world) {
-//
-//	for (int i = 0; i < world->numFiles; ++i) {
-//		string filepath = "../../../outputs/" + world->files[i];
-//		ifstream file(filepath);
-//		if (!file) {
-//			cerr << "Erro ao abrir o arquivo: " << world->files[i] << endl;
-//			return;
-//		}
-//
-//		float x, y, z;
-//		vector<Vertice> vertices;
-//
-//		string line;
-//		while (getline(file, line)) {
-//			istringstream iss(line);
-//			string token;
-//			float coord;
-//			vector<float> coords;
-//
-//			while (getline(iss, token, ',')) {
-//				istringstream(token) >> coord;
-//				coords.push_back(coord);
-//			}
-//
-//			if (coords.size() != 3) {
-//				cerr << "Erro ao ler linha do arquivo: " << world->files[i] << endl;
-//				continue;
-//			}
-//
-//			vertices.push_back(newVertice(coords[0], coords[1], coords[2]));
-//		}
-//
-//		Figura fig = newFigura();
-//		fig->vertices = vertices;
-//		figuras.push_back(fig);
-//
-//		file.close();
-//	}
-//}
+void drawVertices(Figura figura) {
+	if (figura == nullptr) {
+		std::cerr << "Figura não inicializada." << std::endl;
+		return;
+	}
+	glBegin(GL_TRIANGLES);
+	LinkedList currentVertice = getFiguraVertices(figura);
+	while (currentVertice != nullptr) {
+		Vertice vertice = (Vertice)getData(currentVertice);
+		if (vertice != nullptr) {
 
-void drawVertices() {
-	//glBegin(GL_TRIANGLES);
+			float x = getVerticeX(vertice);
+			float y = getVerticeY(vertice);
+			float z = getVerticeZ(vertice);
+			glVertex3f(x, y, z);
+		}
+		currentVertice = (LinkedList)getNext(currentVertice);
+	}
 
-	//for (size_t i = 0; i < figuras.size();i++) {
-	//	Figura fig = figuras[i];
-	//	for (size_t j = 0; j < fig->vertices.size();j++) {
-	//		Vertice atualVertice = fig->vertices[j];
-	//		glVertex3f(atualVertice->x, atualVertice->y, atualVertice->z);
-	//	}
-	//}
+	glEnd();
+}
 
-	//glEnd();
+
+void drawGroups(LinkedList groups) {
+	if (groups == nullptr) {
+		std::cerr << "Lista de grupos não inicializada." << std::endl;
+		return;
+	}
+
+	glPushMatrix();
+
+	// Desenhar cada grupo
+	LinkedList currentGroup = groups;
+	while (currentGroup != nullptr) {
+		Group group = (Group)getData(currentGroup);
+		if (group != nullptr) {
+			// Obter as transformações e figuras do grupo atual
+			LinkedList transforms = getGroupTransforms(group);
+			LinkedList figuras = getGroupFigures(group);
+
+			// Aplicar as transformações do grupo
+			LinkedList currentTransform = transforms;
+			while (currentTransform != nullptr) {
+				Transform t = (Transform)getData(currentTransform);
+				if (t != nullptr) {
+					float x = getTransformX(t);
+					float y = getTransformY(t);
+					float z = getTransformZ(t);
+					char tr_type = getTransformType(t);
+					if (tr_type == 'r') {
+						float angle = getTransformAngle(t);
+						glRotatef(angle, x, y, z);
+					}
+					else if (tr_type == 't') {
+						glTranslatef(x, y, z);
+					}
+					else if (tr_type == 's') {
+						glScalef(x, y, z);
+					}
+				}
+				currentTransform = (LinkedList)getNext(currentTransform);
+			}
+
+			// Desenhar as figuras do grupo
+			LinkedList currentFigura = figuras;
+			while (currentFigura != nullptr) {
+				Figura figura = (Figura)getData(currentFigura);
+				if (figura != nullptr) {
+					drawVertices(figura);
+				}
+				currentFigura = (LinkedList)getNext(currentFigura);
+			}
+		}
+		// Avançar para o próximo grupo
+		currentGroup = (LinkedList)getNext(currentGroup);
+	}
+
+	glPopMatrix();
 }
 
 void renderScene(void) {
@@ -150,13 +175,12 @@ void renderScene(void) {
 		lookAtx, lookAty, lookAtz,
 		upx, upy, upz);
 
-	//drawAxis();
-	glPolygonMode(GL_FRONT_AND_BACK, mode);
-	glTranslatef(xx, yy, zz);
-	glRotatef(angleY, 0.0, 1.0, 0.0);
-	glRotatef(angleX, 1.0, 0.0, 0.0);
-	drawVertices();
+	drawAxis();
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glPolygonMode(GL_FRONT_AND_BACK, mode);	
 
+	LinkedList group = getWorldGroups(world);
+	drawGroups(group);
 
 	// End of frame
 	glutSwapBuffers();
@@ -262,25 +286,25 @@ int initGlut(int argc, char** argv, World world) {
 	return 1;
 }
 
-//void configCam(World world) {
-//	if (world) {
-//		
-//		camx = world->camera.position[0];
-//		camy = world->camera.position[1];
-//		camz = world->camera.position[2];
-//
-//		lookAtx = world->camera.lookAt[0];
-//		lookAty = world->camera.lookAt[1];
-//		lookAtz = world->camera.lookAt[2];
-//
-//		upx = world->camera.up[0];
-//		upy = world->camera.up[1];
-//		upz = world->camera.up[2];
-//	}
-//	else {
-//		std::cout << ("Cannot read camera configuration from invalid 'world' object.\n");
-//	}
-//}
+void configCam(World world) {
+	if (world) {
+		
+		camx = getCameraPosition(getWorldCamera(world))[0];
+		camy = getCameraPosition(getWorldCamera(world))[1];
+		camz = getCameraPosition(getWorldCamera(world))[2];
+
+		lookAtx = getCameraLookAt(getWorldCamera(world))[0];
+		lookAty = getCameraLookAt(getWorldCamera(world))[1];
+		lookAtz = getCameraLookAt(getWorldCamera(world))[2];
+
+		upx = getCameraUp(getWorldCamera(world))[0];
+		upy = getCameraUp(getWorldCamera(world))[1];
+		upz = getCameraUp(getWorldCamera(world))[2];
+	}
+	else {
+		std::cout << ("Cannot read camera configuration from invalid 'world' object.\n");
+	}
+}
 
 int main(int argc, char** argv) {
 	if (argc < 2) {
@@ -288,10 +312,8 @@ int main(int argc, char** argv) {
 		return 1;
 	}
 	std::string filepath = argv[1];
-	World world = newConfig();
 	world = parseXmlFile(&world, ("../../../tests/" + filepath).c_str());
-	//configCam(world);
-	//prepareData(world);
+	configCam(world);
 	initGlut(argc, argv, world);
 
 	return 0;

@@ -180,7 +180,10 @@ void setWorldCamera(World world, Camera camera) {
 }
 
 LinkedList getWorldGroups(World world) {
-    return world->grupos;
+    if (world) {
+        return world->grupos;
+    }
+    return NULL;
 }
 
 void setWorldGroups(World world, LinkedList grupos) {
@@ -270,7 +273,6 @@ void setProjection(Projection projection, float fov, float near, float far) {
     projection->far = far;
 }
 
-
 void printTransforms(LinkedList transforms) {
     LinkedList current = transforms;
 
@@ -320,6 +322,20 @@ void addModel(LinkedList ll, Figura figura) {
         setGroupFigures(group, figuras);
     }
 }
+
+void printGroup(Group group) {
+    if (group == nullptr) {
+        std::cerr << "Grupo não inicializado." << std::endl;
+        return;
+    }
+
+    std::cout << "Transformações do grupo:" << std::endl;
+    printTransforms(getGroupTransforms(group));
+
+    std::cout << "Figuras do grupo:" << std::endl;
+    printFiguras(getGroupFigures(group));
+}
+
 
 
 LinkedList parseGroups(TiXmlElement* group) {

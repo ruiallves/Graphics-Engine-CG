@@ -20,16 +20,15 @@ TiXmlDocument doc;
 using namespace std;
 
 
-int createFileType(vector<Vertice> vertices, string name, int arg1, int arg2, int arg3, int arg4) {
-
+int createFileType(LinkedList vertices, string name, int arg1, int arg2, int arg3, int arg4) {
     // Encontrar a posição do ponto
-    auto dot_pos = std::find(name.begin(), name.end(), '.');
+    auto dot_pos = name.find('.');
 
     // Obter a substring antes do ponto
-    std::string prefix = name.substr(0, dot_pos - name.begin());
+    std::string prefix = name.substr(0, dot_pos);
 
     // Obter a substring após o ponto
-    std::string suffix = name.substr(dot_pos - name.begin());
+    std::string suffix = name.substr(dot_pos);
 
     string filePath;
 
@@ -43,16 +42,20 @@ int createFileType(vector<Vertice> vertices, string name, int arg1, int arg2, in
         filePath = "../../../outputs/" + prefix + "_" + std::to_string(arg1) + "_" + std::to_string(arg2) + "_" + std::to_string(arg3) + "_" + std::to_string(arg4) + suffix; // Nome do arquivo com extensão .3d
     }
 
-    ofstream file(filePath); // Abrindo o arquivo para escrita
+    ofstream file(filePath);
 
     if (!file.is_open()) {
         cout << "Erro ao criar o arquivo " << filePath << endl;
         return -1;
     }
 
-    // Escrevendo os vértices no arquivo, um por linha
-    for (const Vertice& v : vertices) {
-        file << v->x << "," << v->y << "," << v->z << endl;
+    LinkedList currentVertice = vertices;
+    while (currentVertice != nullptr) {
+        Vertice v = (Vertice)getData(currentVertice);
+        if (v != nullptr) {
+            file << getVerticeX(v) << "," << getVerticeY(v) << "," << getVerticeZ(v) << endl;
+        }
+        currentVertice = (LinkedList)getNext(currentVertice);
     }
 
     file.close();
@@ -138,7 +141,7 @@ int main(int argc, char** argv) {
         
         //build PLANE
         figura = createPlane(std::stof(argv[2]), std::stof(argv[3]));
-        createFileType(figura->vertices, argv[4], std::stof(argv[2]), std::stof(argv[3]), -1, -1);
+        createFileType(getFiguraVertices(figura), argv[4], std::stof(argv[2]), std::stof(argv[3]), -1, -1);
         
         break;
 
@@ -156,7 +159,7 @@ int main(int argc, char** argv) {
         
         //build SPHERE
         figura = createSphere(std::stof(argv[2]), std::stof(argv[3]), std::stof(argv[4]));
-        createFileType(figura->vertices, argv[5], std::stof(argv[2]), std::stof(argv[3]), std::stof(argv[4]), -1);
+        createFileType(getFiguraVertices(figura), argv[5], std::stof(argv[2]), std::stof(argv[3]), std::stof(argv[4]), -1);
         break;
 
     case BOX:
@@ -173,7 +176,7 @@ int main(int argc, char** argv) {
         
         //build BOX
         figura = createBox(std::stof(argv[2]), std::stof(argv[3]));
-        createFileType(figura->vertices, argv[4], std::stof(argv[2]), std::stof(argv[3]), -1, -1);
+        createFileType(getFiguraVertices(figura), argv[4], std::stof(argv[2]), std::stof(argv[3]), -1, -1);
         
         break;
 
@@ -191,7 +194,7 @@ int main(int argc, char** argv) {
         
         //build CONE
         figura = createCone(std::stof(argv[2]), std::stof(argv[3]), std::stof(argv[4]), std::stof(argv[5]));
-        createFileType(figura->vertices, argv[6], std::stof(argv[2]), std::stof(argv[3]), std::stof(argv[4]), std::stof(argv[5]));
+        createFileType(getFiguraVertices(figura), argv[6], std::stof(argv[2]), std::stof(argv[3]), std::stof(argv[4]), std::stof(argv[5]));
         break;
 
     default:

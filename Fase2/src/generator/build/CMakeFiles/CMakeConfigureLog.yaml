@@ -5,16 +5,16 @@ events:
     kind: "message-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineSystem.cmake:205 (message)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:4 (PROJECT)"
     message: |
-      The system is: Windows - 10.0.22631 - AMD64
+      The system is: Windows - 10.0.19045 - AMD64
   -
     kind: "message-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:4 (PROJECT)"
     message: |
       Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
       Compiler:  
@@ -24,9 +24,9 @@ events:
       The output was:
       0
       MSBuild version 17.9.5+33de0b227 for .NET Framework
-      Build started 08/03/2024 15:43:45.
+      Build started 29/03/2024 18:55:43.
       
-      Project "C:\\Users\\ruist\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\generator\\build\\CMakeFiles\\3.29.0-rc1\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
+      Project "C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase2\\src\\generator\\build\\CMakeFiles\\3.29.0-rc2\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
       PrepareForBuild:
         Creating directory "Debug\\".
         Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
@@ -39,7 +39,7 @@ events:
         CMakeCCompilerId.c
       Link:
         C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X86 /SAFESEH Debug\\CMakeCCompilerId.obj
-        CompilerIdC.vcxproj -> C:\\Users\\ruist\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\generator\\build\\CMakeFiles\\3.29.0-rc1\\CompilerIdC\\CompilerIdC.exe
+        CompilerIdC.vcxproj -> C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase2\\src\\generator\\build\\CMakeFiles\\3.29.0-rc2\\CompilerIdC\\CompilerIdC.exe
       PostBuildEvent:
         for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
         :VCEnd
@@ -47,13 +47,13 @@ events:
       FinalizeBuildStatus:
         Deleting file "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
         Touching "Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate".
-      Done Building Project "C:\\Users\\ruist\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\generator\\build\\CMakeFiles\\3.29.0-rc1\\CompilerIdC\\CompilerIdC.vcxproj" (default targets).
+      Done Building Project "C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase2\\src\\generator\\build\\CMakeFiles\\3.29.0-rc2\\CompilerIdC\\CompilerIdC.vcxproj" (default targets).
       
       Build succeeded.
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.80
+      Time Elapsed 00:00:00.77
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -61,7 +61,7 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
       
       The C compiler identification is MSVC, found in:
-        C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase1/src/generator/build/CMakeFiles/3.29.0-rc1/CompilerIdC/CompilerIdC.exe
+        C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build/CMakeFiles/3.29.0-rc2/CompilerIdC/CompilerIdC.exe
       
   -
     kind: "message-v1"
@@ -69,7 +69,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:4 (PROJECT)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
       Compiler:  
@@ -79,9 +79,9 @@ events:
       The output was:
       0
       MSBuild version 17.9.5+33de0b227 for .NET Framework
-      Build started 08/03/2024 15:43:46.
+      Build started 29/03/2024 18:55:44.
       
-      Project "C:\\Users\\ruist\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\generator\\build\\CMakeFiles\\3.29.0-rc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
+      Project "C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase2\\src\\generator\\build\\CMakeFiles\\3.29.0-rc2\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
         Creating directory "Debug\\".
         Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
@@ -94,7 +94,7 @@ events:
         CMakeCXXCompilerId.cpp
       Link:
         C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X86 /SAFESEH Debug\\CMakeCXXCompilerId.obj
-        CompilerIdCXX.vcxproj -> C:\\Users\\ruist\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\generator\\build\\CMakeFiles\\3.29.0-rc1\\CompilerIdCXX\\CompilerIdCXX.exe
+        CompilerIdCXX.vcxproj -> C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase2\\src\\generator\\build\\CMakeFiles\\3.29.0-rc2\\CompilerIdCXX\\CompilerIdCXX.exe
       PostBuildEvent:
         for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
         :VCEnd
@@ -102,13 +102,13 @@ events:
       FinalizeBuildStatus:
         Deleting file "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
         Touching "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
-      Done Building Project "C:\\Users\\ruist\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\generator\\build\\CMakeFiles\\3.29.0-rc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default targets).
+      Done Building Project "C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase2\\src\\generator\\build\\CMakeFiles\\3.29.0-rc2\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default targets).
       
       Build succeeded.
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.58
+      Time Elapsed 00:00:00.70
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -116,59 +116,60 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
       
       The CXX compiler identification is MSVC, found in:
-        C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase1/src/generator/build/CMakeFiles/3.29.0-rc1/CompilerIdCXX/CompilerIdCXX.exe
+        C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build/CMakeFiles/3.29.0-rc2/CompilerIdCXX/CompilerIdCXX.exe
       
   -
     kind: "try_compile-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:64 (try_compile)"
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:4 (PROJECT)"
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase1/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-ylqvvi"
-      binary: "C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase1/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-ylqvvi"
+      source: "C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-2k2wsv"
+      binary: "C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-2k2wsv"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:X86"
     buildResult:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase1/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-ylqvvi'
+        Change Dir: 'C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-2k2wsv'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_1a521.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_9ad7f.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.9.5+33de0b227 for .NET Framework
-        Build started 08/03/2024 15:43:47.
+        Build started 29/03/2024 18:55:46.
         
-        Project "C:\\Users\\ruist\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ylqvvi\\cmTC_1a521.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase2\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2k2wsv\\cmTC_9ad7f.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_1a521.dir\\Debug\\".
+          Creating directory "cmTC_9ad7f.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\ruist\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ylqvvi\\Debug\\".
-          Creating directory "cmTC_1a521.dir\\Debug\\cmTC_1a521.tlog\\".
+          Creating directory "C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase2\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2k2wsv\\Debug\\".
+          Creating directory "cmTC_9ad7f.dir\\Debug\\cmTC_9ad7f.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_1a521.dir\\Debug\\cmTC_1a521.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_1a521.dir\\Debug\\cmTC_1a521.tlog\\unsuccessfulbuild".
+          Creating "cmTC_9ad7f.dir\\Debug\\cmTC_9ad7f.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_9ad7f.dir\\Debug\\cmTC_9ad7f.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\bin\\HostX64\\x86\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1a521.dir\\Debug\\\\" /Fd"cmTC_1a521.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\bin\\HostX64\\x86\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9ad7f.dir\\Debug\\\\" /Fd"cmTC_9ad7f.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++ Optimizing Compiler VersÆo 19.39.33521 para x86
           Copyright (C) Microsoft Corporation. Todos os direitos reservados.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1a521.dir\\Debug\\\\" /Fd"cmTC_1a521.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9ad7f.dir\\Debug\\\\" /Fd"cmTC_9ad7f.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\ruist\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ylqvvi\\Debug\\cmTC_1a521.exe" /INCREMENTAL /ILK:"cmTC_1a521.dir\\Debug\\cmTC_1a521.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase1/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-ylqvvi/Debug/cmTC_1a521.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase1/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-ylqvvi/Debug/cmTC_1a521.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_1a521.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_1a521.vcxproj -> C:\\Users\\ruist\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ylqvvi\\Debug\\cmTC_1a521.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase2\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2k2wsv\\Debug\\cmTC_9ad7f.exe" /INCREMENTAL /ILK:"cmTC_9ad7f.dir\\Debug\\cmTC_9ad7f.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-2k2wsv/Debug/cmTC_9ad7f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-2k2wsv/Debug/cmTC_9ad7f.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_9ad7f.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_9ad7f.vcxproj -> C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase2\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2k2wsv\\Debug\\cmTC_9ad7f.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_1a521.dir\\Debug\\cmTC_1a521.tlog\\unsuccessfulbuild".
-          Touching "cmTC_1a521.dir\\Debug\\cmTC_1a521.tlog\\cmTC_1a521.lastbuildstate".
-        Done Building Project "C:\\Users\\ruist\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ylqvvi\\cmTC_1a521.vcxproj" (default targets).
+          Deleting file "cmTC_9ad7f.dir\\Debug\\cmTC_9ad7f.tlog\\unsuccessfulbuild".
+          Touching "cmTC_9ad7f.dir\\Debug\\cmTC_9ad7f.tlog\\cmTC_9ad7f.lastbuildstate".
+        Done Building Project "C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase2\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2k2wsv\\cmTC_9ad7f.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.60
+        Time Elapsed 00:00:00.67
         
       exitCode: 0
   -
@@ -176,7 +177,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:170 (message)"
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:4 (PROJECT)"
     message: |
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
@@ -194,7 +195,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:207 (cmake_determine_linker_id)"
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:4 (PROJECT)"
     message: |
       Running the C compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.39.33519/bin/HostX64/x86/link.exe" "-v"
       Microsoft (R) Incremental Linker Version 14.39.33521.0
@@ -204,52 +205,53 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:64 (try_compile)"
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:4 (PROJECT)"
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase1/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-qr5ur5"
-      binary: "C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase1/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-qr5ur5"
+      source: "C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-i206jz"
+      binary: "C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-i206jz"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:X86"
     buildResult:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase1/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-qr5ur5'
+        Change Dir: 'C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-i206jz'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_65f5f.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_04b7e.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.9.5+33de0b227 for .NET Framework
-        Build started 08/03/2024 15:43:48.
+        Build started 29/03/2024 18:55:47.
         
-        Project "C:\\Users\\ruist\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qr5ur5\\cmTC_65f5f.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase2\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i206jz\\cmTC_04b7e.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_65f5f.dir\\Debug\\".
+          Creating directory "cmTC_04b7e.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\ruist\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qr5ur5\\Debug\\".
-          Creating directory "cmTC_65f5f.dir\\Debug\\cmTC_65f5f.tlog\\".
+          Creating directory "C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase2\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i206jz\\Debug\\".
+          Creating directory "cmTC_04b7e.dir\\Debug\\cmTC_04b7e.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_65f5f.dir\\Debug\\cmTC_65f5f.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_65f5f.dir\\Debug\\cmTC_65f5f.tlog\\unsuccessfulbuild".
+          Creating "cmTC_04b7e.dir\\Debug\\cmTC_04b7e.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_04b7e.dir\\Debug\\cmTC_04b7e.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\bin\\HostX64\\x86\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_65f5f.dir\\Debug\\\\" /Fd"cmTC_65f5f.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\bin\\HostX64\\x86\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_04b7e.dir\\Debug\\\\" /Fd"cmTC_04b7e.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler VersÆo 19.39.33521 para x86
           Copyright (C) Microsoft Corporation. Todos os direitos reservados.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_65f5f.dir\\Debug\\\\" /Fd"cmTC_65f5f.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_04b7e.dir\\Debug\\\\" /Fd"cmTC_04b7e.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\ruist\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qr5ur5\\Debug\\cmTC_65f5f.exe" /INCREMENTAL /ILK:"cmTC_65f5f.dir\\Debug\\cmTC_65f5f.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase1/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-qr5ur5/Debug/cmTC_65f5f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase1/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-qr5ur5/Debug/cmTC_65f5f.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_65f5f.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_65f5f.vcxproj -> C:\\Users\\ruist\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qr5ur5\\Debug\\cmTC_65f5f.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase2\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i206jz\\Debug\\cmTC_04b7e.exe" /INCREMENTAL /ILK:"cmTC_04b7e.dir\\Debug\\cmTC_04b7e.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-i206jz/Debug/cmTC_04b7e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build/CMakeFiles/CMakeScratch/TryCompile-i206jz/Debug/cmTC_04b7e.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_04b7e.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_04b7e.vcxproj -> C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase2\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i206jz\\Debug\\cmTC_04b7e.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_65f5f.dir\\Debug\\cmTC_65f5f.tlog\\unsuccessfulbuild".
-          Touching "cmTC_65f5f.dir\\Debug\\cmTC_65f5f.tlog\\cmTC_65f5f.lastbuildstate".
-        Done Building Project "C:\\Users\\ruist\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase1\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qr5ur5\\cmTC_65f5f.vcxproj" (default targets).
+          Deleting file "cmTC_04b7e.dir\\Debug\\cmTC_04b7e.tlog\\unsuccessfulbuild".
+          Touching "cmTC_04b7e.dir\\Debug\\cmTC_04b7e.tlog\\cmTC_04b7e.lastbuildstate".
+        Done Building Project "C:\\Users\\Utilizador\\source\\repos\\ruiallves\\Graphics-Engine-CG\\Fase2\\src\\generator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i206jz\\cmTC_04b7e.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.58
+        Time Elapsed 00:00:00.79
         
       exitCode: 0
   -
@@ -257,7 +259,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:170 (message)"
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:4 (PROJECT)"
     message: |
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
@@ -275,7 +277,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:207 (cmake_determine_linker_id)"
       - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:4 (PROJECT)"
     message: |
       Running the CXX compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.39.33519/bin/HostX64/x86/link.exe" "-v"
       Microsoft (R) Incremental Linker Version 14.39.33521.0
