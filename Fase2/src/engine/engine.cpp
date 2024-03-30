@@ -125,107 +125,50 @@ void drawVertices(LinkedList figuras) {
 }
 
 // VERSÃO ALTERNATIVA (TAMBEM NAO FUNCIONA)
-//void drawGroups(LinkedList groups) {
-//	if (groups) {
-//		glPushMatrix(); // guarda o estado dos eixos
-//
-//		Group group = (Group)getData(groups);
-//		LinkedList transforms = getGroupTransforms(group), models = getGroupFigures(group);
-//
-//		LinkedList currentTransform = transforms;
-//		while (currentTransform != nullptr) {
-//			Transform t = (Transform)getData(currentTransform);
-//			if (t != nullptr) {
-//				float x = getTransformX(t);
-//				float y = getTransformY(t);
-//				float z = getTransformZ(t);
-//				char tr_type = getTransformType(t);
-//				if (tr_type == 'r') {
-//					float angle = getTransformAngle(t);
-//					glRotatef(angle, x, y, z);
-//				}
-//				else if (tr_type == 't') {
-//					glTranslatef(x, y, z);
-//				}
-//				else if (tr_type == 's') {
-//					glScalef(x, y, z);
-//				}
-//			}
-//			currentTransform = (LinkedList)getNext(currentTransform);
-//		}
-//
-//		// Desenho das figuras
-//		glBegin(GL_TRIANGLES);
-//		drawVertices(models);
-//		glEnd();
-//
-//		// Procede para fazer o mesmo aos nodos filho. 
-//		LinkedList child = (LinkedList)getNext(groups);
-//		for (unsigned long i = 0; i < getSizeOfFiguras(child);i++) {
-//			LinkedList next = (LinkedList)getListElemAt(child, i);
-//			drawGroups(child);
-//		}
-//		glPopMatrix(); // retorna ao respetivo estado anterior dos eixos.
-//
-//	}
-//}
+void drawGroups(Arvore groups) {
+	if (groups) {
+		glPushMatrix(); // guarda o estado dos eixos
 
-//VERSÃO ORIGINAL(NÃO FUNCIONA)
-void drawGroups(LinkedList groups) {
-	if (groups == nullptr) {
-		std::cerr << "Lista de grupos não inicializada." << std::endl;
-		return;
-	}
+		Group group = (Group)getDataArvore(groups);
+		LinkedList transforms = getGroupTransforms(group), models = getGroupFigures(group);
 
-
-	// Desenhar cada grupo
-	LinkedList currentGroup = groups;
-	while (currentGroup != nullptr) {
-		glPushMatrix();
-		Group group = (Group)getData(currentGroup);
-		if (group != nullptr) {
-			// Obter as transformações e figuras do grupo atual
-			LinkedList transforms = getGroupTransforms(group);
-			LinkedList figuras = getGroupFigures(group);
-
-			// Aplicar as transformações do grupo
-			LinkedList currentTransform = transforms;
-			while (currentTransform != nullptr) {
-				Transform t = (Transform)getData(currentTransform);
-				if (t != nullptr) {
-					float x = getTransformX(t);
-					float y = getTransformY(t);
-					float z = getTransformZ(t);
-					char tr_type = getTransformType(t);
-					if (tr_type == 'r') {
-						float angle = getTransformAngle(t);
-						glRotatef(angle, x, y, z);
-					}
-					else if (tr_type == 't') {
-						glTranslatef(x, y, z);
-					}
-					else if (tr_type == 's') {
-						glScalef(x, y, z);
-					}
+		LinkedList currentTransform = transforms;
+		while (currentTransform != nullptr) {
+			Transform t = (Transform)getData(currentTransform);
+			if (t != nullptr) {
+				float x = getTransformX(t);
+				float y = getTransformY(t);
+				float z = getTransformZ(t);
+				char tr_type = getTransformType(t);
+				if (tr_type == 'r') {
+					float angle = getTransformAngle(t);
+					glRotatef(angle, x, y, z);
 				}
-				currentTransform = (LinkedList)getNext(currentTransform);
+				else if (tr_type == 't') {
+					glTranslatef(x, y, z);
+				}
+				else if (tr_type == 's') {
+					glScalef(x, y, z);
+				}
 			}
-
-			// Desenhar as figuras do grupo
-			LinkedList currentFigura = figuras;
-			while (currentFigura != nullptr) {
-				drawVertices(currentFigura);
-				currentFigura = (LinkedList)getNext(currentFigura);
-			}
+			currentTransform = (LinkedList)getNext(currentTransform);
 		}
-		// Avançar para o próximo grupo
-		currentGroup = (LinkedList)getNext(currentGroup);
 
-		glPopMatrix();
+		// Desenho das figuras
+		glBegin(GL_TRIANGLES);
+		drawVertices(models);
+		glEnd();
+
+		// Procede para fazer o mesmo aos nodos filho. 
+		LinkedList child = (LinkedList)getFilhosArvore(groups);
+		for (unsigned long i = 0; i < getSizeOfFiguras(child);i++) {
+			Arvore next = (Arvore)getListElemAt(child, i);
+			drawGroups(next);
+		}
+		glPopMatrix(); // retorna ao respetivo estado anterior dos eixos.
+
 	}
-
 }
-
 
 void renderScene(void) {
 
@@ -238,12 +181,11 @@ void renderScene(void) {
 		lookAtx, lookAty, lookAtz,
 		upx, upy, upz);
 
-	drawAxis();
+	//drawAxis();
 	glColor3f(1.0f, 1.0f, 1.0f);
 	glPolygonMode(GL_FRONT_AND_BACK, mode);	
-
-	LinkedList group = getWorldGroups(world);
-	drawGroups(group);
+	//printWorld(world);
+	drawGroups(getWorldGroups(world));
 
 	// End of frame
 	glutSwapBuffers();

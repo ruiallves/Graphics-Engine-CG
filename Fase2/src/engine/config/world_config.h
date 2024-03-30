@@ -4,6 +4,7 @@
 #include "../../tinyxml/tinyxml.h"
 #include "../../tools/linkedList.h"
 #include "../../tools/figura.h"
+#include "../../tools/arvore.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -53,8 +54,8 @@ Window getWorldWindow(World world);
 void setWorldWindow(World world, Window window);
 Camera getWorldCamera(World world);
 void setWorldCamera(World world, Camera camera);
-LinkedList getWorldGroups(World world);
-void setWorldGroups(World world, LinkedList grupos);
+Arvore getWorldGroups(World world);
+void setWorldGroups(World world, Arvore grupos);
 
 // Getters e Setters para a estrutura Group
 LinkedList getGroupTransforms(Group group);
@@ -80,6 +81,6 @@ Projection getProjection(Camera camera);
 void setProjection(Projection projection, float fov, float near, float far);
 
 void printGroup(Group group);
-void printWorld(World world);
+//void printWorld(World world);
 
 #endif

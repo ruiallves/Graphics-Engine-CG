@@ -272,6 +272,11 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\figura.cpp" />
     <ClCompile Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\vertice.cpp" />
     <ClCompile Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\linkedList.cpp" />
+    <ClCompile Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\arvore.cpp" />
+    <ClInclude Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\figura.h" />
+    <ClInclude Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\vertice.h" />
+    <ClInclude Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\linkedList.h" />
+    <ClInclude Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\arvore.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\engine\build\ZERO_CHECK.vcxproj">

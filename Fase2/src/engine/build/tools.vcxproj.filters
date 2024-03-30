@@ -10,11 +10,31 @@
     <ClCompile Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\linkedList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\arvore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\figura.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\vertice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\linkedList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\arvore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\engine\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{B6CA108A-853A-3519-BADA-351AE22ABF8A}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{09233364-5966-3B1B-8EEB-524D2A25466D}</UniqueIdentifier>
     </Filter>

@@ -1,0 +1,155 @@
+<world>
+    <!-- Configurações da janela -->
+    <window width="800" height="600"/>
+
+    <!-- Configurações da câmera -->
+    <camera>
+        <position x="10" y="10" z="10"/>
+        <lookAt x="0" y="0" z="0"/>
+        <up x="0" y="1" z="0"/>
+        <projection fov="60" near="1" far="1000"/>
+    </camera>
+
+    <!-- Grupo principal para o sistema solar -->
+    <group>
+        <!-- Sol -->
+		<group>
+        <transform>
+             <scale x="20" y="20" z="20"/> <!-- Tamanho do Sol -->
+        </transform>
+        <models>
+            <model file="sphere.3d"/>
+        </models>
+		</group>
+
+        <!-- Planetas -->
+        <group>
+            <!-- Mercúrio -->
+            <transform>
+                <rotate angle ="45" x="0" y="1" z="0"/> <!-- Rotação relativa ao Sol de Mercúrio-->
+            <translate x="26" y="0" z="0"/> <!-- Distância do Sol -->
+            <scale x="0.08" y="0.08" z="0.08"/> <!-- Tamanho de Mercúrio -->
+            </transform>
+            <models>
+                <model file="sphere.3d"/>
+            </models>
+        </group>
+
+        <group>
+            <!-- Vênus -->
+            <transform>
+                 <rotate angle ="89" x="0" y="1" z="0"/> <!-- Rotação relativa ao Sol de Vénus-->
+            <translate x="30" y="0" z="0"/> <!-- Distância do Sol -->
+            <scale x="0.12" y="0.12" z="0.12"/> <!-- Tamanho de Vénus -->
+            </transform>
+            <models>
+                <model file="sphere.3d"/>
+            </models>
+        </group>
+
+        <group>
+            <!-- Terra E Lua -->
+            <transform>
+                <rotate angle ="185" x="0" y="1" z="0"/> <!-- Rotação relativa ao Sol da Terra-->
+				<translate x="35" y="0" z="0"/> <!-- Distância do Sol -->
+            </transform>
+			<!-- Terra -->
+            <group>
+				<transform>
+					 <scale x="0.15" y="0.15" z="0.15"/> <!-- Tamanho da Terra -->
+				</transform>
+				<models>
+					<model file="sphere.3d"/>
+				</models>
+			</group>
+			<!-- Lua -->
+			<group>
+				<transform>
+					  <translate x="1" y="0" z="0"/> <!-- Distância da Lua à Terra -->
+						<scale x="0.03" y="0.03" z="0.03"/> <!-- Tamanho da Lua -->
+				</transform>
+				<models>
+					<model file="sphere.3d"/>
+				</models>
+			</group>
+			
+        </group>
+
+        <group>
+            <!-- Marte -->
+            <transform>
+                <rotate angle ="240" x="0" y="1" z="0"/> <!-- Rotação relativa ao Sol de Marte-->
+				<translate x="40" y="0" z="0"/> <!-- Distância do Sol -->
+				<scale x="0.1" y="0.1" z="0.1"/> <!-- Tamanho de Marte -->
+            </transform>
+            <models>
+                <model file="sphere.3d"/>
+            </models>
+        </group>
+
+        <!-- Jupiter -->
+        <group>
+            <transform>
+                <rotate angle ="300" x="0" y="1" z="0"/> <!-- Rotação relativa ao Sol de Júpiter-->
+				<translate x="60" y="0" z="0"/> <!-- Distância do Sol -->
+				<scale x="1.5" y="1.5" z="1.5"/> <!-- Tamanho de Júpiter -->
+            </transform>
+            <models>
+                <model file="sphere.3d"/>
+            </models>
+        </group>
+		
+		<!-- Saturno -->
+		<group>
+            <!-- Saturno e Anel -->
+            <transform>
+                 <rotate angle ="30" x="0" y="1" z="0"/> <!-- Rotação relativa ao Sol de Saturno-->
+				<translate x="100" y="0" z="0"/> <!-- Distância do Sol -->
+            </transform>
+			<!-- Saturno -->
+            <group>
+				<transform>
+					 <scale x="2" y="2" z="2"/> <!-- Tamanho de Saturno -->
+				</transform>
+				<models>
+					<model file="sphere.3d"/>
+				</models>
+			</group>
+			<!-- Anel -->
+			<group>
+				<transform>
+					   <rotate angle ="20" x="1" y="0" z="1"/> <!-- Ângulo de rotação do anel de Saturno -->
+						<scale x="3" y="3" z="3"/> <!-- Tamanho do Anel -->
+				</transform>
+				<models>
+					<model file="ring.3d"/>
+				</models>
+			</group>
+			
+        </group>
+		
+		<!-- Urano -->
+		<group>
+            <transform>
+                <rotate angle ="200" x="0" y="1" z="0"/> <!-- Rotação relativa ao Sol de Úrano-->
+				<translate x="130" y="0" z="0"/> <!-- Distância do Sol -->
+				<scale x="0.6" y="0.6" z="0.6"/> <!-- Tamanho de Úrano -->
+            </transform>
+            <models>
+                <model file="sphere.3d"/>
+            </models>
+        </group>
+		
+		<!-- Neptuno -->
+		<group>
+            <transform>
+                <rotate angle ="150" x="0" y="1" z="0"/> <!-- Rotação relativa ao Sol de Neptuno-->
+				<translate x="160" y="0" z="0"/> <!-- Distância do Sol -->
+				<scale x="0.6" y="0.6" z="0.6"/> <!-- Tamanho de Neptuno -->
+            </transform>
+            <models>
+                <model file="sphere.3d"/>
+            </models>
+        </group>
+    </group>
+</world>

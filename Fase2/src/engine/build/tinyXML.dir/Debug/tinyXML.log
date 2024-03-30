@@ -1,7 +1,1 @@
-﻿  Building Custom Rule C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/engine/CMakeLists.txt
-  tinystr.cpp
-  tinyxmlerror.cpp
-  tinyxmlparser.cpp
-  tinyxml.cpp
-  Gerando Código...
-  tinyXML.vcxproj -> C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\engine\build\Debug\tinyXML.lib
+﻿  tinyXML.vcxproj -> C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\engine\build\Debug\tinyXML.lib

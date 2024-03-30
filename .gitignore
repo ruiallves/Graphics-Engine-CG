@@ -6,3 +6,6 @@ CMakeLists.txt
 /Fase1/src/engine/build/*
 /.idea/
 /toolkits/
+/Fase2/src/engine/cmake-build-debug/
+/Fase2/src/engine/build/*
+/Fase2/src/generator/build/*

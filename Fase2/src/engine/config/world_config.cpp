@@ -21,7 +21,7 @@ struct camera {
 struct world {
     Window window;
     Camera camera;
-    LinkedList grupos;
+    Arvore grupos;
 };
 
 struct group {
@@ -76,7 +76,7 @@ World newConfig() {
     if (newConf) {
         newConf->camera = newCamera();
         newConf->camera->projection = newProjection();
-        newConf->grupos = newLinkedListEmpty();
+        newConf->grupos = newArvoreEmpty();
     }
     return newConf;
 }
@@ -179,14 +179,14 @@ void setWorldCamera(World world, Camera camera) {
     world->camera = camera;
 }
 
-LinkedList getWorldGroups(World world) {
+Arvore getWorldGroups(World world) {
     if (world) {
         return world->grupos;
     }
     return NULL;
 }
 
-void setWorldGroups(World world, LinkedList grupos) {
+void setWorldGroups(World world, Arvore grupos) {
     world->grupos = grupos;
 }
 
@@ -295,18 +295,18 @@ void printFiguras(LinkedList figuras) {
     while (current != NULL) {
         Figura fig = (Figura)getData(current);
         if (fig != NULL) {
-            printf("Figura com %lu vértices:\n", getTotalVertices(fig)); // Corrigido para usar %lu para size_t
-            printVerticesLinkedList(getFiguraVertices(fig)); // Imprime os vértices da figura
-            printf("\n");
+            printf("Figura com %lu vertices:\n", getTotalVertices(fig)); // Corrigido para usar %lu para size_t
+            //printVerticesLinkedList(getFiguraVertices(fig)); // Imprime os vértices da figura
+            //printf("\n");
         }
         current = (LinkedList)getNext(current);
     }
 }
 
 
-void addTransform(LinkedList ll, Transform transform) {
+void addTransform(Arvore ll, Transform transform) {
     if (ll && transform) {
-        Group group = (Group)getData(ll);
+        Group group = (Group)getDataArvore(ll);
         LinkedList transforms = getGroupTransforms(group);
         addChild(&transforms, transform);
         setGroupTransforms(group, transforms);
@@ -314,9 +314,9 @@ void addTransform(LinkedList ll, Transform transform) {
 }
 
 
-void addModel(LinkedList ll, Figura figura) {
+void addModel(Arvore ll, Figura figura) {
     if (ll && figura) {
-        Group group = (Group)getData(ll);
+        Group group = (Group)getDataArvore(ll);
         LinkedList figuras = getGroupFigures(group);
         addChild(&figuras, figura);
         setGroupFigures(group, figuras);
@@ -338,9 +338,9 @@ void printGroup(Group group) {
 
 
 
-LinkedList parseGroups(TiXmlElement* group) {
+Arvore parseGroups(TiXmlElement* group) {
     if (group) {
-        LinkedList res = newLinkedList(newGroup());
+        Arvore res = newArvore(newGroup());
         Transform transform_obj = NULL;
 
         TiXmlElement* transform = group->FirstChildElement("transform");
@@ -360,7 +360,7 @@ LinkedList parseGroups(TiXmlElement* group) {
         }
 
         //A FUNCIONAR
-        //Group groupt = (Group)getData(res);
+        //Group groupt = (Group)getDataArvore(res);
         //LinkedList transf = getGroupTransforms(groupt);
         //printTransforms(transf);
 
@@ -381,8 +381,8 @@ LinkedList parseGroups(TiXmlElement* group) {
         //printFiguras(figs);
 
         for (TiXmlElement* chGroup = group->FirstChildElement("group"); chGroup; chGroup = chGroup->NextSiblingElement("group")) {
-            LinkedList child = parseGroups(chGroup);
-            addLinkedChild(res, child);
+            Arvore child = parseGroups(chGroup);
+            appendArvore(res, child);
         }
         return res;
     }
@@ -434,52 +434,4 @@ World parseXmlFile(World* world, const char* filePath) {
     }
 
     return *world;
-}
-
-void printWorld(World world) {
-    if (world) {
-        std::cout << "Window width: " << getWindowWidth(getWorldWindow(world)) << std::endl;
-        std::cout << "Window height: " << getWindowHeight(getWorldWindow(world)) << std::endl;
-
-        Camera camera = getWorldCamera(world);
-        if (camera) {
-            std::cout << "Camera position: (" << getCameraPosition(camera)[0] << ", "
-                << getCameraPosition(camera)[1] << ", " << getCameraPosition(camera)[2] << ")" << std::endl;
-            std::cout << "Camera lookAt: (" << getCameraLookAt(camera)[0] << ", "
-                << getCameraLookAt(camera)[1] << ", " << getCameraLookAt(camera)[2] << ")" << std::endl;
-            std::cout << "Camera up: (" << getCameraUp(camera)[0] << ", "
-                << getCameraUp(camera)[1] << ", " << getCameraUp(camera)[2] << ")" << std::endl;
-
-            Projection projection = getCameraProjection(camera);
-            if (projection) {
-                std::cout << "Projection FOV: " << getProjectionFOV(projection) << std::endl;
-                std::cout << "Projection near: " << getProjectionNear(projection) << std::endl;
-                std::cout << "Projection far: " << getProjectionFar(projection) << std::endl;
-            }
-        }
-
-        LinkedList groups = getWorldGroups(world);
-        LinkedList current = groups;
-        int groupIndex = 1;
-
-        while (current != NULL) {
-            Group group = (Group)getData(current);
-            if (group) {
-                std::cout << "Group " << groupIndex << ":" << std::endl;
-
-                LinkedList transforms = getGroupTransforms(group);
-                printTransforms(transforms);
-
-                LinkedList figures = getGroupFigures(group);
-                printFiguras(figures);
-
-                // Increment group index
-                groupIndex++;
-            }
-            current = (LinkedList)getNext(current);
-        }
-    }
-    else {
-        std::cout << "World is NULL" << std::endl;
-    }
 }

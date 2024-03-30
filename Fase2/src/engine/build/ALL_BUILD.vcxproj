@@ -173,9 +173,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\engine\build\Fase1.vcxproj">
-      <Project>{EBCE01F2-83F4-30FB-9F84-61D774700169}</Project>
-      <Name>Fase1</Name>
+    <ProjectReference Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\engine\build\Fase2.vcxproj">
+      <Project>{44171F64-B1FD-374B-BD03-33AA03E6C428}</Project>
+      <Name>Fase2</Name>
     </ProjectReference>
     <ProjectReference Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\engine\build\tinyXML.vcxproj">
       <Project>{5B3EB01F-0AE8-30B6-ADB1-EDB363281094}</Project>

@@ -1,9 +1,0 @@
-﻿  Building Custom Rule C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/engine/CMakeLists.txt
-  figura.cpp
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\figura.cpp(51,17): warning C4101: 'z': variável local não referenciada
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\figura.cpp(51,14): warning C4101: 'y': variável local não referenciada
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\figura.cpp(51,11): warning C4101: 'x': variável local não referenciada
-  vertice.cpp
-  linkedList.cpp
-  Gerando Código...
-  tools.vcxproj -> C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\engine\config\Debug\tools.lib
