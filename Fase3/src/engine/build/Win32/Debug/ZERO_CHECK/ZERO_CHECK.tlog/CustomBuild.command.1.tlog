@@ -1,0 +1,10 @@
+^C:\USERS\UTILIZADOR\SOURCE\REPOS\RUIALLVES\GRAPHICS-ENGINE-CG\FASE3\SRC\ENGINE\BUILD\CMAKEFILES\7F8E724B1F2D71B87C7DAE64C7759F18\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/engine -BC:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/engine/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/engine/build/Fase3.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

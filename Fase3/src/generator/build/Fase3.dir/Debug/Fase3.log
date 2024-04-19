@@ -1,0 +1,24 @@
+﻿  generator.cpp
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(155,59): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(155,39): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(156,89): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(156,69): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(174,109): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(174,89): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(174,69): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(190,57): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(191,89): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(191,69): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(208,98): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(208,78): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(209,129): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(209,109): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(209,89): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(209,69): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(225,78): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(226,109): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(226,89): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(226,69): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(242,49): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\generator.cpp(244,69): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+  Fase3.vcxproj -> C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\Debug\Fase3.exe

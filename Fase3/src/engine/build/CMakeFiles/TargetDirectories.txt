@@ -1,0 +1,6 @@
+C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/engine/build/CMakeFiles/Fase3.dir
+C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/engine/build/CMakeFiles/tools.dir
+C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/engine/build/CMakeFiles/tinyXML.dir
+C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/engine/build/CMakeFiles/world_config.dir
+C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/engine/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/engine/build/CMakeFiles/ZERO_CHECK.dir

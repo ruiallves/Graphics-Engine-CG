@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tinyxml\tinystr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tinyxml\tinyxmlerror.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tinyxml\tinyxmlparser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tinyxml\tinyxml.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tinyxml\tinystr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tinyxml\tinyxml.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{F90AB391-CBB9-350D-AE60-EDA83C4DBA4F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{E34D6E2F-69E3-3BC3-9B49-1A9DB17C1FAB}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
