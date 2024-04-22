@@ -289,6 +289,33 @@ void setTransformPoints(Transform transform, vector<vector<float>>* points) {
 	transform->points = points;
 }
 
+vector<vector<float>> transPoints(Transform transf) {
+    vector<vector<float>> result;
+    if (transf) {
+        for (vector<float> point : *(transf->points)) {
+            result.push_back(point);
+        }
+    }
+    return result;
+}
+
+vector<float> transformYAxis(Transform transf) {
+    vector<float> result;
+    if (transf) {
+        result.push_back(transf->yAxis[0]);
+        result.push_back(transf->yAxis[1]);
+        result.push_back(transf->yAxis[2]);
+        return result;
+    }
+    return result;
+}
+
+void setTransformYAxis(Transform transform, float x, float y, float z) {
+	transform->yAxis[0] = x;
+	transform->yAxis[1] = y;
+	transform->yAxis[2] = z;
+}
+
 Window getWindow(World world) {
     return world->window;
 }

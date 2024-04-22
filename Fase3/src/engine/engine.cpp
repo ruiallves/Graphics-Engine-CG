@@ -16,9 +16,12 @@
 #include "math.h"
 #include "../engine/config/world_config.h"
 #include "../tools/figura.h"
+#include "../tools/matrix.h"
+
 #include <iomanip>
 #define NOW ((1.0f*glutGet(GLUT_ELAPSED_TIME))/1000.0f)
 #define PI 3.14159265358979323846
+
 using namespace std;
 
 World world = newConfig();
@@ -46,10 +49,12 @@ GLenum mode = GL_LINE;
 int nrFiguras = 0;
 vector<int> sizBuffers;
 GLuint* buffers = NULL;
-
+char title[128];
 int frames = 0;
 int timebase = 0;
 float tempo_inicial = 0.0f;
+
+bool showC = false;
 
 void changeSize(int w, int h) {
 
@@ -102,24 +107,24 @@ void loadBuffers(Arvore groups, int* index) {
 		Group group = (Group)getDataArvore(groups);
 		LinkedList models = getGroupFigures(group);
 
-		Figura fig = (Figura)getData(models);
-		cout << getTotalVertices(fig) << endl;
-
-		/*while (models != nullptr) {
+		while (models != nullptr) {
+			Figura fig = (Figura)getData(models);
 			vector<float> toBuffer = figuraToVector(fig);
 			glBindBuffer(GL_ARRAY_BUFFER, buffers[(*index)++]);
 			glBufferData(GL_ARRAY_BUFFER, sizeof(float) * toBuffer.size(), toBuffer.data(), GL_STATIC_DRAW);
 			sizBuffers.push_back(toBuffer.size() / 3);
-			fig = (Figura)getData((LinkedList)getNext(models));
-		}*/
 
-		/*LinkedList filhos = getFilhosArvore(groups);
+			models = (LinkedList)getNext(models);
+		}
+
+		LinkedList filhos = getFilhosArvore(groups);
 		for (unsigned long i = 0; i < getSizeOfFiguras(filhos); i++) {
 			Arvore next = (Arvore)getListElemAt(filhos, i);
 			loadBuffers(next, index);
-		}*/
+		}
 	}
 }
+
 
 void drawVertices(LinkedList figuras) {
 	// Verifica se a lista de figuras está inicializada
@@ -160,34 +165,82 @@ void drawVertices(LinkedList figuras) {
 	}
 }
 
-// VERSÃO ALTERNATIVA (TAMBEM NAO FUNCIONA)
-void drawGroups(Arvore groups) {
+void drawCatmullRomCurve(const std::vector<std::vector<float>>& controlPoints) {
+	float pos[3];
+	float deriv[3];
+	glBegin(GL_LINE_LOOP);
+	float t = 0.0f;
+	for (int i = 0; i <= 100; i++, t += 0.01f) {
+		getGlobalCatmullRomPoint(t, controlPoints, pos, deriv);
+		glVertex3f(pos[0], pos[1], pos[2]);
+	}
+	glEnd();
+}
+
+void execTransforms(LinkedList transforms, int* indice) {
+	LinkedList currentTransform = transforms;
+
+	while (currentTransform != nullptr) {
+		Transform transf = (Transform)getData(currentTransform);
+		if (transf != nullptr) {
+			float x = getTransformX(transf);
+			float y = getTransformY(transf);
+			float z = getTransformZ(transf);
+			char tr = getTransformType(transf);
+			if (tr == 'r') {
+				float angle = getTransformAngle(transf);
+				float time = getTransformTime(transf);
+				if (time != 0) {
+					angle = fmod(angle + (NOW - tempo_inicial) * 360 / time, 360);
+				}
+				glRotatef(angle, x, y, z);
+			}
+			else if (tr == 's') {
+				glScalef(x, y, z);
+			}
+			else if (tr == 't') {
+				float time = getTransformTime(transf);
+				if (time > 0) {
+					float pos[3], deriv[3], y[3], z[3], rot[16];
+					vector<vector<float>> points = transPoints(transf);
+					getGlobalCatmullRomPoint(NOW / time, points, pos, deriv);
+					if (showC) drawCatmullRomCurve(points);
+					glTranslatef(pos[0], pos[1], pos[2]);
+
+					if (getTransformAlign(transf)) {
+						normalize(deriv);
+						cross(deriv, transformYAxis(transf).data(), z);
+						normalize(z);
+						cross(z, deriv, y);
+						setTransformYAxis(transf, y[0], y[1], y[2]);	
+						normalize(y);
+						buildRotMatrix(deriv, y, z, rot);
+						glMultMatrixf(rot);
+					}
+				}
+				else {
+					glTranslatef(x, y, z);
+				}
+			}
+		}
+		currentTransform = (LinkedList)getNext(currentTransform);
+	}
+}
+
+
+// VERSÃO ALTERNATIVA
+void drawGroups(Arvore groups, int* indice) {
 	if (groups) {
-		glPushMatrix(); // guarda o estado dos eixos
+		glPushMatrix();
 
 		Group group = (Group)getDataArvore(groups);
 		LinkedList transforms = getGroupTransforms(group), models = getGroupFigures(group);
+		execTransforms(transforms, indice);
 
-		LinkedList currentTransform = transforms;
-		while (currentTransform != nullptr) {
-			Transform t = (Transform)getData(currentTransform);
-			if (t != nullptr) {
-				float x = getTransformX(t);
-				float y = getTransformY(t);
-				float z = getTransformZ(t);
-				char tr_type = getTransformType(t);
-				if (tr_type == 'r') {
-					float angle = getTransformAngle(t);
-					glRotatef(angle, x, y, z);
-				}
-				else if (tr_type == 't') {
-					glTranslatef(x, y, z);
-				}
-				else if (tr_type == 's') {
-					glScalef(x, y, z);
-				}
-			}
-			currentTransform = (LinkedList)getNext(currentTransform);
+		for (unsigned long i = 0; i < getSizeOfFiguras(models); i++, (*indice)++) {
+			glBindBuffer(GL_ARRAY_BUFFER, buffers[*indice]);
+			glVertexPointer(3, GL_FLOAT, 0, 0);
+			glDrawArrays(GL_TRIANGLES, 0, sizBuffers[*indice]);
 		}
 
 		// Desenho das figuras
@@ -199,9 +252,9 @@ void drawGroups(Arvore groups) {
 		LinkedList child = (LinkedList)getFilhosArvore(groups);
 		for (unsigned long i = 0; i < getSizeOfFiguras(child);i++) {
 			Arvore next = (Arvore)getListElemAt(child, i);
-			drawGroups(next);
+			drawGroups(next,indice);
 		}
-		glPopMatrix(); // retorna ao respetivo estado anterior dos eixos.
+		glPopMatrix();
 
 	}
 }
@@ -217,11 +270,21 @@ void renderScene(void) {
 		lookAtx, lookAty, lookAtz,
 		upx, upy, upz);
 
-	//drawAxis();
+	drawAxis();
 	glColor3f(1.0f, 1.0f, 1.0f);
 	glPolygonMode(GL_FRONT_AND_BACK, mode);	
 	//printWorld(world);
-	drawGroups(getWorldGroups(world));
+	int indice = 0;
+	drawGroups(getWorldGroups(world), &indice);
+	frames++;
+	int time = glutGet(GLUT_ELAPSED_TIME);
+	if (time - timebase > 1000) {
+		float fps = frames * 1000.0f / (time - timebase);
+		snprintf(title, 127, "FPS: %.2f, PCAM: (%.2f,%.2f,%.2f), LA: (%.2f,%.2f,%.2f), alpha = %.2f, beta = %.2f", fps, camx, camy, camz, lookAtx, lookAty, lookAtz, alpha, beta_);
+		glutSetWindowTitle(title);
+		timebase = time;
+		frames = 0;
+	}
 
 	// End of frame
 	glutSwapBuffers();
@@ -264,7 +327,10 @@ void keyboardFunc(unsigned char key, int x, int y) {
 		case 'F':
 			mode = GL_FILL;
 			break;
-
+	case 'x':
+		case 'X':
+			showC = !showC;
+			break;
 	case '-':
 		camx += 2;
 		camy += 2;
@@ -327,6 +393,8 @@ int initGlut(int argc, char** argv, World world) {
 	glGenBuffers(nrFiguras, buffers);
 
 	int indice = 0;
+	
+	//printWorld(world);
 	loadBuffers(getWorldGroups(world), &indice);
 
 	frames++;
@@ -391,6 +459,11 @@ int main(int argc, char** argv) {
 	timebase = glutGet(GLUT_ELAPSED_TIME);
 	tempo_inicial = NOW;
 	initGlut(argc, argv, world);
+
+	if (buffers != nullptr) {
+		delete[] buffers;
+		buffers = nullptr;
+	}
 
 	return 0;
 }

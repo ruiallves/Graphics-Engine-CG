@@ -46,9 +46,11 @@ vector<float> figuraToVector(Figura f) {
 
     while (currentNode != nullptr) {
         Vertice p = (Vertice)getData(currentNode);
-        result.push_back(getVerticeX(p));
-        result.push_back(getVerticeY(p));
-        result.push_back(getVerticeZ(p));
+        if (p != nullptr) {
+            result.push_back(getVerticeX(p));
+            result.push_back(getVerticeY(p));
+            result.push_back(getVerticeZ(p));
+        }
         currentNode = (LinkedList)getNext(currentNode);
     }
 

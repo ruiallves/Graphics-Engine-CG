@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\engine.cpp">
+    <ClCompile Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{F8D772CA-1BAE-3291-B333-CB857506C07E}</UniqueIdentifier>
+      <UniqueIdentifier>{0E573265-AC2B-3247-AD28-8D6481023BFD}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

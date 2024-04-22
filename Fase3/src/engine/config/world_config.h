@@ -74,6 +74,15 @@ float getTransformZ(Transform transform);
 void setTransformZ(Transform transform, float z);
 float getTransformAngle(Transform transform);
 void setTransformAngle(Transform transform, float angle);
+float getTransformTime(Transform transform);
+void setTransformTime(Transform transform, float time);
+vector<vector<float>>* getTransformPoints(Transform transform);
+void setTransformPoints(Transform transform, vector<vector<float>>* points);
+bool getTransformAlign(Transform transform);
+void setTransformAlign(Transform transform, bool align);
+vector<vector<float>> transPoints(Transform transf);
+vector<float> transformYAxis(Transform transf);
+void setTransformYAxis(Transform transform, float x, float y, float z);
 
 // Funções auxiliares
 Window getWindow(World world);

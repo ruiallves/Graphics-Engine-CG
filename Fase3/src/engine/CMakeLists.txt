@@ -17,6 +17,8 @@ add_library(
 	../tools/arvore.cpp
 	../tools/linkedList.h
 	../tools/linkedList.cpp
+      	../tools/matrix.cpp
+	../tools/matrix.h
 )
 
 add_library(

@@ -1,35 +1,35 @@
 ﻿  world_config.cpp
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(407,41): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(408,40): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(414,44): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(420,47): warning C4244: 'argumento': conversão de 'double' para '_Ty', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(420,47): warning C4244:         with
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(420,47): warning C4244:         [
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(420,47): warning C4244:             _Ty=float
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(420,47): warning C4244:         ]
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(421,47): warning C4244: 'argumento': conversão de 'double' para '_Ty', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(421,47): warning C4244:         with
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(421,47): warning C4244:         [
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(421,47): warning C4244:             _Ty=float
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(421,47): warning C4244:         ]
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(422,47): warning C4244: 'argumento': conversão de 'double' para '_Ty', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(422,47): warning C4244:         with
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(422,47): warning C4244:         [
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(422,47): warning C4244:             _Ty=float
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(422,47): warning C4244:         ]
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(428,25): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(429,25): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(430,25): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(484,21): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(485,21): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(486,21): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(490,24): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(491,24): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(492,24): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(496,20): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(497,20): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(498,20): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(502,19): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(503,20): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(504,19): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-  world_config.vcxproj -> C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\build\Debug\world_config.lib
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(434,41): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(435,40): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(441,44): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(447,47): warning C4244: 'argumento': conversão de 'double' para '_Ty', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(447,47): warning C4244:         with
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(447,47): warning C4244:         [
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(447,47): warning C4244:             _Ty=float
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(447,47): warning C4244:         ]
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(448,47): warning C4244: 'argumento': conversão de 'double' para '_Ty', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(448,47): warning C4244:         with
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(448,47): warning C4244:         [
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(448,47): warning C4244:             _Ty=float
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(448,47): warning C4244:         ]
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(449,47): warning C4244: 'argumento': conversão de 'double' para '_Ty', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(449,47): warning C4244:         with
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(449,47): warning C4244:         [
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(449,47): warning C4244:             _Ty=float
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(449,47): warning C4244:         ]
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(455,25): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(456,25): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(457,25): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(511,21): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(512,21): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(513,21): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(517,24): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(518,24): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(519,24): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(523,20): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(524,20): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(525,20): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(529,19): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(530,20): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\config\world_config.cpp(531,19): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+  world_config.vcxproj -> C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\build\Debug\world_config.lib

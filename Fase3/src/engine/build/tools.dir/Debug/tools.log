@@ -1,5 +1,4 @@
-﻿  figura.cpp
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\figura.cpp(67,17): warning C4101: 'z': variável local não referenciada
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\figura.cpp(67,14): warning C4101: 'y': variável local não referenciada
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\figura.cpp(67,11): warning C4101: 'x': variável local não referenciada
-  tools.vcxproj -> C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\build\Debug\tools.lib
+﻿  matrix.cpp
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\matrix.cpp(23,12): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\matrix.cpp(36,13): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+  tools.vcxproj -> C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\build\Debug\tools.lib
