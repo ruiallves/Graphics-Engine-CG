@@ -1,1 +1,5 @@
-﻿  tools.vcxproj -> C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\build\Debug\tools.lib
+﻿  figura.cpp
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\figura.cpp(67,17): warning C4101: 'z': variável local não referenciada
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\figura.cpp(67,14): warning C4101: 'y': variável local não referenciada
+C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\figura.cpp(67,11): warning C4101: 'x': variável local não referenciada
+  tools.vcxproj -> C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\engine\build\Debug\tools.lib

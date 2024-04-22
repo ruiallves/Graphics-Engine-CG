@@ -15,7 +15,7 @@ typedef struct figura* Figura;
 
 Figura newFigura();
 Figura fileToFigura(const char* model);
-
+vector<float> figuraToVector(Figura f);
 void setFiguraVertices(Figura figura, LinkedList vertices);
 LinkedList getFiguraVertices(Figura f);
 size_t getTotalVertices(Figura figura);

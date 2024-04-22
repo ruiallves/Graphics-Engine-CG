@@ -8,6 +8,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstring>
+#include <stdlib.h>
 
 typedef struct window* Window;
 typedef struct projection* Projection;
@@ -22,7 +24,7 @@ World newConfig();
 
 // Funções de criação
 Group newGroup();
-Transform newTransform(char tipo, float x, float y, float z, float angle);
+Transform newTransform(char type, float x, float y, float z, float angle, float time, vector<vector<float>> point, bool align);
 World newConfig();
 
 // Getters e Setters para a estrutura Window
@@ -81,6 +83,6 @@ Projection getProjection(Camera camera);
 void setProjection(Projection projection, float fov, float near, float far);
 
 void printGroup(Group group);
-//void printWorld(World world);
+void printWorld(World world);
 
 #endif

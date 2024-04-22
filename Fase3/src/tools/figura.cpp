@@ -39,6 +39,22 @@ Figura newFigura() {
     return novaFigura;
 }
 
+vector<float> figuraToVector(Figura f) {
+    vector<float> result;
+    LinkedList pontos = getFiguraVertices(f);
+    LinkedList currentNode = pontos;
+
+    while (currentNode != nullptr) {
+        Vertice p = (Vertice)getData(currentNode);
+        result.push_back(getVerticeX(p));
+        result.push_back(getVerticeY(p));
+        result.push_back(getVerticeZ(p));
+        currentNode = (LinkedList)getNext(currentNode);
+    }
+
+    return result;
+}
+
 Figura fileToFigura(const char* model) {
     string filepath = "../../../outputs/" + string(model);
     ifstream file(filepath);

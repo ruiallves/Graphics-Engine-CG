@@ -1,22 +1,24 @@
 #define _NO_CRT_STDIO_INLINE
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <string>
 #include <vector>
 #include <cstdlib>
-//#include <GL/glew.h>
+#include <../glew/GL/glew.h>
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
 #include <GL/glut.h>
 #endif
-#undef _NO_CRT_STDIO_INLINE
 
 #include "math.h"
 #include "../engine/config/world_config.h"
 #include "../tools/figura.h"
-
+#include <iomanip>
+#define NOW ((1.0f*glutGet(GLUT_ELAPSED_TIME))/1000.0f)
+#define PI 3.14159265358979323846
 using namespace std;
 
 World world = newConfig();
@@ -25,6 +27,8 @@ float red = 1;
 float green = 1;
 float blue = 1;
 
+float alpha = PI / 4;
+float beta_ = PI / 4;
 float xx = 0.0f, yy = 0.0f, zz = 0.0f;
 float angleY = 0.0f, angleX = 0.0f;
 float camx = 5.0f;
@@ -38,6 +42,14 @@ float upy = 1.0f;
 float upz = 0.0f;
 
 GLenum mode = GL_LINE;
+
+int nrFiguras = 0;
+vector<int> sizBuffers;
+GLuint* buffers = NULL;
+
+int frames = 0;
+int timebase = 0;
+float tempo_inicial = 0.0f;
 
 void changeSize(int w, int h) {
 
@@ -83,6 +95,30 @@ void drawAxis() {
 		-100.0f);
 	glVertex3f(0.0f, 0.0f, 100.0f);
 	glEnd();
+}
+
+void loadBuffers(Arvore groups, int* index) {
+	if (groups) {
+		Group group = (Group)getDataArvore(groups);
+		LinkedList models = getGroupFigures(group);
+
+		Figura fig = (Figura)getData(models);
+		cout << getTotalVertices(fig) << endl;
+
+		/*while (models != nullptr) {
+			vector<float> toBuffer = figuraToVector(fig);
+			glBindBuffer(GL_ARRAY_BUFFER, buffers[(*index)++]);
+			glBufferData(GL_ARRAY_BUFFER, sizeof(float) * toBuffer.size(), toBuffer.data(), GL_STATIC_DRAW);
+			sizBuffers.push_back(toBuffer.size() / 3);
+			fig = (Figura)getData((LinkedList)getNext(models));
+		}*/
+
+		/*LinkedList filhos = getFilhosArvore(groups);
+		for (unsigned long i = 0; i < getSizeOfFiguras(filhos); i++) {
+			Arvore next = (Arvore)getListElemAt(filhos, i);
+			loadBuffers(next, index);
+		}*/
+	}
 }
 
 void drawVertices(LinkedList figuras) {
@@ -270,20 +306,46 @@ int initGlut(int argc, char** argv, World world) {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowPosition(100, 100);
-	glutInitWindowSize(800, 800);
-	glutCreateWindow("CG@DI-UM");
+	glutInitWindowSize(getWindowWidth(getWorldWindow(world)), getWindowHeight(getWorldWindow(world)));
+	glutCreateWindow("Fase 3");
 
 	// Required callback registry 
 	glutDisplayFunc(renderScene);
 	glutReshapeFunc(changeSize);
+	glutIdleFunc(renderScene);
 
-
+	glewInit();
 	// put here the registration of the keyboard callbacks
 	glutKeyboardFunc(keyboardFunc);
 	glutSpecialFunc(keyboardspecial);
 
 	//  OpenGL settings
 	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
+	glEnable(GL_VERTEX_ARRAY);
+	glPolygonMode(GL_FRONT, GL_LINE);
+	glGenBuffers(nrFiguras, buffers);
+
+	int indice = 0;
+	loadBuffers(getWorldGroups(world), &indice);
+
+	frames++;
+	int time = glutGet(GLUT_ELAPSED_TIME);
+	if (time - timebase > 1000) {
+		float fps = frames * 1000.0f / (time - timebase);
+		std::ostringstream titleStream;
+		titleStream << "FPS: " << std::fixed << std::setprecision(2) << fps;
+		titleStream << ", PCAM: (" << std::fixed << std::setprecision(2) << camx << ", " << camy << ", " << camz << ")";
+		titleStream << ", LA: (" << std::fixed << std::setprecision(2) << lookAtx << ", " << lookAty << ", " << lookAtz << ")";
+		titleStream << ", alpha = " << std::fixed << std::setprecision(2) << alpha;
+		titleStream << ", beta = " << std::fixed << std::setprecision(2) << beta_;
+		//titleStream << ", CamMode: " << (mode ? "POINT" : "LINE");
+		std::string title = titleStream.str();
+		glutSetWindowTitle(title.c_str());
+		timebase = time;
+		frames = 0;
+	}
+
 
 	// enter GLUT's main cycle
 	glutMainLoop();
@@ -318,7 +380,16 @@ int main(int argc, char** argv) {
 	}
 	std::string filepath = argv[1];
 	world = parseXmlFile(&world, ("../../../tests/" + filepath).c_str());
+
 	configCam(world);
+	//printWorld(world);
+
+	nrFiguras = getSizeOfFiguras(getGroupFigures((Group)getDataArvore(getWorldGroups(world))));
+	//printf("Nr de figuras: %d\n", nrFiguras);
+
+	buffers = (GLuint*)malloc(nrFiguras * sizeof(GLuint));
+	timebase = glutGet(GLUT_ELAPSED_TIME);
+	tempo_inicial = NOW;
 	initGlut(argc, argv, world);
 
 	return 0;

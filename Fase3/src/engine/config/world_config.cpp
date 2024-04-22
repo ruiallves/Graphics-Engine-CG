@@ -33,6 +33,10 @@ struct transform {
     char tipo;
     float x, y, z;
     float anguloR;
+    float time;
+    bool align;
+    vector<vector<float>>* points;
+    float yAxis[3];
 };
 
 Group newGroup() {
@@ -59,14 +63,27 @@ Camera newCamera() {
     return cam;
 }
 
-Transform newTransform(char tipo, float x, float y, float z, float angle) {
+Transform newTransform(char type, float x, float y, float z, float angle = 0.0f, float time = 0.0f, vector<vector<float>> points = {}, bool align = false) {
     Transform transform = (Transform)malloc(sizeof(struct transform));
+    transform->points = new vector<vector<float>>();
     if (transform) {
-        transform->tipo = tipo;
+        transform->tipo = type;
         transform->x = x;
         transform->y = y;
         transform->z = z;
         transform->anguloR = angle;
+        transform->time = time;
+        for (vector<float> point : points) {
+            vector<float> ptn;
+            ptn.push_back(point[0]);
+            ptn.push_back(point[1]);
+            ptn.push_back(point[2]);
+            transform->points->push_back(ptn);
+        }
+        transform->align = align;
+        transform->yAxis[0] = 0.0f;
+        transform->yAxis[1] = 1.0f;
+        transform->yAxis[2] = 0.0f;
     }
     return transform;
 }
@@ -248,6 +265,30 @@ void setTransformAngle(Transform transform, float angle) {
     transform->anguloR = angle;
 }
 
+float getTransformTime(Transform transform) {
+	return transform->time;
+}
+
+void setTransformTime(Transform transform, float time) {
+	transform->time = time;
+}
+
+bool getTransformAlign(Transform transform) {
+	return transform->align;
+}
+
+void setTransformAlign(Transform transform, bool align) {
+	transform->align = align;
+}
+
+vector<vector<float>>* getTransformPoints(Transform transform) {
+	return transform->points;
+}
+
+void setTransformPoints(Transform transform, vector<vector<float>>* points) {
+	transform->points = points;
+}
+
 Window getWindow(World world) {
     return world->window;
 }
@@ -280,8 +321,18 @@ void printTransforms(LinkedList transforms) {
     while (current != NULL) {
         Transform transform = (Transform)getData(current);
         if (transform != NULL) {
-            printf("Tipo: %c, Posição: (%.2f, %.2f, %.2f), Ângulo: %.2f\n",
+            if (transform->tipo == 't') {
+			    printf("Time: %.2f, Align: %s\n", transform->time, transform->align ? "true" : "false");
+			    printf("Pontos:\n");
+                for (const auto& point : *(transform->points)) {
+				    printf("(%.2f, %.2f, %.2f)\n", point[0], point[1], point[2]);
+			    }
+			    printf("Eixo Y: (%.2f, %.2f, %.2f)\n", transform->yAxis[0], transform->yAxis[1], transform->yAxis[2]);
+		    }
+            else {
+                printf("Tipo: %c, Posição: (%.2f, %.2f, %.2f), Ângulo: %.2f\n",
                 transform->tipo, transform->x, transform->y, transform->z, transform->anguloR);
+            }
         }
         current = (LinkedList)getNext(current);
     }
@@ -343,19 +394,46 @@ Arvore parseGroups(TiXmlElement* group) {
         Arvore res = newArvore(newGroup());
         Transform transform_obj = NULL;
 
-        TiXmlElement* transform = group->FirstChildElement("transform");
-        if (transform) {
-            for (TiXmlElement* t = transform->FirstChildElement(); t; t = t->NextSiblingElement()) {
+        TiXmlElement* transforms = group->FirstChildElement("transform");
+
+        if (transforms) {
+            for (TiXmlElement* t = transforms->FirstChildElement(); t; t = t->NextSiblingElement()) {
+                vector<vector<float>> points;
                 const char* name_of_transform = t->Value();
-                float angle = 0.0f;
+                //printf("name_of_transform: %s\n", name_of_transform);   
+                float angle = 0.0f, time = 0.0f;
+                bool align = false;
                 if (strcmp(name_of_transform, "rotate") == 0) {
-                    angle = atof(t->Attribute("angle"));
+                    angle = t->Attribute("angle") ? atof(t->Attribute("angle")) : 0.0f;
+                    time = t->Attribute("time") ? atof(t->Attribute("time")) : 0.0f;
+                    //printf("angle: %f\n", angle);
+                    //printf("time: %f\n", time);
                 }
-                float x = atof(t->Attribute("x"));
-                float y = atof(t->Attribute("y"));
-                float z = atof(t->Attribute("z"));
-                transform_obj = newTransform(name_of_transform[0], x, y, z, angle);
-                addTransform(res, transform_obj);
+                else if (strcmp(name_of_transform, "translate") == 0) {
+                    if (t->Attribute("time") || t->Attribute("align")) {
+                        time = t->Attribute("time") ? atof(t->Attribute("time")) : 0.0f;
+                        align = t->Attribute("align") ? (strcmp(t->Attribute("align"), "true") == 0 ? true : false) : false;
+                        //printf("time: %f\n", time);
+                        //printf("align: %d\n", align);
+                        for (TiXmlElement* p = t->FirstChildElement("point"); p; p = p->NextSiblingElement()) {
+                            vector<float> ptn;
+                            ptn.push_back(atof(p->Attribute("x")));
+                            ptn.push_back(atof(p->Attribute("y")));
+                            ptn.push_back(atof(p->Attribute("z")));
+                            //printf("point: (%f, %f, %f)\n", ptn[0], ptn[1], ptn[2]);
+                            points.push_back(ptn);
+                        }
+                    }
+                }
+                float x = t->Attribute("x") ? atof(t->Attribute("x")) : 0.0f;
+                float y = t->Attribute("y") ? atof(t->Attribute("y")) : 0.0f;
+                float z = t->Attribute("z") ? atof(t->Attribute("z")) : 0.0f;
+                //printf("x: %f\n", x);
+                //printf("y: %f\n", y);
+                //printf("z: %f\n", z);
+
+                Transform trans = newTransform(name_of_transform[0], x, y, z, angle, time, points, align);
+                addTransform(res, trans);
             }
         }
 
@@ -434,4 +512,63 @@ World parseXmlFile(World* world, const char* filePath) {
     }
 
     return *world;
+}
+
+void printGroupRecursive(Arvore arvore) {
+    if (arvore) {
+        Group grupo = (Group)getDataArvore(arvore);
+        if (grupo) {
+            std::cout << "Transformações do grupo:" << std::endl;
+            printTransforms(getGroupTransforms(grupo));
+
+            std::cout << "Figuras do grupo:" << std::endl;
+            printFiguras(getGroupFigures(grupo));
+
+            LinkedList filhos = getFilhosArvore(arvore);
+            LinkedList current = filhos;
+            while (current != NULL) {
+                printGroupRecursive((Arvore)getData(current));
+                current = (LinkedList)getNext(current);
+            }
+        }
+    }
+}
+
+void printWorld(World world) {
+    if (world == nullptr) {
+        std::cerr << "World não inicializado." << std::endl;
+        return;
+    }
+
+    // Imprime informações sobre a janela
+    std::cout << "Window:" << std::endl;
+    std::cout << "Width: " << getWindowWidth(getWorldWindow(world)) << std::endl;
+    std::cout << "Height: " << getWindowHeight(getWorldWindow(world)) << std::endl;
+
+    // Imprime informações sobre a câmera
+    std::cout << "Camera:" << std::endl;
+    std::cout << "Position: (" << getCameraPosition(getWorldCamera(world))[0] << ", "
+        << getCameraPosition(getWorldCamera(world))[1] << ", "
+        << getCameraPosition(getWorldCamera(world))[2] << ")" << std::endl;
+    std::cout << "LookAt: (" << getCameraLookAt(getWorldCamera(world))[0] << ", "
+        << getCameraLookAt(getWorldCamera(world))[1] << ", "
+        << getCameraLookAt(getWorldCamera(world))[2] << ")" << std::endl;
+    std::cout << "Up: (" << getCameraUp(getWorldCamera(world))[0] << ", "
+        << getCameraUp(getWorldCamera(world))[1] << ", "
+        << getCameraUp(getWorldCamera(world))[2] << ")" << std::endl;
+
+    // Imprime informações sobre a projeção da câmera
+    Projection proj = getProjection(getWorldCamera(world));
+    std::cout << "Projection:" << std::endl;
+    std::cout << "FOV: " << getProjectionFOV(proj) << std::endl;
+    std::cout << "Near: " << getProjectionNear(proj) << std::endl;
+    std::cout << "Far: " << getProjectionFar(proj) << std::endl;
+
+
+    // Imprime informações sobre todos os grupos
+    Arvore grupos = getWorldGroups(world);
+    if (grupos) {
+        std::cout << "Grupos:" << std::endl;
+        printGroupRecursive(grupos);
+    }
 }
