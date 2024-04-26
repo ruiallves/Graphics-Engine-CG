@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{376AD855-803E-368C-9956-5EE5D3C2CC45}</ProjectGuid>
+    <ProjectGuid>{AF76DF0F-6E51-3FE5-9F79-F06CA80D029D}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
     <Platform>Win32</Platform>
@@ -59,26 +59,26 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">tools.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">tools</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">tools.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">tools</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">tools.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">tools</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">tools.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">tools</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Utilizador\Desktop\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\cg\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -96,10 +96,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Utilizador\Desktop\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\cg\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Utilizador\Desktop\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\cg\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -112,7 +112,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Utilizador\Desktop\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\cg\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -130,10 +130,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Utilizador\Desktop\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\cg\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Utilizador\Desktop\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\cg\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -146,7 +146,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Utilizador\Desktop\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\cg\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -164,10 +164,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Utilizador\Desktop\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\cg\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Utilizador\Desktop\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\cg\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -180,7 +180,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Utilizador\Desktop\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\cg\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -197,10 +197,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Utilizador\Desktop\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\cg\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Utilizador\Desktop\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\cg\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -212,11 +212,11 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator -BC:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/build --check-stamp-file C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator -BC:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/build --check-stamp-file C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -224,12 +224,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\WindowsPaths.cmake;C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc2\CMakeCCompiler.cmake;C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc2\CMakeCXXCompiler.cmake;C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc2\CMakeRCCompiler.cmake;C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc2\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\WindowsPaths.cmake;C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc1\CMakeCCompiler.cmake;C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc1\CMakeCXXCompiler.cmake;C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc1\CMakeRCCompiler.cmake;C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator -BC:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/build --check-stamp-file C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator -BC:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/build --check-stamp-file C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -237,12 +237,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\WindowsPaths.cmake;C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc2\CMakeCCompiler.cmake;C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc2\CMakeCXXCompiler.cmake;C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc2\CMakeRCCompiler.cmake;C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc2\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\WindowsPaths.cmake;C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc1\CMakeCCompiler.cmake;C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc1\CMakeCXXCompiler.cmake;C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc1\CMakeRCCompiler.cmake;C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator -BC:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/build --check-stamp-file C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator -BC:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/build --check-stamp-file C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -250,12 +250,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\WindowsPaths.cmake;C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc2\CMakeCCompiler.cmake;C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc2\CMakeCXXCompiler.cmake;C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc2\CMakeRCCompiler.cmake;C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc2\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\WindowsPaths.cmake;C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc1\CMakeCCompiler.cmake;C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc1\CMakeCXXCompiler.cmake;C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc1\CMakeRCCompiler.cmake;C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator -BC:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/build --check-stamp-file C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator -BC:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/build --check-stamp-file C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase3/src/generator/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -263,24 +263,24 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\WindowsPaths.cmake;C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc2\CMakeCCompiler.cmake;C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc2\CMakeCXXCompiler.cmake;C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc2\CMakeRCCompiler.cmake;C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc2\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\WindowsPaths.cmake;C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc1\CMakeCCompiler.cmake;C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc1\CMakeCXXCompiler.cmake;C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc1\CMakeRCCompiler.cmake;C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\3.29.0-rc1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\figura.cpp" />
-    <ClCompile Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\vertice.cpp" />
-    <ClInclude Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\figura.h" />
-    <ClInclude Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\vertice.h" />
-    <ClInclude Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\arvore.h" />
-    <ClCompile Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\arvore.cpp" />
-    <ClInclude Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\linkedList.h" />
-    <ClCompile Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\linkedList.cpp" />
+    <ClCompile Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\figura.cpp" />
+    <ClCompile Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\vertice.cpp" />
+    <ClInclude Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\figura.h" />
+    <ClInclude Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\vertice.h" />
+    <ClInclude Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\arvore.h" />
+    <ClCompile Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\arvore.cpp" />
+    <ClInclude Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\linkedList.h" />
+    <ClCompile Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\tools\linkedList.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\ZERO_CHECK.vcxproj">
-      <Project>{C1BD9274-9C8D-3991-9644-D410C60D132D}</Project>
+    <ProjectReference Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase3\src\generator\build\ZERO_CHECK.vcxproj">
+      <Project>{8EDC14F2-87E4-3AD7-ABCC-FE4D4B542DCB}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

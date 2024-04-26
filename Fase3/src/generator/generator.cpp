@@ -240,7 +240,7 @@ int main(int argc, char** argv) {
 
         //build SURFACE
         figura = createBezier(argv[2], std::stof(argv[3]));
-        printVerticesLinkedList(getFiguraVertices(figura));
+        //printVerticesLinkedList(getFiguraVertices(figura));
         createFileType(getFiguraVertices(figura), argv[4], std::stof(argv[3]), -1, -1, -1);
         break;
 

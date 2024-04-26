@@ -75,7 +75,7 @@ void changeSize(int w, int h) {
 	glViewport(0, 0, w, h);
 
 	// Set perspective
-	gluPerspective(45.0f, ratio, 1.0f, 1000.0f);
+	gluPerspective(getProjectionFOV(getCameraProjection(getWorldCamera(world))), ratio, getProjectionNear(getCameraProjection(getWorldCamera(world))), getProjectionFar(getCameraProjection(getWorldCamera(world))));
 
 	// return to the model view matrix mode
 	glMatrixMode(GL_MODELVIEW);
@@ -113,7 +113,6 @@ void loadBuffers(Arvore groups, int* index) {
 			glBindBuffer(GL_ARRAY_BUFFER, buffers[(*index)++]);
 			glBufferData(GL_ARRAY_BUFFER, sizeof(float) * toBuffer.size(), toBuffer.data(), GL_STATIC_DRAW);
 			sizBuffers.push_back(toBuffer.size() / 3);
-
 			models = (LinkedList)getNext(models);
 		}
 
@@ -166,16 +165,33 @@ void drawVertices(LinkedList figuras) {
 }
 
 void drawCatmullRomCurve(const std::vector<std::vector<float>>& controlPoints) {
-	float pos[3];
-	float deriv[3];
+	// Define o número de pontos de amostra ao longo da curva
+	const int numSamples = 100;
+
+	// Calcula o intervalo de amostragem
+	const float sampleInterval = 1.0f / numSamples;
+
+	// Inicia o desenho da curva como um loop de linha
 	glBegin(GL_LINE_LOOP);
-	float t = 0.0f;
-	for (int i = 0; i <= 100; i++, t += 0.01f) {
+
+	// Itera ao longo da curva e desenha cada ponto de amostra
+	for (int i = 0; i <= numSamples; ++i) {
+		// Calcula o parâmetro t para este ponto de amostra
+		float t = i * sampleInterval;
+
+		// Calcula as coordenadas (x, y, z) do ponto de amostra usando a função getGlobalCatmullRomPoint
+		float pos[3];
+		float deriv[3];
 		getGlobalCatmullRomPoint(t, controlPoints, pos, deriv);
+
+		// Desenha o ponto de amostra
 		glVertex3f(pos[0], pos[1], pos[2]);
 	}
+
+	// Finalizando o desenho da curva
 	glEnd();
 }
+
 
 void execTransforms(LinkedList transforms, int* indice) {
 	LinkedList currentTransform = transforms;
@@ -183,22 +199,21 @@ void execTransforms(LinkedList transforms, int* indice) {
 	while (currentTransform != nullptr) {
 		Transform transf = (Transform)getData(currentTransform);
 		if (transf != nullptr) {
-			float x = getTransformX(transf);
-			float y = getTransformY(transf);
-			float z = getTransformZ(transf);
-			char tr = getTransformType(transf);
-			if (tr == 'r') {
+			switch (getTransformType(transf)) {
+			case 'r': {
 				float angle = getTransformAngle(transf);
 				float time = getTransformTime(transf);
 				if (time != 0) {
 					angle = fmod(angle + (NOW - tempo_inicial) * 360 / time, 360);
 				}
-				glRotatef(angle, x, y, z);
+				glRotatef(angle, getTransformX(transf), getTransformY(transf), getTransformZ(transf));
+				break;
 			}
-			else if (tr == 's') {
-				glScalef(x, y, z);
+			case 's': {
+				glScalef(getTransformX(transf), getTransformY(transf), getTransformZ(transf));
+				break;
 			}
-			else if (tr == 't') {
+			case 't': {
 				float time = getTransformTime(transf);
 				if (time > 0) {
 					float pos[3], deriv[3], y[3], z[3], rot[16];
@@ -212,20 +227,25 @@ void execTransforms(LinkedList transforms, int* indice) {
 						cross(deriv, transformYAxis(transf).data(), z);
 						normalize(z);
 						cross(z, deriv, y);
-						setTransformYAxis(transf, y[0], y[1], y[2]);	
+						setTransformYAxis(transf, y[0], y[1], y[2]);
 						normalize(y);
 						buildRotMatrix(deriv, y, z, rot);
 						glMultMatrixf(rot);
 					}
 				}
 				else {
-					glTranslatef(x, y, z);
+					glTranslatef(getTransformX(transf), getTransformY(transf), getTransformZ(transf));
 				}
+				break;
+			}
+			default:
+				break;
 			}
 		}
 		currentTransform = (LinkedList)getNext(currentTransform);
 	}
 }
+
 
 
 // VERSÃO ALTERNATIVA
@@ -252,12 +272,12 @@ void drawGroups(Arvore groups, int* indice) {
 		LinkedList child = (LinkedList)getFilhosArvore(groups);
 		for (unsigned long i = 0; i < getSizeOfFiguras(child);i++) {
 			Arvore next = (Arvore)getListElemAt(child, i);
-			drawGroups(next,indice);
+			drawGroups(next, indice);
 		}
 		glPopMatrix();
-
 	}
 }
+
 
 void renderScene(void) {
 
@@ -270,7 +290,7 @@ void renderScene(void) {
 		lookAtx, lookAty, lookAtz,
 		upx, upy, upz);
 
-	drawAxis();
+	//drawAxis();
 	glColor3f(1.0f, 1.0f, 1.0f);
 	glPolygonMode(GL_FRONT_AND_BACK, mode);	
 	//printWorld(world);
@@ -280,7 +300,7 @@ void renderScene(void) {
 	int time = glutGet(GLUT_ELAPSED_TIME);
 	if (time - timebase > 1000) {
 		float fps = frames * 1000.0f / (time - timebase);
-		snprintf(title, 127, "FPS: %.2f, PCAM: (%.2f,%.2f,%.2f), LA: (%.2f,%.2f,%.2f), alpha = %.2f, beta = %.2f", fps, camx, camy, camz, lookAtx, lookAty, lookAtz, alpha, beta_);
+		snprintf(title, 127, "FPS: %.2f, PCAM: (%.2f,%.2f,%.2f)", fps, camx, camy, camz);
 		glutSetWindowTitle(title);
 		timebase = time;
 		frames = 0;
@@ -397,24 +417,6 @@ int initGlut(int argc, char** argv, World world) {
 	//printWorld(world);
 	loadBuffers(getWorldGroups(world), &indice);
 
-	frames++;
-	int time = glutGet(GLUT_ELAPSED_TIME);
-	if (time - timebase > 1000) {
-		float fps = frames * 1000.0f / (time - timebase);
-		std::ostringstream titleStream;
-		titleStream << "FPS: " << std::fixed << std::setprecision(2) << fps;
-		titleStream << ", PCAM: (" << std::fixed << std::setprecision(2) << camx << ", " << camy << ", " << camz << ")";
-		titleStream << ", LA: (" << std::fixed << std::setprecision(2) << lookAtx << ", " << lookAty << ", " << lookAtz << ")";
-		titleStream << ", alpha = " << std::fixed << std::setprecision(2) << alpha;
-		titleStream << ", beta = " << std::fixed << std::setprecision(2) << beta_;
-		//titleStream << ", CamMode: " << (mode ? "POINT" : "LINE");
-		std::string title = titleStream.str();
-		glutSetWindowTitle(title.c_str());
-		timebase = time;
-		frames = 0;
-	}
-
-
 	// enter GLUT's main cycle
 	glutMainLoop();
 
@@ -441,6 +443,32 @@ void configCam(World world) {
 	}
 }
 
+int countTotalFiguresInTree(Arvore node) {
+	int totalFigures = 0;
+
+	// Verifica se o nó é válido
+	if (!node) {
+		return 0;
+	}
+
+	// Conta as figuras no nó atual, se houver
+	if (getDataArvore(node)) {
+		totalFigures += getSizeOfFiguras(getGroupFigures((Group)getDataArvore(node)));
+	}
+
+	// Obtém os filhos do nó
+	LinkedList children = getFilhosArvore(node);
+
+	// Percorre recursivamente os filhos do nó
+	for (unsigned long i = 0; i < getSizeOfFiguras(children); i++) {
+		Arvore child = (Arvore)getListElemAt(children, i);
+		totalFigures += countTotalFiguresInTree(child); // Adiciona o número de figuras dos filhos do nó
+	}
+
+	return totalFigures;
+}
+
+
 int main(int argc, char** argv) {
 	if (argc < 2) {
 		std::cerr << "Usage: " << "./engine.exe" << " <filename>" << std::endl;
@@ -452,18 +480,14 @@ int main(int argc, char** argv) {
 	configCam(world);
 	//printWorld(world);
 
-	nrFiguras = getSizeOfFiguras(getGroupFigures((Group)getDataArvore(getWorldGroups(world))));
+
+	nrFiguras = countTotalFiguresInTree(getWorldGroups(world));
 	//printf("Nr de figuras: %d\n", nrFiguras);
 
-	buffers = (GLuint*)malloc(nrFiguras * sizeof(GLuint));
+	buffers = (GLuint*)calloc(nrFiguras, sizeof(GLuint));
 	timebase = glutGet(GLUT_ELAPSED_TIME);
 	tempo_inicial = NOW;
 	initGlut(argc, argv, world);
-
-	if (buffers != nullptr) {
-		delete[] buffers;
-		buffers = nullptr;
-	}
 
 	return 0;
 }

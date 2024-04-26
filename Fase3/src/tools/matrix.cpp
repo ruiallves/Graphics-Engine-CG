@@ -46,7 +46,7 @@ void cross(const float* a, const float* b, float* res) {
 }
 
 void buildRotMatrix(const float* x, const float* y, const float* z, float* m) {
-    	m[0] = x[0];
+    m[0] = x[0];
 	m[1] = x[1];
 	m[2] = x[2];
 	m[3] = 0;
