@@ -273,36 +273,6 @@ void setProjection(Projection projection, float fov, float near, float far) {
     projection->far = far;
 }
 
-void printTransforms(LinkedList transforms) {
-    LinkedList current = transforms;
-
-    // Percorre a lista e imprime os valores de cada transformação
-    while (current != NULL) {
-        Transform transform = (Transform)getData(current);
-        if (transform != NULL) {
-            printf("Tipo: %c, Posição: (%.2f, %.2f, %.2f), Ângulo: %.2f\n",
-                transform->tipo, transform->x, transform->y, transform->z, transform->anguloR);
-        }
-        current = (LinkedList)getNext(current);
-    }
-
-}
-
-void printFiguras(LinkedList figuras) {
-    LinkedList current = figuras;
-
-    // Percorre a lista de figuras
-    while (current != NULL) {
-        Figura fig = (Figura)getData(current);
-        if (fig != NULL) {
-            printf("Figura com %lu vertices:\n", getTotalVertices(fig)); // Corrigido para usar %lu para size_t
-            //printVerticesLinkedList(getFiguraVertices(fig)); // Imprime os vértices da figura
-            //printf("\n");
-        }
-        current = (LinkedList)getNext(current);
-    }
-}
-
 
 void addTransform(Arvore ll, Transform transform) {
     if (ll && transform) {
@@ -322,20 +292,6 @@ void addModel(Arvore ll, Figura figura) {
         setGroupFigures(group, figuras);
     }
 }
-
-void printGroup(Group group) {
-    if (group == nullptr) {
-        std::cerr << "Grupo não inicializado." << std::endl;
-        return;
-    }
-
-    std::cout << "Transformações do grupo:" << std::endl;
-    printTransforms(getGroupTransforms(group));
-
-    std::cout << "Figuras do grupo:" << std::endl;
-    printFiguras(getGroupFigures(group));
-}
-
 
 
 Arvore parseGroups(TiXmlElement* group) {
@@ -376,7 +332,7 @@ Arvore parseGroups(TiXmlElement* group) {
         }
 
         //A FUNCIONAR
-        //Group groupt = (Group)getData(res);
+        //Group groupt = (Group)getDataArvore(res);
         //LinkedList figs = getGroupFigures(groupt);
         //printFiguras(figs);
 
@@ -434,4 +390,125 @@ World parseXmlFile(World* world, const char* filePath) {
     }
 
     return *world;
+}
+
+#include <iostream>
+
+// Função de Indentação
+void printIndent(int level) {
+    for (int i = 0; i < level; ++i) {
+        std::cout << "  "; // dois espaços por nível de indentação
+    }
+}
+
+// Imprimir Transformações com Indentação
+void printTransforms(LinkedList transforms, int indentLevel) {
+    LinkedList current = transforms;
+    while (current != NULL) {
+        Transform transform = (Transform)getData(current);
+        if (transform != NULL) {
+            printIndent(indentLevel);
+            printf("Tipo: %c, Posição: (%.2f, %.2f, %.2f), Ângulo: %.2f\n",
+                transform->tipo, transform->x, transform->y, transform->z, transform->anguloR);
+        }
+        current = (LinkedList)getNext(current);
+    }
+}
+
+// Imprimir Figuras com Indentação
+void printFiguras(LinkedList figuras, int indentLevel) {
+    LinkedList current = figuras;
+    while (current != NULL) {
+        Figura fig = (Figura)getData(current);
+        if (fig != NULL) {
+            printIndent(indentLevel);
+            printf("Figura com %lu vertices\n", getTotalVertices(fig));
+        }
+        current = (LinkedList)getNext(current);
+    }
+}
+
+// Imprimir Grupos com Indentação
+void printGroup(Group group, int indentLevel) {
+    if (group == nullptr) {
+        std::cerr << "Grupo não inicializado." << std::endl;
+        return;
+    }
+
+    printIndent(indentLevel);
+    std::cout << "Transformações do grupo:" << std::endl;
+    printTransforms(getGroupTransforms(group), indentLevel + 1);
+
+    printIndent(indentLevel);
+    std::cout << "Figuras do grupo:" << std::endl;
+    printFiguras(getGroupFigures(group), indentLevel + 1);
+}
+
+// Função Principal para Imprimir Grupos
+void printGroups(Arvore grupos, int indentLevel = 0) {
+    if (grupos) {
+        Group group = (Group)getDataArvore(grupos);
+
+        printIndent(indentLevel);
+        std::cout << "Grupo {" << std::endl;
+
+        printGroup(group, indentLevel + 1);
+
+        LinkedList children = (LinkedList)getFilhosArvore(grupos);
+        unsigned long nChildren = getSizeOfFiguras(children);
+        for (unsigned long i = 0; i < nChildren; i++) {
+            Arvore child = (Arvore)getListElemAt(children, i);
+            printGroups(child, indentLevel + 1);
+        }
+
+        printIndent(indentLevel);
+        std::cout << "}" << std::endl;
+    }
+}
+
+// Imprimir Janela
+void printWindow(Window window) {
+    if (window) {
+        std::cout << "Window:" << std::endl;
+        std::cout << "  Width: " << getWindowWidth(window) << std::endl;
+        std::cout << "  Height: " << getWindowHeight(window) << std::endl;
+    }
+}
+
+// Imprimir Projeção
+void printProjection(Projection projection) {
+    if (projection) {
+        std::cout << "Projection:" << std::endl;
+        std::cout << "  FOV: " << getProjectionFOV(projection) << std::endl;
+        std::cout << "  Near: " << getProjectionNear(projection) << std::endl;
+        std::cout << "  Far: " << getProjectionFar(projection) << std::endl;
+    }
+}
+
+// Imprimir Câmera
+void printCamera(Camera camera) {
+    if (camera) {
+        std::cout << "Camera:" << std::endl;
+        float* position = getCameraPosition(camera);
+        std::cout << "  Position: (" << position[0] << ", " << position[1] << ", " << position[2] << ")" << std::endl;
+        float* lookAt = getCameraLookAt(camera);
+        std::cout << "  LookAt: (" << lookAt[0] << ", " << lookAt[1] << ", " << lookAt[2] << ")" << std::endl;
+        float* up = getCameraUp(camera);
+        std::cout << "  Up: (" << up[0] << ", " << up[1] << ", " << up[2] << ")" << std::endl;
+        printProjection(getCameraProjection(camera));
+    }
+}
+
+// Função Principal para Imprimir Mundo
+void printWorld(World world) {
+    if (world) {
+        std::cout << "World Configuration:" << std::endl;
+        printWindow(getWorldWindow(world));
+        printCamera(getWorldCamera(world));
+        std::cout << "Groups:" << std::endl;
+        printGroups(getWorldGroups(world));
+    }
+    else {
+        std::cerr << "World structure is not initialized." << std::endl;
+    }
 }

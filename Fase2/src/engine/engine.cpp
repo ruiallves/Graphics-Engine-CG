@@ -124,7 +124,6 @@ void drawVertices(LinkedList figuras) {
 	}
 }
 
-// VERSÃO ALTERNATIVA (TAMBEM NAO FUNCIONA)
 void drawGroups(Arvore groups) {
 	if (groups) {
 		glPushMatrix(); // guarda o estado dos eixos
@@ -317,7 +316,8 @@ int main(int argc, char** argv) {
 	std::string filepath = argv[1];
 	world = parseXmlFile(&world, ("../../../tests/" + filepath).c_str());
 	configCam(world);
-	initGlut(argc, argv, world);
+	printWorld(world);
 
+	initGlut(argc, argv, world);
 	return 0;
 }

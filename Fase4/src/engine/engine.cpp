@@ -156,40 +156,41 @@ void loadBuffers(Arvore groups, int* index) {
 
 		while (models != nullptr) {
 			Figura fig = (Figura)getData(models);
-			vector<float> toBuffer = figuraToVector(fig);
-			vector<float> toNormals = figuraNormalsToVector(fig);
-			const char* textFile = getFiguraTextura(fig);
-			vector<float> toTextCoors = figuraTexturesToVector(fig, textFile);
+			vector<float> toBuffer = figuraToVector(fig); // Converte a figura em um vetor de vértices
+			vector<float> toNormals = figuraNormalsToVector(fig); // Converte as normais da figura em um vetor
+			const char* textFile = getFiguraTextura(fig); // Obtém o arquivo de textura da figura, se houver
+			vector<float> toTextCoors = figuraTexturesToVector(fig, textFile); // Converte as coordenadas de textura da figura em um vetor
 
 			// Vértices
-			glBindBuffer(GL_ARRAY_BUFFER, buffers[*index]);
-			glBufferData(GL_ARRAY_BUFFER, sizeof(float) * toBuffer.size(), toBuffer.data(), GL_STATIC_DRAW);
-			sizBuffers.push_back(toBuffer.size() / 3);
+			glBindBuffer(GL_ARRAY_BUFFER, buffers[*index]); // Liga o buffer de vértices
+			glBufferData(GL_ARRAY_BUFFER, sizeof(float) * toBuffer.size(), toBuffer.data(), GL_STATIC_DRAW); // Carrega os dados dos vértices para o buffer
+			sizBuffers.push_back(toBuffer.size() / 3); // Armazena o tamanho do buffer de vértices
 
 			// Normais
-			glBindBuffer(GL_ARRAY_BUFFER, buffersN[*index]);
-			glBufferData(GL_ARRAY_BUFFER, sizeof(float) * toNormals.size(), toNormals.data(), GL_STATIC_DRAW);
-			buffersNSizes.push_back(toNormals.size() / 3);
+			glBindBuffer(GL_ARRAY_BUFFER, buffersN[*index]); // Liga o buffer de normais
+			glBufferData(GL_ARRAY_BUFFER, sizeof(float) * toNormals.size(), toNormals.data(), GL_STATIC_DRAW); // Carrega os dados das normais para o buffer
+			buffersNSizes.push_back(toNormals.size() / 3); // Armazena o tamanho do buffer de normais
 
 			// Texturas
 			if (textFile) {
-				glBindBuffer(GL_ARRAY_BUFFER, buffersT[*index]);
-				glBufferData(GL_ARRAY_BUFFER, sizeof(float) * toTextCoors.size(), toTextCoors.data(), GL_STATIC_DRAW);
-				cout << "Loading texture: " << textFile << endl;
-				loadTexture(textFile, index);
+				glBindBuffer(GL_ARRAY_BUFFER, buffersT[*index]); // Liga o buffer de coordenadas de textura
+				glBufferData(GL_ARRAY_BUFFER, sizeof(float) * toTextCoors.size(), toTextCoors.data(), GL_STATIC_DRAW); // Carrega os dados das coordenadas de textura para o buffer
+				cout << "Loading texture: " << textFile << endl; // Exibe a mensagem de carregamento de textura
+				loadTexture(textFile, index); // Carrega a textura
 			}
 
-			(*index)++;
-			models = (LinkedList)getNext(models);
+			(*index)++; // Incrementa o índice do buffer
+			models = (LinkedList)getNext(models); // Avança para o próximo modelo
 		}
 
-		LinkedList filhos = getFilhosArvore(groups);
-		for (unsigned long i = 0; i < getSizeOfFiguras(filhos); i++) {
-			Arvore next = (Arvore)getListElemAt(filhos, i);
-			loadBuffers(next, index);
+		LinkedList filhos = getFilhosArvore(groups); // Obtém os filhos do grupo atual
+		for (unsigned long i = 0; i < getSizeOfFiguras(filhos); i++) { // Itera sobre os filhos
+			Arvore next = (Arvore)getListElemAt(filhos, i); // Obtém o próximo filho
+			loadBuffers(next, index); // Carrega os buffers dos filhos recursivamente
 		}
 	}
 }
+
 
 void drawCatmullRomCurve(const std::vector<std::vector<float>>& controlPoints) {
 	if (getWorldLights(world) > 0) glDisable(GL_LIGHTING);
@@ -222,31 +223,36 @@ void drawCatmullRomCurve(const std::vector<std::vector<float>>& controlPoints) {
 }
 
 void drawNormals(Figura model) {
-	if (getWorldLights(world) > 0) glDisable(GL_LIGHTING);
+	if (getWorldLights(world) > 0)
+		glDisable(GL_LIGHTING);
 	glColor3f(1.0f, 1.0f, 1.0f);
-	vector<float> normals = figuraNormalsToVector(model);
-	vector<float> vertexs = figuraToVector(model);
+	vector<float> normals = figuraNormalsToVector(model); // Obtém as normais da figura como um vetor de floats
+	vector<float> vertexs = figuraToVector(model); // Obtém os vértices da figura como um vetor de floats
 	glBegin(GL_LINES);
-	for (int i = 0; i < normals.size(); i += 3) {
+	for (int i = 0; i < normals.size(); i += 3) { 
+		// Desenha uma linha a partir de cada vértice na direção da normal
 		glVertex3f(vertexs[i + 0], vertexs[i + 1], vertexs[i + 2]);
 		glVertex3f(vertexs[i + 0] + normals[i + 0], vertexs[i + 1] + normals[i + 1], vertexs[i + 2] + normals[i + 2]);
 	}
-	glEnd();
-	if (getWorldLights(world) > 0) glEnable(GL_LIGHTING);
+	glEnd(); // Finaliza o desenho das linhas
+	if (getWorldLights(world) > 0) // Verifica se há luz no mundo
+		glEnable(GL_LIGHTING); // Ativa o cálculo de iluminação novamente
 }
+
 
 
 void execTransforms(LinkedList transforms, int* indice) {
 	LinkedList currentTransform = transforms;
 
 	while (currentTransform != nullptr) {
-		Transform transf = (Transform)getData(currentTransform);
-		if (transf != nullptr) {
+		Transform transf = (Transform)getData(currentTransform); 
+		if (transf != nullptr) { 
 			switch (getTransformType(transf)) {
-			case 'r': {
-				float angle = getTransformAngle(transf);
-				float time = getTransformTime(transf);
-				if (time != 0) {
+			case 'r': { 
+				float angle = getTransformAngle(transf); // Obtém o ângulo da rotação
+				float time = getTransformTime(transf); // Obtém o tempo de duração da rotação (se houver)
+				if (time != 0) { // Se houver um tempo definido
+					// Calcula o ângulo de rotação com base no tempo
 					angle = fmod(angle + (NOW - tempo_inicial) * 360 / time, 360);
 				}
 				glRotatef(angle, getTransformX(transf), getTransformY(transf), getTransformZ(transf));
@@ -257,26 +263,30 @@ void execTransforms(LinkedList transforms, int* indice) {
 				break;
 			}
 			case 't': {
-				float time = getTransformTime(transf);
-				if (time > 0) {
+				float time = getTransformTime(transf); // Obtém o tempo de duração da translação
+				if (time > 0) { // Se houver um tempo definido
 					float pos[3], deriv[3], y[3], z[3], rot[16];
+					// Obtém os pontos de controle para a curva de Catmull-Rom
 					vector<vector<float>> points = transPoints(transf);
+					// Calcula a posição atual ao longo da curva de Catmull-Rom
 					getGlobalCatmullRomPoint(NOW / time, points, pos, deriv);
+					// Desenha a curva de Catmull-Rom, se necessário
 					if (showC) drawCatmullRomCurve(points);
+					// Aplica a translação
 					glTranslatef(pos[0], pos[1], pos[2]);
 
-					if (getTransformAlign(transf)) {
-						normalize(deriv);
-						cross(deriv, transformYAxis(transf).data(), z);
-						normalize(z);
-						cross(z, deriv, y);
-						setTransformYAxis(transf, y[0], y[1], y[2]);
-						normalize(y);
-						buildRotMatrix(deriv, y, z, rot);
-						glMultMatrixf(rot);
+					if (getTransformAlign(transf)) { // Se houver alinhamento
+						normalize(deriv); // Normaliza o vetor de derivada
+						cross(deriv, transformYAxis(transf).data(), z); // Calcula o vetor Z
+						normalize(z); // Normaliza o vetor Z
+						cross(z, deriv, y); // Calcula o vetor Y
+						setTransformYAxis(transf, y[0], y[1], y[2]); // Define o vetor Y da transformação
+						normalize(y); // Normaliza o vetor Y
+						buildRotMatrix(deriv, y, z, rot); // Constrói a matriz de rotação
+						glMultMatrixf(rot); // Aplica a matriz de rotação
 					}
 				}
-				else {
+				else { // Se não houver tempo definido
 					glTranslatef(getTransformX(transf), getTransformY(transf), getTransformZ(transf));
 				}
 				break;
@@ -285,88 +295,91 @@ void execTransforms(LinkedList transforms, int* indice) {
 				break;
 			}
 		}
-		currentTransform = (LinkedList)getNext(currentTransform);
+		currentTransform = (LinkedList)getNext(currentTransform); // Avança para a próxima transformação na lista
 	}
 }
 
+
 void drawGroups(Arvore groups, int* indice) {
 	if (groups) {
-		glPushMatrix();
+		glPushMatrix(); // Empilha a matriz de modelo-view atual
 
-		Group group = (Group)getDataArvore(groups);
-		LinkedList transforms = getGroupTransforms(group), models = getGroupFigures(group);
-		execTransforms(transforms, indice);
+		Group group = (Group)getDataArvore(groups); // Obtém o grupo de figuras do nó atual
+		LinkedList transforms = getGroupTransforms(group), models = getGroupFigures(group); // Obtém as transformações e figuras do grupo
+
+		execTransforms(transforms, indice); // Aplica as transformações ao grupo de figuras
 
 		for (unsigned long i = 0; i < getSizeOfFiguras(models); i++, (*indice)++) {
-			Figura fig = (Figura)getListElemAt(models, i);
+			Figura fig = (Figura)getListElemAt(models, i); // Obtém uma figura do grupo
 
 			if (fig == nullptr) {
-				cerr << "Warning: null figure encountered at index " << i << endl;
+				cerr << "Warning: null figure encountered at index " << i << endl; // Aviso se uma figura for nula
 				continue;
 			}
 
-			if (showNormais) drawNormals(fig);
+			if (showNormais) drawNormals(fig); // Desenha as normais da figura, se ativado
 
-			auto dif = getDif(fig);
+			auto dif = getDif(fig); // Obtém a componente difusa da figura
 			if (dif.empty()) {
-				cerr << "Error: getDif returned an empty vector for figure at index " << i << endl;
+				cerr << "Error: getDif returned an empty vector for figure at index " << i << endl; // Erro se a componente difusa for vazia
 				continue;
 			}
-			glMaterialfv(GL_FRONT, GL_DIFFUSE, dif.data());
+			glMaterialfv(GL_FRONT, GL_DIFFUSE, dif.data()); // Define a cor difusa do material da figura
 
-			auto amb = getAmb(fig);
+			auto amb = getAmb(fig); // Obtém a componente ambiente da figura
 			if (amb.empty()) {
-				cerr << "Error: getAmb returned an empty vector for figure at index " << i << endl;
+				cerr << "Error: getAmb returned an empty vector for figure at index " << i << endl; // Erro se a componente ambiente for vazia
 				continue;
 			}
-			glMaterialfv(GL_FRONT, GL_AMBIENT, amb.data());
+			glMaterialfv(GL_FRONT, GL_AMBIENT, amb.data()); // Define a cor ambiente do material da figura
 
-			auto spec = getSpec(fig);
+			auto spec = getSpec(fig); // Obtém a componente especular da figura
 			if (spec.empty()) {
-				cerr << "Error: getSpec returned an empty vector for figure at index " << i << endl;
+				cerr << "Error: getSpec returned an empty vector for figure at index " << i << endl; // Erro se a componente especular for vazia
 				continue;
 			}
-			glMaterialfv(GL_FRONT, GL_SPECULAR, spec.data());
+			glMaterialfv(GL_FRONT, GL_SPECULAR, spec.data()); // Define a cor especular do material da figura
 
-			auto emi = getEmi(fig);
+			auto emi = getEmi(fig); // Obtém a componente de emissão da figura
 			if (emi.empty()) {
-				cerr << "Error: getEmi returned an empty vector for figure at index " << i << endl;
+				cerr << "Error: getEmi returned an empty vector for figure at index " << i << endl; // Erro se a componente de emissão for vazia
 				continue;
 			}
-			glMaterialfv(GL_FRONT, GL_EMISSION, emi.data());
+			glMaterialfv(GL_FRONT, GL_EMISSION, emi.data()); // Define a cor de emissão do material da figura
 
-			glMaterialf(GL_FRONT, GL_SHININESS, getFiguraShininess(fig));
+			glMaterialf(GL_FRONT, GL_SHININESS, getFiguraShininess(fig)); // Define o brilho do material da figura
 
 			// Texturas
-			if (getFiguraTextura(fig)) {
-				glBindTexture(GL_TEXTURE_2D, textures[*indice]);
-				glBindBuffer(GL_ARRAY_BUFFER, buffersT[*indice]);
-				glTexCoordPointer(2, GL_FLOAT, 0, 0);
+			if (getFiguraTextura(fig)) { // Verifica se a figura tem textura
+				glBindTexture(GL_TEXTURE_2D, textures[*indice]); // Liga a textura correspondente
+				glBindBuffer(GL_ARRAY_BUFFER, buffersT[*indice]); // Liga o buffer de textura correspondente
+				glTexCoordPointer(2, GL_FLOAT, 0, 0); // Define os ponteiros de coordenadas de textura
 			}
 
 			// Normais
-			glBindBuffer(GL_ARRAY_BUFFER, buffersN[*indice]);
-			glNormalPointer(GL_FLOAT, 0, 0);
+			glBindBuffer(GL_ARRAY_BUFFER, buffersN[*indice]); // Liga o buffer de normais correspondente
+			glNormalPointer(GL_FLOAT, 0, 0); // Define o ponteiro de normais
 
-			// Vertices
-			glBindBuffer(GL_ARRAY_BUFFER, buffers[*indice]);
-			glVertexPointer(3, GL_FLOAT, 0, 0);
-			glDrawArrays(GL_TRIANGLES, 0, sizBuffers[*indice]);
+			// Vértices
+			glBindBuffer(GL_ARRAY_BUFFER, buffers[*indice]); // Liga o buffer de vértices correspondente
+			glVertexPointer(3, GL_FLOAT, 0, 0); // Define o ponteiro de vértices
+			glDrawArrays(GL_TRIANGLES, 0, sizBuffers[*indice]); // Desenha as figuras
 
 			if (getFiguraTextura(fig)) {
-				glBindTexture(GL_TEXTURE_2D, 0);
+				glBindTexture(GL_TEXTURE_2D, 0); // Desliga a textura se houver
 			}
 		}
 
 		// Procede para fazer o mesmo aos nodos filho.
-		LinkedList child = (LinkedList)getFilhosArvore(groups);
+		LinkedList child = (LinkedList)getFilhosArvore(groups); // Obtém os filhos do nó atual
 		for (unsigned long i = 0; i < getSizeOfFiguras(child); i++) {
-			Arvore next = (Arvore)getListElemAt(child, i);
-			drawGroups(next, indice);
+			Arvore next = (Arvore)getListElemAt(child, i); // Obtém o próximo filho
+			drawGroups(next, indice); // Chama recursivamente a função para desenhar os grupos filhos
 		}
-		glPopMatrix();
+		glPopMatrix(); // Desempilha a matriz de modelo-view
 	}
 }
+
 
 
 // Função auxiliar para normalizar um vetor
@@ -579,21 +592,21 @@ int initGlut(int argc, char** argv, World world) {
 	glutKeyboardFunc(keyboardFunc);
 	glutSpecialFunc(keyboardspecial);
 
-	if (getWorldLights(world)->size() > 0) {
-		glEnable(GL_LIGHTING);
-		glEnable(GL_RESCALE_NORMAL);
+	if (getWorldLights(world)->size() > 0) { // Verifica se há luzes no mundo
+		glEnable(GL_LIGHTING); // Habilita a iluminação
+		glEnable(GL_RESCALE_NORMAL); // Habilita a reescala das normais
 
-		GLfloat white[4] = { 1.0,1.0,1.0,1.0 };
-		for (int i = 0; i < getWorldLights(world)->size(); i++) {
-			glEnable(gl_light(i));
-			glLightfv(gl_light(i), GL_DIFFUSE, white);
-			glLightfv(gl_light(i), GL_SPECULAR, white);
+		GLfloat white[4] = { 1.0,1.0,1.0,1.0 }; // Cor branca
+		for (int i = 0; i < getWorldLights(world)->size(); i++) { // Itera sobre as luzes no mundo
+			glEnable(gl_light(i)); // Habilita a luz atual
+			glLightfv(gl_light(i), GL_DIFFUSE, white); // Define a cor difusa da luz atual como branca
+			glLightfv(gl_light(i), GL_SPECULAR, white); // Define a cor especular da luz atual como branca
 		}
 
-		float amb[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
-		glLightModelfv(GL_LIGHT_MODEL_AMBIENT, amb);
-
+		float amb[4] = { 1.0f, 1.0f, 1.0f, 1.0f }; // Cor ambiente
+		glLightModelfv(GL_LIGHT_MODEL_AMBIENT, amb); // Define o modelo de cor ambiente
 	}
+
 
 
 	//  OpenGL settings
@@ -679,8 +692,8 @@ int main(int argc, char** argv) {
 
 	nrFiguras = countTotalFiguresInTree(getWorldGroups(world));
 	//printf("Nr de figuras: %d\n", nrFiguras);
-	buffers = (GLuint*)calloc(nrFiguras, sizeof(GLuint)); // para cada figura
-	buffersN = (GLuint*)calloc(nrFiguras, sizeof(GLuint)); // para cada normal
+	buffers = (GLuint*)calloc(nrFiguras, sizeof(GLuint)); 
+	buffersN = (GLuint*)calloc(nrFiguras, sizeof(GLuint));
 	buffersT = (GLuint*)calloc(nrFiguras, sizeof(GLuint));
 	textures = (GLuint*)calloc(nrFiguras, sizeof(GLuint));
 

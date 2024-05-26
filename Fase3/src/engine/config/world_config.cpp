@@ -30,14 +30,15 @@ struct group {
 };
 
 struct transform {
-    char tipo;
-    float x, y, z;
-    float anguloR;
-    float time;
-    bool align;
-    vector<vector<float>>* points;
-    float yAxis[3];
+    char tipo;                     // Tipo de transformação ('t' para translate, 'r' para rotate, 's' para scale)
+    float x, y, z;                 // Coordenadas ou eixos da transformação (varia de acordo com o tipo)
+    float anguloR;                 // Ângulo de rotação (usado se tipo for 'r')
+    float time;                    // Tempo (usado para animações, como rotações ou translações ao longo do tempo)
+    bool align;                    // Alinhamento (booleano que indica se a transformação deve ser alinhada, por exemplo, a uma curva)
+    vector<vector<float>>* points; // Ponteiro para um vetor de vetores de pontos (usado para armazenar pontos de uma curva para animação)
+    float yAxis[3];                // Eixo y para alinhamento (usado para determinar a orientação durante animações ao longo de uma curva)
 };
+
 
 Group newGroup() {
     Group ng = (Group)malloc(sizeof(struct group));

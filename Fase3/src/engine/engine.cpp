@@ -47,8 +47,8 @@ float upz = 0.0f;
 GLenum mode = GL_LINE;
 
 int nrFiguras = 0;
-vector<int> sizBuffers;
-GLuint* buffers = NULL;
+vector<int> sizBuffers; // Guarda o tamanho de cada buffer em termos de número de vértices
+GLuint* buffers = NULL; // Guarda os identificadores dos buffers
 char title[128];
 int frames = 0;
 int timebase = 0;
@@ -109,9 +109,13 @@ void loadBuffers(Arvore groups, int* index) {
 
 		while (models != nullptr) {
 			Figura fig = (Figura)getData(models);
+			// Converte a figura para um vetor de floats para serem usados nos VBOs
 			vector<float> toBuffer = figuraToVector(fig);
+			// Associa um buffer a um identificador e incrementa o índice
 			glBindBuffer(GL_ARRAY_BUFFER, buffers[(*index)++]);
+			// Copia os dados da figura para o buffer OpenGL
 			glBufferData(GL_ARRAY_BUFFER, sizeof(float) * toBuffer.size(), toBuffer.data(), GL_STATIC_DRAW);
+			// Guarda o tamanho do buffer em termos de número de vértices (cada vértice tem 3 floats: x, y, z)
 			sizBuffers.push_back(toBuffer.size() / 3);
 			models = (LinkedList)getNext(models);
 		}
@@ -124,46 +128,6 @@ void loadBuffers(Arvore groups, int* index) {
 	}
 }
 
-
-void drawVertices(LinkedList figuras) {
-	// Verifica se a lista de figuras está inicializada
-	if (figuras == nullptr) {
-		std::cerr << "Lista de figuras não inicializada." << std::endl;
-		return;
-	}
-
-	// Itera sobre cada figura na lista
-	LinkedList currentFigura = figuras;
-	while (currentFigura != nullptr) {
-		Figura figura = (Figura)getData(currentFigura);
-		if (figura != nullptr) {
-			// Inicia o desenho dos triângulos da figura atual
-			glBegin(GL_TRIANGLES);
-
-			// Obtém a lista de vértices da figura
-			LinkedList vertices = getFiguraVertices(figura);
-			LinkedList currentVertice = vertices;
-
-			// Desenha cada vértice da figura atual
-			while (currentVertice != nullptr) {
-				Vertice vertice = (Vertice)getData(currentVertice);
-				if (vertice != nullptr) {
-					float x = getVerticeX(vertice);
-					float y = getVerticeY(vertice);
-					float z = getVerticeZ(vertice);
-					glVertex3f(x, y, z);
-				}
-				currentVertice = (LinkedList)getNext(currentVertice);
-			}
-
-			// Finaliza o desenho dos triângulos da figura atual
-			glEnd();
-		}
-		// Avança para a próxima figura na lista
-		currentFigura = (LinkedList)getNext(currentFigura);
-	}
-}
-
 void drawCatmullRomCurve(const std::vector<std::vector<float>>& controlPoints) {
 	// Define o número de pontos de amostra ao longo da curva
 	const int numSamples = 100;
@@ -171,10 +135,7 @@ void drawCatmullRomCurve(const std::vector<std::vector<float>>& controlPoints) {
 	// Calcula o intervalo de amostragem
 	const float sampleInterval = 1.0f / numSamples;
 
-	// Inicia o desenho da curva como um loop de linha
 	glBegin(GL_LINE_LOOP);
-
-	// Itera ao longo da curva e desenha cada ponto de amostra
 	for (int i = 0; i <= numSamples; ++i) {
 		// Calcula o parâmetro t para este ponto de amostra
 		float t = i * sampleInterval;
@@ -214,30 +175,54 @@ void execTransforms(LinkedList transforms, int* indice) {
 				break;
 			}
 			case 't': {
+				// Obtém o tempo de transformação
 				float time = getTransformTime(transf);
+
+				// Verifica se a transformação envolve uma interpolação ao longo do tempo
 				if (time > 0) {
+					// Arrays para armazenar a posição e a derivada da curva
 					float pos[3], deriv[3], y[3], z[3], rot[16];
+
+					// Obtém os pontos de controle para a curva Catmull-Rom
 					vector<vector<float>> points = transPoints(transf);
+
+					// Calcula a posição e a derivada na curva Catmull-Rom para o tempo atual
 					getGlobalCatmullRomPoint(NOW / time, points, pos, deriv);
+
+					// Desenha a curva se a flag showC estiver ativada
 					if (showC) drawCatmullRomCurve(points);
+
+					// Translada o objeto para a posição calculada
 					glTranslatef(pos[0], pos[1], pos[2]);
 
+					// Verifica se a transformação deve alinhar com a trajetória
 					if (getTransformAlign(transf)) {
+						// Normaliza a derivada para obter a direção da trajetória
 						normalize(deriv);
+
+						// Calcula o vetor perpendicular à direção da trajetória e ao eixo Y atual
 						cross(deriv, transformYAxis(transf).data(), z);
-						normalize(z);
+						normalize(z);  // Normaliza o vetor resultante
+
+						// Calcula o vetor Y corrigido para manter a ortogonalidade
 						cross(z, deriv, y);
 						setTransformYAxis(transf, y[0], y[1], y[2]);
-						normalize(y);
+						normalize(y);  // Normaliza o vetor Y corrigido
+
+						// Constrói a matriz de rotação com os vetores ortogonais
 						buildRotMatrix(deriv, y, z, rot);
+
+						// Aplica a matriz de rotação
 						glMultMatrixf(rot);
 					}
 				}
 				else {
+					// Translação simples sem interpolação ao longo do tempo
 					glTranslatef(getTransformX(transf), getTransformY(transf), getTransformZ(transf));
 				}
 				break;
 			}
+
 			default:
 				break;
 			}
@@ -246,9 +231,6 @@ void execTransforms(LinkedList transforms, int* indice) {
 	}
 }
 
-
-
-// VERSÃO ALTERNATIVA
 void drawGroups(Arvore groups, int* indice) {
 	if (groups) {
 		glPushMatrix();
@@ -258,15 +240,16 @@ void drawGroups(Arvore groups, int* indice) {
 		execTransforms(transforms, indice);
 
 		for (unsigned long i = 0; i < getSizeOfFiguras(models); i++, (*indice)++) {
+			// Associa o buffer atual ao buffer de vértices atualmente ativo
 			glBindBuffer(GL_ARRAY_BUFFER, buffers[*indice]);
+			// Define como os dados do buffer de vértices são interpretados
 			glVertexPointer(3, GL_FLOAT, 0, 0);
+			// Desenha a figura atual usando os vértices presentes no buffer atualmente ativo
+			// GL_TRIANGLES indica que os vértices devem ser interpretados como triângulos
+			// 0 indica que o primeiro vértice no buffer deve ser usado como início
+			// sizBuffers[*indice] indica o número de vértices a serem desenhados, determinando o final do buffer
 			glDrawArrays(GL_TRIANGLES, 0, sizBuffers[*indice]);
 		}
-
-		// Desenho das figuras
-		glBegin(GL_TRIANGLES);
-		drawVertices(models);
-		glEnd();
 
 		// Procede para fazer o mesmo aos nodos filho. 
 		LinkedList child = (LinkedList)getFilhosArvore(groups);

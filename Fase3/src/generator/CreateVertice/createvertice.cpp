@@ -265,20 +265,23 @@ Figura createRing(float ri, float re, int slices) {
 float* bezierFormula(float t, float* p0, float* p1, float* p2, float* p3) {
     float* result = new float[3];
 
+    // Cálculo dos coeficientes de Bezier para cada dimensão (x, y, z)
+    // baseado na fórmula de Bezier
     float oneMinusT = 1.0f - t;
     float oneMinusTSquared = oneMinusT * oneMinusT;
     float oneMinusTCubed = oneMinusTSquared * oneMinusT;
     float tSquared = t * t;
     float tCubed = tSquared * t;
 
-    // Cálculo de x, y e z usando a fórmula de Bezier
     for (int i = 0; i < 3; ++i) {
+        // Cálculo da coordenada do ponto de Bezier para a dimensão atual
         result[i] = oneMinusTCubed * p0[i] + 3 * oneMinusTSquared * t * p1[i] + 3 * oneMinusT * tSquared * p2[i] + tCubed * p3[i];
     }
 
     return result;
 }
 
+// Função para calcular um ponto de Bezier
 float* bezier(float n, float m, float** points, int* index) {
     float* result = new float[3];
     float* point = new float[3];
@@ -291,13 +294,17 @@ float* bezier(float n, float m, float** points, int* index) {
         int pointIndex = index[i];
         int pointInQuadruple = i % 4;
 
+        // Preenchimento do acumulador de pontos de controle
         for (int j = 0; j < 3; ++j) {
             pointsAcumulator[pointInQuadruple][j] = points[pointIndex][j];
         }
 
+        // Se todos os pontos de controle de uma curva Bezier estão disponíveis, calcula-se o ponto da curva
         if (pointInQuadruple == 3) {
+            // Calcula-se o ponto da curva Bezier para o parâmetro 'n'
             point = bezierFormula(n, pointsAcumulator[0], pointsAcumulator[1], pointsAcumulator[2], pointsAcumulator[3]);
 
+            // Preenchimento do acumulador de pontos da curva Bezier
             for (int j = 0; j < 3; ++j) {
                 bezierAcumulator[bezierIndex][j] = point[j];
             }
@@ -306,10 +313,12 @@ float* bezier(float n, float m, float** points, int* index) {
         }
     }
 
+    // Calcula o ponto da curva Bezier final para o parâmetro 'm'
     result = bezierFormula(m, bezierAcumulator[0], bezierAcumulator[1], bezierAcumulator[2], bezierAcumulator[3]);
 
     return result;
 }
+
 
 Figura createBezier(std::string ReadFile, int tessellation) {
     std::ifstream read("../../../patches/" + ReadFile + ".patch");

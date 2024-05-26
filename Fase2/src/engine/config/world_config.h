@@ -81,6 +81,6 @@ Projection getProjection(Camera camera);
 void setProjection(Projection projection, float fov, float near, float far);
 
 void printGroup(Group group);
-//void printWorld(World world);
+void printWorld(World world);
 
 #endif
