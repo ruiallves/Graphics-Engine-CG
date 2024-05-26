@@ -69,7 +69,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\cg\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -79,7 +79,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\cg\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -89,7 +89,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\cg\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -99,7 +99,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ruist\Desktop\cg\toolkits\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -177,9 +177,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{279E8521-5C7D-3636-9EC1-D7911D251606}</Project>
       <Name>CreateVertice</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\generator\build\Fase1.vcxproj">
-      <Project>{FEB3683C-CD9F-3C88-A115-9F23C0B64230}</Project>
-      <Name>Fase1</Name>
+    <ProjectReference Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\generator\build\Fase3.vcxproj">
+      <Project>{4DE7C830-A587-30CB-82DA-007CFFAA1B49}</Project>
+      <Name>Fase3</Name>
     </ProjectReference>
     <ProjectReference Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase1\src\generator\build\tinyXML.vcxproj">
       <Project>{F7940AC1-4E1B-32F2-8951-D914A37A0468}</Project>

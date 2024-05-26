@@ -155,9 +155,7 @@ void drawGroups(Arvore groups) {
 		}
 
 		// Desenho das figuras
-		glBegin(GL_TRIANGLES);
 		drawVertices(models);
-		glEnd();
 
 		// Procede para fazer o mesmo aos nodos filho. 
 		LinkedList child = (LinkedList)getFilhosArvore(groups);
@@ -270,7 +268,7 @@ int initGlut(int argc, char** argv, World world) {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowPosition(100, 100);
-	glutInitWindowSize(800, 800);
+	glutInitWindowSize(getWindowWidth(getWorldWindow(world)), getWindowHeight(getWorldWindow(world)));
 	glutCreateWindow("CG@DI-UM");
 
 	// Required callback registry 

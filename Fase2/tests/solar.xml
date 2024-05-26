@@ -4,7 +4,7 @@
 
     <!-- Configurações da câmera -->
     <camera>
-        <position x="10" y="10" z="10"/>
+        <position x="100" y="100" z="100"/>
         <lookAt x="0" y="0" z="0"/>
         <up x="0" y="1" z="0"/>
         <projection fov="60" near="1" far="1000"/>
@@ -109,7 +109,7 @@
 			<!-- Saturno -->
             <group>
 				<transform>
-					 <scale x="2" y="2" z="2"/> <!-- Tamanho de Saturno -->
+					 <scale x="7" y="7" z="7"/> <!-- Tamanho de Saturno -->
 				</transform>
 				<models>
 					<model file="sphere.3d"/>

@@ -39,7 +39,7 @@ World parseXmlFile(World* world, const char* filePath) {
 
         TiXmlElement* group = root->FirstChildElement("group");
         TiXmlElement* models = group->FirstChildElement("models");
-        if (models) { // PARA REVER (feito á moda benfica mas a funcionar, ou seja, modo sporting ;) )
+        if (models) {
             (*world)->numFiles = 0;
             (*world)->files = nullptr;
             for (TiXmlElement* model = models->FirstChildElement("model"); model; model = model->NextSiblingElement("model")) {

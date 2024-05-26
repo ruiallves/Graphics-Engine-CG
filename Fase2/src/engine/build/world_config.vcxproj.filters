@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\engine\config\world_config.cpp">
+    <ClCompile Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\engine\config\world_config.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\engine\config\world_config.h">
+    <ClInclude Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\engine\config\world_config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\engine\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\engine\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{B6CA108A-853A-3519-BADA-351AE22ABF8A}</UniqueIdentifier>
+      <UniqueIdentifier>{BFE0506D-FBA3-3209-833A-92FA454A3F3B}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{09233364-5966-3B1B-8EEB-524D2A25466D}</UniqueIdentifier>
+      <UniqueIdentifier>{AB8B8B74-D502-3350-9A5D-9934F954CA42}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
