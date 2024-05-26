@@ -17,6 +17,7 @@ typedef struct camera* Camera;
 typedef struct transform* Transform;
 typedef struct world* World;
 typedef struct group* Group;
+typedef struct light* Light;
 
 Group newGroup();
 World parseXmlFile(World* world, const char* filePath);

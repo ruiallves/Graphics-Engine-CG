@@ -1,0 +1,25 @@
+﻿  Building Custom Rule C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase4/src/generator/CMakeLists.txt
+  generator.cpp
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(177,59): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(177,39): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(178,70): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(178,50): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(196,90): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(196,70): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(196,50): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(212,57): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(213,70): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(213,50): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(230,98): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(230,78): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(231,110): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(231,90): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(231,70): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(231,50): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(247,78): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(248,90): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(248,70): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(248,50): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(264,49): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\generator.cpp(266,50): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+  Fase3.vcxproj -> C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\build\Debug\Fase3.exe
