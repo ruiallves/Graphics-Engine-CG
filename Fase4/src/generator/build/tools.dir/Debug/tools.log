@@ -1,8 +1,0 @@
-﻿  Building Custom Rule C:/Users/ruist/source/repos/ruiallves/Graphics-Engine-CG/Fase4/src/generator/CMakeLists.txt
-  figura.cpp
-C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\tools\figura.cpp(82,16): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
-  vertice.cpp
-  arvore.cpp
-  linkedList.cpp
-  Gerando Código...
-  tools.vcxproj -> C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\generator\build\Debug\tools.lib

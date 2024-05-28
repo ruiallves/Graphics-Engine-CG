@@ -3,8 +3,11 @@
 *.exe
 /Fase1/src/engine/cmake-build-debug/
 /Fase1/src/engine/build/*
+/Fase1/src/generator/build/*
 /.idea/
 /toolkits/
 /Fase2/src/engine/cmake-build-debug/
 /Fase2/src/engine/build/*
-/Fase2/src/generator/build/*
+../Fase2/src/generator/build/*
+
+Fase1/*

@@ -1,6 +1,0 @@
-﻿  engine.cpp
-C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\engine\engine.cpp(123,19): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\engine\engine.cpp(230,20): warning C4018: '<': incompatibilidade de signed/unsigned
-C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\engine\engine.cpp(404,20): warning C4018: '<': incompatibilidade de signed/unsigned
-C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\engine\engine.cpp(587,21): warning C4018: '<': incompatibilidade de signed/unsigned
-  Fase4.vcxproj -> C:\Users\ruist\source\repos\ruiallves\Graphics-Engine-CG\Fase4\src\engine\build\Debug\Fase4.exe

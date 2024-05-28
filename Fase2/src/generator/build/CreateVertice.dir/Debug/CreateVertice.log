@@ -1,7 +1,0 @@
-﻿  createvertice.cpp
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\generator\CreateVertice\createvertice.cpp(37,17): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\generator\CreateVertice\createvertice.cpp(93,18): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\generator\CreateVertice\createvertice.cpp(94,18): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\generator\CreateVertice\createvertice.cpp(96,18): warning C4305: 'inicializando': truncamento de 'double' para 'float'
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\generator\CreateVertice\createvertice.cpp(239,24): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-  CreateVertice.vcxproj -> C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\generator\build\Debug\CreateVertice.lib

@@ -1,6 +1,0 @@
-C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build/CMakeFiles/Fase1.dir
-C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build/CMakeFiles/tools.dir
-C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build/CMakeFiles/CreateVertice.dir
-C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build/CMakeFiles/tinyXML.dir
-C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/Utilizador/source/repos/ruiallves/Graphics-Engine-CG/Fase2/src/generator/build/CMakeFiles/ZERO_CHECK.dir

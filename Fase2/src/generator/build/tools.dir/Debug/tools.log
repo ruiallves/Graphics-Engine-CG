@@ -1,8 +1,0 @@
-﻿  figura.cpp
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\figura.cpp(51,17): warning C4101: 'z': variável local não referenciada
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\figura.cpp(51,14): warning C4101: 'y': variável local não referenciada
-C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\tools\figura.cpp(51,11): warning C4101: 'x': variável local não referenciada
-  linkedList.cpp
-  vertice.cpp
-  Gerando Código...
-  tools.vcxproj -> C:\Users\Utilizador\source\repos\ruiallves\Graphics-Engine-CG\Fase2\src\generator\build\Debug\tools.lib
